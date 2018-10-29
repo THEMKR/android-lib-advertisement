@@ -16,6 +16,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- AD LIB START -->
+
+        <!-- Sample AdMob App ID: ca-app-pub-8713916254370167~4393373537 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8713916254370167~4393373537" />
+
+        <!-- AD LIB END -->
+
     </application>
 
 </manifest>
