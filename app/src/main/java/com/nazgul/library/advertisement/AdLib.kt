@@ -1,12 +1,13 @@
-package com.mkrworld.mkr_android_lib_ads
+package com.nazgul.library.advertisement
 
 import android.content.Context
 import android.view.ViewGroup
 import com.google.android.gms.ads.MobileAds
-import com.mkrworld.mkr_android_lib_ads.ads.BaseAd
-import com.mkrworld.mkr_android_lib_ads.ads.banner.BannerAdMob
-import com.mkrworld.mkr_android_lib_ads.ads.interstitial.InterstitialAdMob
-import com.mkrworld.mkr_android_lib_ads.utils.*
+import com.nazgul.library.BuildConfig
+import com.nazgul.library.advertisement.ads.BaseAd
+import com.nazgul.library.advertisement.ads.banner.BannerAdMob
+import com.nazgul.library.advertisement.ads.interstitial.InterstitialAdMob
+import com.nazgul.library.advertisement.utils.*
 
 class AdLib {
 

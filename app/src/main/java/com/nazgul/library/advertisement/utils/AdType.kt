@@ -1,4 +1,4 @@
-package com.mkrworld.mkr_android_lib_ads.utils
+package com.nazgul.library.advertisement.utils
 
 /**
  * Enum hold the Type of Ad

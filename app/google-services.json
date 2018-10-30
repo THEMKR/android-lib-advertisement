@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "689621154009",
+    "firebase_url": "https://poetic-tube-95010.firebaseio.com",
+    "project_id": "poetic-tube-95010",
+    "storage_bucket": "poetic-tube-95010.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:689621154009:android:856817a5366e3fdc",
+        "android_client_info": {
+          "package_name": "com.invincible.apkextractor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "689621154009-52iscsnvmrhdk1hfbu3nvcd6m33k18sp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAl1MCcMrf7r2k_lVLO9-_pefuP8yiqRlw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,10 +1,10 @@
-package com.mkrworld.mkr_android_lib_ads.utils
+package com.nazgul.library.advertisement.utils
 
 import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.text.TextUtils
-import com.mkrworld.mkr_android_lib_ads.BuildConfig
+import com.nazgul.library.BuildConfig
 
 
 class Utils {

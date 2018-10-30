@@ -1,6 +1,6 @@
-package com.mkrworld.mkr_android_lib_ads.utils
+package com.nazgul.library.advertisement.utils
 
-import com.mkrworld.mkr_android_lib_ads.BuildConfig
+import com.nazgul.library.BuildConfig
 
 /**
  * Enum hold the Ad-Network provider

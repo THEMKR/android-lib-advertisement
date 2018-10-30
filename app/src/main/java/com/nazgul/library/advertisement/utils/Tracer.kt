@@ -1,11 +1,11 @@
-package com.mkrworld.mkr_android_lib_ads.utils
+package com.nazgul.library.advertisement.utils
 
 import android.content.Context
 import android.os.Environment
 import android.util.Log
 import android.view.Gravity
 import android.widget.Toast
-import com.mkrworld.mkr_android_lib_ads.BuildConfig
+import com.nazgul.library.BuildConfig
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter

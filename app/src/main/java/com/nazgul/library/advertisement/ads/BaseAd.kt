@@ -1,7 +1,7 @@
-package com.mkrworld.mkr_android_lib_ads.ads
+package com.nazgul.library.advertisement.ads
 
 import android.content.Context
-import com.mkrworld.mkr_android_lib_ads.callback.OnAdListener
+import com.nazgul.library.advertisement.callback.OnAdListener
 
 /**
  * Base class to extend by all Ad unit

@@ -1,9 +1,9 @@
-package com.mkrworld.mkr_android_lib_ads.ads.interstitial
+package com.nazgul.library.advertisement.ads.interstitial
 
 import android.content.Context
-import com.mkrworld.mkr_android_lib_ads.BuildConfig
-import com.mkrworld.mkr_android_lib_ads.ads.BaseAd
-import com.mkrworld.mkr_android_lib_ads.utils.Tracer
+import com.nazgul.library.BuildConfig
+import com.nazgul.library.advertisement.ads.BaseAd
+import com.nazgul.library.advertisement.utils.Tracer
 
 abstract class BaseInterstitialAd : BaseAd {
     companion object {

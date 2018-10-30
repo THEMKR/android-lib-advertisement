@@ -1,8 +1,8 @@
-package com.mkrworld.mkr_android_lib_ads
+package com.nazgul.library.advertisement
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.google.android.gms.ads.MobileAds
+import android.support.v7.app.AppCompatActivity
+import com.nazgul.library.R
 
 class MainActivity : AppCompatActivity() {
 

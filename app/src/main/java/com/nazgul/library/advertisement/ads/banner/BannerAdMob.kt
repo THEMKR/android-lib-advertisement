@@ -1,9 +1,9 @@
-package com.mkrworld.mkr_android_lib_ads.ads.banner
+package com.nazgul.library.advertisement.ads.banner
 
 import android.content.Context
 import android.view.ViewGroup
-import com.mkrworld.mkr_android_lib_ads.BuildConfig
-import com.mkrworld.mkr_android_lib_ads.utils.Tracer
+import com.nazgul.library.BuildConfig
+import com.nazgul.library.advertisement.utils.Tracer
 
 class BannerAdMob : BaseBannerAd {
     companion object {

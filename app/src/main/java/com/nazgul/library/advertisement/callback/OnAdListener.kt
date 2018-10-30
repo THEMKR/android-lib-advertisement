@@ -1,4 +1,4 @@
-package com.mkrworld.mkr_android_lib_ads.callback
+package com.nazgul.library.advertisement.callback
 
 /**
  * Callback used to listen the Ad events
