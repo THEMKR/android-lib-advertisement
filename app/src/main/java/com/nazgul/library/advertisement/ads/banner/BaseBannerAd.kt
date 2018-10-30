@@ -2,7 +2,7 @@ package com.nazgul.library.advertisement.ads.banner
 
 import android.content.Context
 import android.view.ViewGroup
-import com.nazgul.library.BuildConfig
+import com.nazgul.library.advertisement.BuildConfig
 import com.nazgul.library.advertisement.ads.BaseAd
 import com.nazgul.library.advertisement.utils.Tracer
 

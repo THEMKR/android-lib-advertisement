@@ -1,6 +1,6 @@
 package com.nazgul.library.advertisement.utils
 
-import com.nazgul.library.BuildConfig
+import com.nazgul.library.advertisement.BuildConfig
 
 /**
  * Enum hold the Ad-Network provider

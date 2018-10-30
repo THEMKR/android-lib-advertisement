@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.text.TextUtils
-import com.nazgul.library.BuildConfig
+import com.nazgul.library.advertisement.BuildConfig
 
 
 class Utils {

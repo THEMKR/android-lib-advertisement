@@ -5,7 +5,7 @@ import android.os.Environment
 import android.util.Log
 import android.view.Gravity
 import android.widget.Toast
-import com.nazgul.library.BuildConfig
+import com.nazgul.library.advertisement.BuildConfig
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter

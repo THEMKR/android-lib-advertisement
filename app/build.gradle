@@ -5,7 +5,7 @@ apply plugin: 'com.google.gms.google-services'
 
 def STRING = "String"
 def BASE_TAG = "BASE_TAG"
-def BASE_TAG_VALUE = "\"TheMkrWorld.AdLib\""
+def BASE_TAG_VALUE = "\"Advertisement\""
 
 android {
     compileSdkVersion 28

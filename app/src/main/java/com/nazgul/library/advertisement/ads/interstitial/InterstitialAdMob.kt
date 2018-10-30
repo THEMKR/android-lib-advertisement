@@ -1,7 +1,7 @@
 package com.nazgul.library.advertisement.ads.interstitial
 
 import android.content.Context
-import com.nazgul.library.BuildConfig
+import com.nazgul.library.advertisement.BuildConfig
 import com.nazgul.library.advertisement.utils.Tracer
 
 class InterstitialAdMob : BaseInterstitialAd {

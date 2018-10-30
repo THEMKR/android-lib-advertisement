@@ -2,7 +2,6 @@ package com.nazgul.library.advertisement
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.nazgul.library.R
 
 class MainActivity : AppCompatActivity() {
 

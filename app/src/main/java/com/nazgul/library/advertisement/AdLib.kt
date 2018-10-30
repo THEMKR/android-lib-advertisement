@@ -3,7 +3,6 @@ package com.nazgul.library.advertisement
 import android.content.Context
 import android.view.ViewGroup
 import com.google.android.gms.ads.MobileAds
-import com.nazgul.library.BuildConfig
 import com.nazgul.library.advertisement.ads.BaseAd
 import com.nazgul.library.advertisement.ads.banner.BannerAdMob
 import com.nazgul.library.advertisement.ads.interstitial.InterstitialAdMob
