@@ -2,13 +2,13 @@ package com.nazgul.library.advertisement.ads.interstitial
 
 import android.content.Context
 import com.nazgul.library.advertisement.BuildConfig
+import com.nazgul.library.advertisement.ads.AD
 import com.nazgul.library.advertisement.callback.OnAdListener
 import com.nazgul.library.advertisement.utils.Tracer
 
-internal class InterstitialAdMob : Interstitial {
-
+abstract class Interstitial : AD {
     companion object {
-        private const val TAG: String = BuildConfig.BASE_TAG + ".InterstitialAdMob"
+        private const val TAG: String = BuildConfig.BASE_TAG + ".Banner"
     }
 
     /**
@@ -21,20 +21,4 @@ internal class InterstitialAdMob : Interstitial {
         Tracer.debug(TAG, "Constructor : ")
     }
 
-    override fun fetchAd() {
-        Tracer.debug(TAG, "fetchAd: ")
-    }
-
-    override fun showAd() {
-        Tracer.debug(TAG, "showAd: ")
-    }
-
-    override fun cancelAd() {
-        Tracer.debug(TAG, "cancelAd: ")
-    }
-
-    override fun isAdLoaded(): Boolean {
-        Tracer.debug(TAG, "isAdLoaded: ")
-        return true
-    }
 }

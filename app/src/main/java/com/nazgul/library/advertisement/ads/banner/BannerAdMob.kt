@@ -3,9 +3,10 @@ package com.nazgul.library.advertisement.ads.banner
 import android.content.Context
 import android.view.ViewGroup
 import com.nazgul.library.advertisement.BuildConfig
+import com.nazgul.library.advertisement.callback.OnAdListener
 import com.nazgul.library.advertisement.utils.Tracer
 
-class BannerAdMob : BaseBannerAd {
+internal class BannerAdMob : Banner {
     companion object {
         private const val TAG: String = BuildConfig.BASE_TAG + ".BannerAdMob"
     }
@@ -13,9 +14,11 @@ class BannerAdMob : BaseBannerAd {
     /**
      * Constructor
      * @param context
-     * @param adContainer The Ad container
+     * @param adId
+     * @param onAdListener
+     * @param adContainer The AD container
      */
-    constructor(context: Context, adContainer: ViewGroup) : super(context, adContainer) {
+    constructor(context: Context, adId: String, onAdListener: OnAdListener?, adContainer: ViewGroup) : super(context, adId, onAdListener, adContainer) {
 
     }
 
@@ -30,5 +33,10 @@ class BannerAdMob : BaseBannerAd {
     override fun fetchAd() {
         super.fetchAd()
         Tracer.debug(TAG, "fetchAd: ")
+    }
+
+    override fun isAdLoaded(): Boolean {
+        Tracer.debug(TAG, "isAdLoaded: ")
+        return true
     }
 }

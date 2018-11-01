@@ -3,9 +3,9 @@ package com.nazgul.library.advertisement.utils
 import com.nazgul.library.advertisement.BuildConfig
 
 /**
- * Enum hold the Ad-Network provider
+ * Enum hold the AD-Network provider
  */
-enum class AdProvider {
+enum class AdNetwork {
     MEDIA_NET(0),
     AD_MOB(1),
     START_APP(2),
@@ -23,16 +23,16 @@ enum class AdProvider {
     }
 
     companion object {
-        private const val TAG: String = BuildConfig.BASE_TAG + ".AdProvider"
+        private const val TAG: String = BuildConfig.BASE_TAG + ".AdNetwork"
 
         /**
          * Method to get the Add Provider
          * @param  providerIndex
          */
-        fun getAdProvider(providerIndex: Int): AdProvider {
+        fun getAdProvider(providerIndex: Int): AdNetwork {
             Tracer.debug(TAG, "getAdProvider: ")
-            val arrayOfAdProvider: Array<AdProvider> = AdProvider.values()
-            for (adProvider in arrayOfAdProvider) {
+            val arrayOfAdNetwork: Array<AdNetwork> = AdNetwork.values()
+            for (adProvider in arrayOfAdNetwork) {
                 if (adProvider.providerIndex == providerIndex) {
                     return adProvider
                 }

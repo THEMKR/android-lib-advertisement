@@ -1,17 +1,17 @@
 package com.nazgul.library.advertisement.callback
 
 /**
- * Callback used to listen the Ad events
+ * Callback used to listen the AD events
  */
 interface OnAdListener {
 
     /**
-     * Method called when lib is init the Ad fetching process
+     * Method called when lib is init the AD fetching process
      */
     abstract fun onAdFetching()
 
     /**
-     * Method called when Lib failed to fetch the Ad
+     * Method called when Lib failed to fetch the AD
      */
     abstract fun onAdFailed()
 
@@ -34,4 +34,9 @@ interface OnAdListener {
      * Method called when user cancel the ad
      */
     abstract fun onAdCancel()
+
+    /**
+     * Method called when Ad is finished
+     */
+    abstract fun onAdFinished()
 }

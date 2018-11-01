@@ -104,7 +104,7 @@ class Tracer {
         /**
          * Show TOAST<br></br>
          *
-         * @param context activity context.
+         * @param context context context.
          * @param text    The text to show.  Can be formatted text.
          */
         fun showToast(context: Context, text: String) {
