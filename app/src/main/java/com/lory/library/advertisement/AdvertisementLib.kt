@@ -1,12 +1,12 @@
-package com.nazgul.library.advertisement
+package com.lory.library.advertisement
 
 import android.app.Activity
 import android.content.Context
 import android.view.ViewGroup
 import com.google.android.gms.ads.MobileAds
-import com.nazgul.library.advertisement.ads.banner.BannerAdProvider
-import com.nazgul.library.advertisement.ads.interstitial.InterstitialAdProvider
-import com.nazgul.library.advertisement.utils.*
+import com.lory.library.advertisement.ads.banner.BannerAdProvider
+import com.lory.library.advertisement.ads.interstitial.InterstitialAdProvider
+import com.lory.library.advertisement.utils.*
 
 class AdvertisementLib {
 
@@ -33,6 +33,7 @@ class AdvertisementLib {
             if (!PrefData.getBoolean(activity, PrefData.Key.INITIALIZED)) {
                 throw Exception(Constants.ExceptionMessage.LIB_NOT_INITIALIZED)
             }
+            BannerAdProvider(activity.applicationContext, adContainer).showAd()
         }
 
         /**

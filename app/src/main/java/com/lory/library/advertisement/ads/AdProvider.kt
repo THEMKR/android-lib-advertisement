@@ -1,10 +1,10 @@
-package com.nazgul.library.advertisement.ads
+package com.lory.library.advertisement.ads
 
 import android.content.Context
-import com.nazgul.library.advertisement.BuildConfig
-import com.nazgul.library.advertisement.callback.OnAdListener
-import com.nazgul.library.advertisement.utils.AdNetwork
-import com.nazgul.library.advertisement.utils.Tracer
+import com.lory.library.advertisement.BuildConfig
+import com.lory.library.advertisement.callback.OnAdListener
+import com.lory.library.advertisement.utils.AdNetwork
+import com.lory.library.advertisement.utils.Tracer
 
 /**
  * Class to provide Interstitial Ad

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nazgul.library.advertisement">
+    package="com.lory.library.advertisement">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.nazgul.library.advertisement.MainActivity">
+        <activity android:name="com.lory.library.advertisement.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

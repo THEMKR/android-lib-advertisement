@@ -1,4 +1,4 @@
-package com.nazgul.library.advertisement.utils
+package com.lory.library.advertisement.utils
 
 class Constants {
     companion object {

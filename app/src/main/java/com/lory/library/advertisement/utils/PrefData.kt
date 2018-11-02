@@ -1,4 +1,4 @@
-package com.nazgul.library.advertisement.utils
+package com.lory.library.advertisement.utils
 
 import android.content.Context
 import android.content.SharedPreferences

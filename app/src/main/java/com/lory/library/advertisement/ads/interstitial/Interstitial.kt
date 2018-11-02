@@ -1,10 +1,10 @@
-package com.nazgul.library.advertisement.ads.interstitial
+package com.lory.library.advertisement.ads.interstitial
 
 import android.content.Context
-import com.nazgul.library.advertisement.BuildConfig
-import com.nazgul.library.advertisement.ads.AD
-import com.nazgul.library.advertisement.callback.OnAdListener
-import com.nazgul.library.advertisement.utils.Tracer
+import com.lory.library.advertisement.BuildConfig
+import com.lory.library.advertisement.ads.AD
+import com.lory.library.advertisement.callback.OnAdListener
+import com.lory.library.advertisement.utils.Tracer
 
 abstract class Interstitial : AD {
     companion object {

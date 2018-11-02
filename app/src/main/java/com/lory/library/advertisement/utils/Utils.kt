@@ -1,10 +1,10 @@
-package com.nazgul.library.advertisement.utils
+package com.lory.library.advertisement.utils
 
 import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.text.TextUtils
-import com.nazgul.library.advertisement.BuildConfig
+import com.lory.library.advertisement.BuildConfig
 
 
 class Utils {

@@ -1,10 +1,10 @@
-package com.nazgul.library.advertisement.ads.banner
+package com.lory.library.advertisement.ads.banner
 
 import android.content.Context
 import android.view.ViewGroup
-import com.nazgul.library.advertisement.BuildConfig
-import com.nazgul.library.advertisement.callback.OnAdListener
-import com.nazgul.library.advertisement.utils.Tracer
+import com.lory.library.advertisement.BuildConfig
+import com.lory.library.advertisement.callback.OnAdListener
+import com.lory.library.advertisement.utils.Tracer
 
 internal class BannerAdMob : Banner {
     companion object {

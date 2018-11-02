@@ -1,7 +1,7 @@
-package com.nazgul.library.advertisement.ads
+package com.lory.library.advertisement.ads
 
 import android.content.Context
-import com.nazgul.library.advertisement.callback.OnAdListener
+import com.lory.library.advertisement.callback.OnAdListener
 
 /**
  * Base class to extend by all AD unit

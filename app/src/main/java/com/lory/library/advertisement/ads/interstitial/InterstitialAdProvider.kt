@@ -1,12 +1,12 @@
-package com.nazgul.library.advertisement.ads.interstitial
+package com.lory.library.advertisement.ads.interstitial
 
 import android.content.Context
-import com.nazgul.library.advertisement.BuildConfig
-import com.nazgul.library.advertisement.ads.AD
-import com.nazgul.library.advertisement.ads.AdProvider
-import com.nazgul.library.advertisement.utils.AdNetwork
-import com.nazgul.library.advertisement.utils.PrefData
-import com.nazgul.library.advertisement.utils.Tracer
+import com.lory.library.advertisement.BuildConfig
+import com.lory.library.advertisement.ads.AD
+import com.lory.library.advertisement.ads.AdProvider
+import com.lory.library.advertisement.utils.AdNetwork
+import com.lory.library.advertisement.utils.PrefData
+import com.lory.library.advertisement.utils.Tracer
 
 /**
  * Class to provide Interstitial Ad
@@ -42,7 +42,7 @@ class InterstitialAdProvider : AdProvider {
     override fun getAd(adNetwork: AdNetwork): AD {
         Tracer.debug(TAG, "getAd: ")
         val adId = PrefData.getString(context, PrefData.Key.INTERSTITIAL_AD_ID)
-        when (getAdNetwork()) {
+        when (adNetwork) {
             AdNetwork.MEDIA_NET -> {
                 return InterstitialAdMob(context, adId, this)
             }

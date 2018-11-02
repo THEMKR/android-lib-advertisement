@@ -1,4 +1,4 @@
-package com.nazgul.library.advertisement
+package com.lory.library.advertisement
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity

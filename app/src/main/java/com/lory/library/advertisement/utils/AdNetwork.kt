@@ -1,6 +1,6 @@
-package com.nazgul.library.advertisement.utils
+package com.lory.library.advertisement.utils
 
-import com.nazgul.library.advertisement.BuildConfig
+import com.lory.library.advertisement.BuildConfig
 
 /**
  * Enum hold the AD-Network provider

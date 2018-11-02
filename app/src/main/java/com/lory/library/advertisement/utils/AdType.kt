@@ -1,4 +1,4 @@
-package com.nazgul.library.advertisement.utils
+package com.lory.library.advertisement.utils
 
 /**
  * Enum hold the Type of AD

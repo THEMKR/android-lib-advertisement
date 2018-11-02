@@ -1,4 +1,4 @@
-package com.nazgul.library.advertisement.callback
+package com.lory.library.advertisement.callback
 
 /**
  * Callback used to listen the AD events
