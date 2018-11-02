@@ -14,7 +14,7 @@ abstract class AdProvider : OnAdListener {
         private const val TAG: String = BuildConfig.BASE_TAG + ".AdNetwork"
     }
 
-    protected lateinit var ad: AD
+    protected var ad: AD? = null
     protected val context: Context
 
     /**
@@ -24,8 +24,7 @@ abstract class AdProvider : OnAdListener {
     constructor(context: Context) {
         Tracer.debug(TAG, "AdProvider: ")
         this.context = context
-        ad = getAd(getAdNetwork())
-        ad.fetchAd()
+        initializedNewAd()
     }
 
     /**
@@ -33,18 +32,27 @@ abstract class AdProvider : OnAdListener {
      */
     open fun showAd() {
         Tracer.debug(TAG, "showAd: ")
-        if (ad.isAdLoaded()) {
-            ad.showAd()
+        if (ad?.isAdLoaded() ?: false) {
+            ad?.showAd()
         }
     }
 
-    override fun onAdFetching() {
-        Tracer.debug(TAG, "onAdFetching: ")
+    /**
+     * Method to initialized Ad
+     */
+    protected fun initializedNewAd() {
+        Tracer.debug(TAG, "initilizedNewAd: ")
+        ad = getAd(getAdNetwork())
+        ad?.fetchAd()
     }
 
     override fun onAdFailed() {
         Tracer.debug(TAG, "onAdFailed: ")
-        onAdFinished()
+        initializedNewAd()
+    }
+
+    override fun onAdFetching() {
+        Tracer.debug(TAG, "onAdFetching: ")
     }
 
     override fun onAdReady() {
@@ -65,8 +73,7 @@ abstract class AdProvider : OnAdListener {
 
     override fun onAdFinished() {
         Tracer.debug(TAG, "onAdFinished: ")
-        ad = getAd(getAdNetwork())
-        ad.fetchAd()
+        initializedNewAd()
     }
 
     /**

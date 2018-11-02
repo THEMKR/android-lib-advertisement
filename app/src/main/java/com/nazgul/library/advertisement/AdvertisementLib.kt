@@ -12,9 +12,6 @@ class AdvertisementLib {
 
     companion object {
         private const val TAG: String = BuildConfig.BASE_TAG + ".AdvertisementLib"
-        private var bannerAdProvider: BannerAdProvider? = null
-        private var interstitialAdProvider: InterstitialAdProvider? = null
-
 
         /**
          * Method to initialized the Lib
@@ -36,9 +33,6 @@ class AdvertisementLib {
             if (!PrefData.getBoolean(activity, PrefData.Key.INITIALIZED)) {
                 throw Exception(Constants.ExceptionMessage.LIB_NOT_INITIALIZED)
             }
-            if (bannerAdProvider == null) {
-                bannerAdProvider = BannerAdProvider()
-            }
         }
 
         /**
@@ -50,9 +44,7 @@ class AdvertisementLib {
             if (!PrefData.getBoolean(activity, PrefData.Key.INITIALIZED)) {
                 throw Exception(Constants.ExceptionMessage.LIB_NOT_INITIALIZED)
             }
-            if (interstitialAdProvider == null) {
-                interstitialAdProvider = InterstitialAdProvider()
-            }
+            InterstitialAdProvider.getInstance(activity.applicationContext).showAd()
         }
 
         /**

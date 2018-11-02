@@ -8,35 +8,35 @@ interface OnAdListener {
     /**
      * Method called when lib is init the AD fetching process
      */
-    abstract fun onAdFetching()
+    fun onAdFetching()
 
     /**
      * Method called when Lib failed to fetch the AD
      */
-    abstract fun onAdFailed()
+    fun onAdFailed()
 
     /**
      * Method called when ad is ready to show to user
      */
-    abstract fun onAdReady()
+    fun onAdReady()
 
     /**
      * Method called when ad visible to user
      */
-    abstract fun onAdShown()
+    fun onAdShown()
 
     /**
      * Method called when user click the ad
      */
-    abstract fun onAdClicked()
+    fun onAdClicked()
 
     /**
      * Method called when user cancel the ad
      */
-    abstract fun onAdCancel()
+    fun onAdCancel()
 
     /**
-     * Method called when Ad is finished
+     * Method called when this ad is finished
      */
-    abstract fun onAdFinished()
+    fun onAdFinished()
 }
