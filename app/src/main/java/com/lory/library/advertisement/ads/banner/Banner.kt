@@ -3,6 +3,7 @@ package com.lory.library.advertisement.ads.banner
 import android.content.Context
 import android.view.ViewGroup
 import com.lory.library.advertisement.BuildConfig
+import com.lory.library.advertisement.R
 import com.lory.library.advertisement.ads.AD
 import com.lory.library.advertisement.callback.OnAdListener
 import com.lory.library.advertisement.utils.Tracer
@@ -29,5 +30,21 @@ abstract class Banner : AD {
     override fun fetchAd() {
         Tracer.debug(TAG, "fetchAd: ")
         adContainer.removeAllViews()
+    }
+
+    /**
+     * Method to get the Width of the Banner
+     */
+    protected fun getBannerWidth():Int{
+        Tracer.debug(TAG, "getBannerWidth: ")
+        return context.resources.getDimensionPixelSize(R.dimen.banner_width)
+    }
+
+    /**
+     * Method to get the Height of the Banner
+     */
+    protected fun getBannerHeight():Int{
+        Tracer.debug(TAG, "getBannerHeight: ")
+        return context.resources.getDimensionPixelSize(R.dimen.banner_height)
     }
 }

@@ -33,7 +33,7 @@ class AdvertisementLib {
             if (!PrefData.getBoolean(activity, PrefData.Key.INITIALIZED)) {
                 throw Exception(Constants.ExceptionMessage.LIB_NOT_INITIALIZED)
             }
-            BannerAdProvider(activity.applicationContext, adContainer).showAd()
+            BannerAdProvider(activity, adContainer).showAd()
         }
 
         /**
