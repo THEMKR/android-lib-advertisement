@@ -1,4 +1,4 @@
-package com.lory.library.advertisement.ads
+package com.lory.library.advertisement.provider
 
 import android.content.Context
 import com.lory.library.advertisement.callback.OnAdListener

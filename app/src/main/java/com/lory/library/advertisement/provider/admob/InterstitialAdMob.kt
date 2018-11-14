@@ -1,4 +1,4 @@
-package com.lory.library.advertisement.ads.interstitial
+package com.lory.library.advertisement.provider.admob
 
 import android.content.Context
 import com.google.android.gms.ads.AdListener
@@ -6,6 +6,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import com.lory.library.advertisement.BuildConfig
 import com.lory.library.advertisement.callback.OnAdListener
+import com.lory.library.advertisement.provider.Interstitial
 import com.lory.library.advertisement.utils.Tracer
 
 internal class InterstitialAdMob : Interstitial {

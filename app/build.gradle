@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'org.greenrobot.greendao'
 
 def STRING = "String"
 def BASE_TAG = "BASE_TAG"
@@ -35,6 +36,9 @@ dependencies {
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-    implementation 'com.google.android.gms:play-services-ads:17.0.0'
+
+    implementation 'com.google.android.gms:play-services-ads:17.1.0'
+    implementation 'com.startapp:inapp-sdk:3.10.1'
+    implementation 'org.greenrobot:greendao:3.2.2'
 
 }

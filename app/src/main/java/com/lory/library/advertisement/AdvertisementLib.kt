@@ -1,12 +1,10 @@
 package com.lory.library.advertisement
 
 import android.app.Activity
-import android.content.Context
 import android.view.ViewGroup
 import com.google.android.gms.ads.MobileAds
-import com.lory.library.advertisement.ads.banner.BannerAdProvider
-import com.lory.library.advertisement.ads.interstitial.InterstitialAdProvider
 import com.lory.library.advertisement.utils.*
+import com.startapp.android.publish.adsCommon.StartAppSDK
 
 class AdvertisementLib {
 
@@ -16,11 +14,26 @@ class AdvertisementLib {
         /**
          * Method to initialized the Lib
          */
-        fun initialize(context: Context) {
+        fun initialize(activity: Activity) {
             Tracer.debug(TAG, "initialize: ")
-            PrefData.setBoolean(context, PrefData.Key.INITIALIZED, true)
-            initAdNetworkProvider(context, AdNetwork.getAdProvider(PrefData.getInt(context, PrefData.Key.INTERSTITIAL_PROVIDER)))
-            initAdNetworkProvider(context, AdNetwork.getAdProvider(PrefData.getInt(context, PrefData.Key.BANNER_PROVIDER)))
+            PrefData.setBoolean(activity, PrefData.Key.INITIALIZED, true)
+            // INTERSTITIAL
+            var interAppId: String = PrefData.getString(activity, PrefData.Key.INTERSTITIAL_AD_ID).trim()
+            if (interAppId.isEmpty()) {
+                interAppId = Utils.getMetaDataString(activity, Constants.MetaDataKeys.AD_MOB_APP_ID)
+            }
+            val interAdProvider: AdProvider = AdProvider.getAdProvider(PrefData.getInt(activity, PrefData.Key.INTERSTITIAL_PROVIDER))
+
+            // BANNER
+            var bannerAppId: String = PrefData.getString(activity, PrefData.Key.BANNER_AD_ID).trim()
+            if (bannerAppId.isEmpty()) {
+                bannerAppId = Utils.getMetaDataString(activity, Constants.MetaDataKeys.AD_MOB_APP_ID)
+            }
+            val bannerAdProvider: AdProvider = AdProvider.getAdProvider(PrefData.getInt(activity, PrefData.Key.BANNER_PROVIDER))
+
+            // INIT LIB
+            initAdNetworkProvider(activity, interAdProvider, interAppId)
+            initAdNetworkProvider(activity, bannerAdProvider, bannerAppId)
         }
 
         /**
@@ -33,7 +46,6 @@ class AdvertisementLib {
             if (!PrefData.getBoolean(activity, PrefData.Key.INITIALIZED)) {
                 throw Exception(Constants.ExceptionMessage.LIB_NOT_INITIALIZED)
             }
-            BannerAdProvider(activity, adContainer).showAd()
         }
 
         /**
@@ -45,46 +57,36 @@ class AdvertisementLib {
             if (!PrefData.getBoolean(activity, PrefData.Key.INITIALIZED)) {
                 throw Exception(Constants.ExceptionMessage.LIB_NOT_INITIALIZED)
             }
-            InterstitialAdProvider.getInstance(activity.applicationContext).showAd()
         }
 
         /**
          * Method to initialized The Ad Network Provider
-         * @param context
-         * @param adNetwork
+         * @param activity
+         * @param adProvider
+         * @param appId
          */
-        private fun initAdNetworkProvider(context: Context, adNetwork: AdNetwork) {
+        private fun initAdNetworkProvider(activity: Activity, adProvider: AdProvider, appId: String) {
             Tracer.debug(TAG, "initAdNetworkProvider: ")
-            when (adNetwork) {
-                AdNetwork.MEDIA_NET -> {
-                    MobileAds.initialize(context, Utils.getMetaDataString(context, Constants.MetaDataKeys.AD_MOB_APP_ID))
+            when (adProvider) {
+                AdProvider.AD_MOB -> {
+                    MobileAds.initialize(activity, appId)
                 }
-                AdNetwork.AD_MOB -> {
-                    MobileAds.initialize(context, Utils.getMetaDataString(context, Constants.MetaDataKeys.AD_MOB_APP_ID))
+                AdProvider.START_APP -> {
+                    StartAppSDK.init(activity, appId)
                 }
-                AdNetwork.START_APP -> {
-                    MobileAds.initialize(context, Utils.getMetaDataString(context, Constants.MetaDataKeys.AD_MOB_APP_ID))
+                AdProvider.MEDIA_NET -> {
                 }
-                AdNetwork.IN_MOBI -> {
-                    MobileAds.initialize(context, Utils.getMetaDataString(context, Constants.MetaDataKeys.AD_MOB_APP_ID))
+                AdProvider.IN_MOBI -> {
                 }
-                AdNetwork.FLURRY -> {
-                    MobileAds.initialize(context, Utils.getMetaDataString(context, Constants.MetaDataKeys.AD_MOB_APP_ID))
+                AdProvider.FLURRY -> {
                 }
-                AdNetwork.MILLENNIAL_MEDIA -> {
-                    MobileAds.initialize(context, Utils.getMetaDataString(context, Constants.MetaDataKeys.AD_MOB_APP_ID))
+                AdProvider.MILLENNIAL_MEDIA -> {
                 }
-                AdNetwork.SMAATO -> {
-                    MobileAds.initialize(context, Utils.getMetaDataString(context, Constants.MetaDataKeys.AD_MOB_APP_ID))
+                AdProvider.SMAATO -> {
                 }
-                AdNetwork.LEADBOLT -> {
-                    MobileAds.initialize(context, Utils.getMetaDataString(context, Constants.MetaDataKeys.AD_MOB_APP_ID))
+                AdProvider.LEADBOLT -> {
                 }
-                AdNetwork.CHARTBOOST -> {
-                    MobileAds.initialize(context, Utils.getMetaDataString(context, Constants.MetaDataKeys.AD_MOB_APP_ID))
-                }
-                else -> {
-                    MobileAds.initialize(context, Utils.getMetaDataString(context, Constants.MetaDataKeys.AD_MOB_APP_ID))
+                AdProvider.CHARTBOOST -> {
                 }
             }
         }

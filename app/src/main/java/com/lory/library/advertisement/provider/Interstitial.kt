@@ -1,8 +1,7 @@
-package com.lory.library.advertisement.ads.interstitial
+package com.lory.library.advertisement.provider
 
 import android.content.Context
 import com.lory.library.advertisement.BuildConfig
-import com.lory.library.advertisement.ads.AD
 import com.lory.library.advertisement.callback.OnAdListener
 import com.lory.library.advertisement.utils.Tracer
 

@@ -5,7 +5,7 @@ import com.lory.library.advertisement.BuildConfig
 /**
  * Enum hold the AD-Network provider
  */
-enum class AdNetwork {
+enum class AdProvider {
     MEDIA_NET(0),
     AD_MOB(1),
     START_APP(2),
@@ -23,16 +23,16 @@ enum class AdNetwork {
     }
 
     companion object {
-        private const val TAG: String = BuildConfig.BASE_TAG + ".AdNetwork"
+        private const val TAG: String = BuildConfig.BASE_TAG + ".AdProvider"
 
         /**
          * Method to get the Add Provider
          * @param  providerIndex
          */
-        fun getAdProvider(providerIndex: Int): AdNetwork {
+        fun getAdProvider(providerIndex: Int): AdProvider {
             Tracer.debug(TAG, "getAdProvider: ")
-            val arrayOfAdNetwork: Array<AdNetwork> = AdNetwork.values()
-            for (adProvider in arrayOfAdNetwork) {
+            val arrayOfAdProvider: Array<AdProvider> = AdProvider.values()
+            for (adProvider in arrayOfAdProvider) {
                 if (adProvider.providerIndex == providerIndex) {
                     return adProvider
                 }

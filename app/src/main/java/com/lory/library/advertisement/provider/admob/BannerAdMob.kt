@@ -1,4 +1,4 @@
-package com.lory.library.advertisement.ads.banner
+package com.lory.library.advertisement.provider.admob
 
 import android.content.Context
 import android.view.View
@@ -9,6 +9,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.lory.library.advertisement.BuildConfig
 import com.lory.library.advertisement.callback.OnAdListener
+import com.lory.library.advertisement.provider.Banner
 import com.lory.library.advertisement.utils.Tracer
 
 internal class BannerAdMob : Banner {

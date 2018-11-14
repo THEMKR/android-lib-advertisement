@@ -1,10 +1,9 @@
-package com.lory.library.advertisement.ads.banner
+package com.lory.library.advertisement.provider
 
 import android.content.Context
 import android.view.ViewGroup
 import com.lory.library.advertisement.BuildConfig
 import com.lory.library.advertisement.R
-import com.lory.library.advertisement.ads.AD
 import com.lory.library.advertisement.callback.OnAdListener
 import com.lory.library.advertisement.utils.Tracer
 

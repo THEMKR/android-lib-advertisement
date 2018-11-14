@@ -196,10 +196,12 @@ class PrefData {
      *Preference Keys
      */
     enum class Key {
-        INITIALIZED("KEY_IS_LIB_INITIALIZED", false),
-        INTERSTITIAL_PROVIDER("KEY_INTERSTITIAL_AD_PROVIDER", AdNetwork.AD_MOB.providerIndex),
+        APP_ID_INTERSTITIAL("APP_ID_INTERSTITIAL", ""),
+        APP_ID_BANNER("APP_ID_BANNER", ""),
+        INITIALIZED("INITIALIZED", false),
+        INTERSTITIAL_PROVIDER("INTERSTITIAL_PROVIDER", AdProvider.AD_MOB.providerIndex),
         INTERSTITIAL_AD_ID("INTERSTITIAL_AD_ID", ""),
-        BANNER_PROVIDER("BANNER_PROVIDER", AdNetwork.AD_MOB.providerIndex),
+        BANNER_PROVIDER("BANNER_PROVIDER", AdProvider.AD_MOB.providerIndex),
         BANNER_AD_ID("BANNER_AD_ID", "");
 
         val key: String
