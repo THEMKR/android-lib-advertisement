@@ -13,6 +13,8 @@ class Utils {
 
         /**
          * Method to get the MetaData String
+         * @param context
+         * @param key
          */
         fun getMetaDataString(context: Context, key: String): String {
             Tracer.debug(TAG, "getMetaDataString: $key")
@@ -29,6 +31,20 @@ class Utils {
                 e.printStackTrace()
             }
             return ""
+        }
+
+        /**
+         * Method to get the MetaData Int
+         * @param context
+         * @param key
+         */
+        fun getMetaDataInt(context: Context, key: String): Int {
+            Tracer.debug(TAG, "getMetaDataString: $key")
+            try {
+                return getMetaDataString(context, key).trim().toInt()
+            } catch (e: Exception) {
+                return 0
+            }
         }
     }
 }

@@ -94,8 +94,8 @@ class PrefData {
          * @param key Pref Key
          * @param value Float value set for key
          */
-        fun setFloat(context: Context, key: String, value: Float) {
-            getShearedPreferenceEditor(context).putFloat(key, value).commit()
+        fun setFloat(context: Context, key: Key, value: Float) {
+            getShearedPreferenceEditor(context).putFloat(key.key, value).commit()
         }
 
         //==================================================================================================================
@@ -124,8 +124,8 @@ class PrefData {
          * @param key Pref Key
          * @param value Int value set for key
          */
-        fun setInt(context: Context, key: String, value: Int) {
-            getShearedPreferenceEditor(context).putInt(key, value).commit()
+        fun setInt(context: Context, key: Key, value: Int) {
+            getShearedPreferenceEditor(context).putInt(key.key, value).commit()
         }
 
         //==================================================================================================================
@@ -154,8 +154,8 @@ class PrefData {
          * @param key Pref Key
          * @param value Long value set for key
          */
-        fun setLong(context: Context, key: String, value: Long) {
-            getShearedPreferenceEditor(context).putLong(key, value).commit()
+        fun setLong(context: Context, key: Key, value: Long) {
+            getShearedPreferenceEditor(context).putLong(key.key, value).commit()
         }
 
         //==================================================================================================================
@@ -198,7 +198,7 @@ class PrefData {
     enum class Key {
         APP_ID_INTERSTITIAL("APP_ID_INTERSTITIAL", ""),
         APP_ID_BANNER("APP_ID_BANNER", ""),
-        INITIALIZED("INITIALIZED", false),
+        LIB_INITIALIZED("LIB_INITIALIZED", false),
         INTERSTITIAL_PROVIDER("INTERSTITIAL_PROVIDER", AdProvider.AD_MOB.providerIndex),
         INTERSTITIAL_AD_ID("INTERSTITIAL_AD_ID", ""),
         BANNER_PROVIDER("BANNER_PROVIDER", AdProvider.AD_MOB.providerIndex),

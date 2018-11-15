@@ -6,20 +6,22 @@ import com.lory.library.advertisement.BuildConfig
  * Enum hold the AD-Network provider
  */
 enum class AdProvider {
-    MEDIA_NET(0),
-    AD_MOB(1),
-    START_APP(2),
-    IN_MOBI(3),
-    FLURRY(4),
-    MILLENNIAL_MEDIA(5),
-    SMAATO(6),
-    LEADBOLT(7),
-    CHARTBOOST(8);
+    MEDIA_NET(0, arrayListOf<AdType>(AdType.BANNER, AdType.INTERSTITIAL)),
+    AD_MOB(1, arrayListOf()),
+    START_APP(2, arrayListOf()),
+    IN_MOBI(3, arrayListOf()),
+    FLURRY(4, arrayListOf()),
+    MILLENNIAL_MEDIA(5, arrayListOf()),
+    SMAATO(6, arrayListOf()),
+    LEADBOLT(7, arrayListOf()),
+    CHARTBOOST(8, arrayListOf());
 
     val providerIndex: Int
+    val adTypeList: List<AdType>
 
-    constructor(providerIndex: Int) {
+    constructor(providerIndex: Int, adTypeList: List<AdType>) {
         this.providerIndex = providerIndex
+        this.adTypeList = adTypeList
     }
 
     companion object {
@@ -39,5 +41,17 @@ enum class AdProvider {
             }
             return AD_MOB
         }
+    }
+
+    /**
+     * Method to check Weather this Provider Support the called AdType or Not
+     */
+    fun isSupportAd(adType: AdType): Boolean {
+        for (type in adTypeList) {
+            if (type.equals(adType)) {
+                return true
+            }
+        }
+        return false
     }
 }

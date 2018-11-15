@@ -32,6 +32,24 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-8713916254370167~4393373537" />
 
+        <!-- DEFAULT AD DETAIL START -->
+        <meta-data
+            android:name="default_ad_provider_index"
+            android:value="0" />
+
+        <meta-data
+            android:name="default_ad_provider_app_id"
+            android:value="ca-app-pub-8713916254370167~4393373537" />
+
+        <meta-data
+            android:name="default_ad_provider_banner_id"
+            android:value="ca-app-pub-8713916254370167~4393373537" />
+
+        <meta-data
+            android:name="default_ad_provider_interstitial_id"
+            android:value="ca-app-pub-8713916254370167~4393373537" />
+        <!-- DEFAULT AD DETAIL END -->
+
         <!-- START APP -->
         <activity
             android:name="com.startapp.android.publish.ads.list3d.List3DActivity"
