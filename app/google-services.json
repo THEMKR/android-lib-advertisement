@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "689621154009",
-    "firebase_url": "https://poetic-tube-95010.firebaseio.com",
-    "project_id": "poetic-tube-95010",
-    "storage_bucket": "poetic-tube-95010.appspot.com"
+    "project_number": "242278814126",
+    "firebase_url": "https://android-lib-ad.firebaseio.com",
+    "project_id": "android-lib-ad",
+    "storage_bucket": "android-lib-ad.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:689621154009:android:856817a5366e3fdc",
+        "mobilesdk_app_id": "1:242278814126:android:702d5c85cda2eade",
         "android_client_info": {
-          "package_name": "com.invincible.apkextractor"
+          "package_name": "com.lory.library.advertisement"
         }
       },
       "oauth_client": [
         {
-          "client_id": "689621154009-52iscsnvmrhdk1hfbu3nvcd6m33k18sp.apps.googleusercontent.com",
+          "client_id": "242278814126-cfh4ujqcguu2upsqfmvdcj7rlk97fffl.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAl1MCcMrf7r2k_lVLO9-_pefuP8yiqRlw"
+          "current_key": "AIzaSyBmoBN2Ag5lIfyTKdVQOhVvobvYQpRTfoo"
         }
       ],
       "services": {

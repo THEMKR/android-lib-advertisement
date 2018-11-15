@@ -66,7 +66,7 @@ internal class AdMobBanner : Banner {
         adView = AdView(activity)
         adView.adUnitId = adId
         adView.adListener = adMobAdListener
-        bannerAdView.visibility = View.GONE
+        bannerAdView.visibility = View.VISIBLE
         layoutAdView()
     }
 

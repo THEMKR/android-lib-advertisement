@@ -11,6 +11,7 @@ class Constants {
     interface ExceptionMessage {
         companion object {
             val LIB_NOT_INITIALIZED = "Advertisement Library is not initialized. Plz initialized it before any operation"
+            val DOES_NOT_HAVE_REQUIRED_PERMISSION = "Plz give all the required permission before initialized this library"
             val BANNER_AD_NOT_SUPPORTED = "Banner Ad is not supported by Provider : "
             val INTERSTITIAL_AD_NOT_SUPPORTED = "Interstitial Ad is not supported by Provider : "
         }

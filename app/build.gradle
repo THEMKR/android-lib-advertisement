@@ -11,7 +11,7 @@ def BASE_TAG_VALUE = "\"Banner\""
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.invincible.apkextractor"
+        applicationId "com.lory.library.advertisement"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
