@@ -17,7 +17,7 @@ class ControllerFactory {
          * Method to get the InterstitialAdController
          */
         fun getInterstitialController(activity: Activity): OnAdController {
-            return InterstitialAdController(activity)
+            return InterstitialAdController.getInstance(activity)
         }
     }
 }

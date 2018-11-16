@@ -23,7 +23,6 @@ class AdvertisementLib {
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.RECEIVE_BOOT_COMPLETED,
                 Manifest.permission.BLUETOOTH,
-                Manifest.permission.INTERNET,
                 Manifest.permission.ACCESS_WIFI_STATE,
                 Manifest.permission.ACCESS_NETWORK_STATE
         )
@@ -38,7 +37,6 @@ class AdvertisementLib {
          * @see Manifest.permission.ACCESS_FINE_LOCATION
          * @see Manifest.permission.RECEIVE_BOOT_COMPLETED
          * @see Manifest.permission.BLUETOOTH
-         * @see Manifest.permission.INTERNET
          * @see Manifest.permission.ACCESS_WIFI_STATE
          * @see Manifest.permission.ACCESS_NETWORK_STATE
          */
@@ -47,7 +45,7 @@ class AdvertisementLib {
             if (!isHaveAllRequiredPermission(activity)) {
                 throw Exception(Constants.ExceptionMessage.DOES_NOT_HAVE_REQUIRED_PERMISSION)
             }
-            if (PrefData.getBoolean(activity, PrefData.Key.LIB_INITIALIZED)) {
+            if (!PrefData.getBoolean(activity, PrefData.Key.LIB_INITIALIZED)) {
                 initDefaultValue(activity)
                 PrefData.setBoolean(activity, PrefData.Key.LIB_INITIALIZED, true)
             }

@@ -6,6 +6,7 @@ import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.lory.library.advertisement.BuildConfig
 import com.lory.library.advertisement.callback.OnAdListener
@@ -21,36 +22,43 @@ internal class AdMobBanner : Banner {
     private var isReady: Boolean = false
     private val adMobAdListener = object : AdListener() {
         override fun onAdClicked() {
+            Tracer.debug(TAG, "onAdClicked: ")
             super.onAdClicked()
             onAdListener.onAdClicked()
         }
 
         override fun onAdClosed() {
+            Tracer.debug(TAG, "onAdClosed: ")
             super.onAdClosed()
             onAdListener.onAdFinished()
         }
 
         override fun onAdFailedToLoad(index: Int) {
+            Tracer.debug(TAG, "onAdFailedToLoad: ")
             super.onAdFailedToLoad(index)
             onAdListener.onAdFailed()
         }
 
         override fun onAdImpression() {
+            Tracer.debug(TAG, "onAdImpression: ")
             super.onAdImpression()
         }
 
         override fun onAdLeftApplication() {
+            Tracer.debug(TAG, "onAdLeftApplication: ")
             super.onAdLeftApplication()
             onAdListener.onAdFinished()
         }
 
         override fun onAdLoaded() {
+            Tracer.debug(TAG, "onAdLoaded: ")
             super.onAdLoaded()
             isReady = true
             onAdListener.onAdReady()
         }
 
         override fun onAdOpened() {
+            Tracer.debug(TAG, "onAdOpened: ")
             super.onAdOpened()
         }
     }
@@ -63,27 +71,21 @@ internal class AdMobBanner : Banner {
      * @param bannerAdView The AD container
      */
     constructor(activity: Activity, adId: String, onAdListener: OnAdListener, bannerAdView: BannerAdView) : super(activity, adId, onAdListener, bannerAdView) {
+        Tracer.debug(TAG, "Constructor: ")
         adView = AdView(activity)
-        adView.adUnitId = adId
+        adView.adSize = AdSize.BANNER
         adView.adListener = adMobAdListener
         bannerAdView.visibility = View.VISIBLE
-        layoutAdView()
-    }
-
-    /**
-     * Method to layout the Ad View
-     */
-    private fun layoutAdView() {
-        Tracer.debug(TAG, "layoutAdView: ")
         bannerAdView.removeAllViews()
-        val frameLayout = FrameLayout(activity)
-        frameLayout.addView(adView, FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT))
-        bannerAdView.addView(frameLayout, RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT))
+        bannerAdView.addView(adView, RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT))
+        adView.layoutParams.width = bannerAdView.layoutParams.width
+        adView.layoutParams.height = bannerAdView.layoutParams.height
+        adView.adUnitId = adId
     }
 
     override fun fetchAd() {
         Tracer.debug(TAG, "fetchAd: ")
-        adView.loadAd(AdRequest.Builder().build())
+        adView.loadAd(AdRequest.Builder().addTestDevice("7D7D0BB53322C0DB49F2F2CCE8550FA0").build())
     }
 
     override fun shownAd() {

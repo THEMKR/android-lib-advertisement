@@ -10,6 +10,8 @@ import com.lory.library.advertisement.R
 
 class BannerAdView : RelativeLayout {
 
+    var onBannerAdViewListener: OnBannerAdViewListener? = null
+
     constructor(context: Context?) : super(context) {
         init()
     }
@@ -33,6 +35,11 @@ class BannerAdView : RelativeLayout {
         super.onMeasure(newWidthMeasureSpec, newHeightMeasureSpec)
     }
 
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        super.onSizeChanged(w, h, oldw, oldh)
+        onBannerAdViewListener?.onBannerAdViewSizeChanged(w, h)
+    }
+
     /**
      * Method to init the BannerAdView
      */
@@ -52,5 +59,18 @@ class BannerAdView : RelativeLayout {
      */
     protected fun getBannerHeight(): Int {
         return context.resources.getDimensionPixelSize(R.dimen.banner_height)
+    }
+
+    /**
+     * Callback to listen the Status of the size of Banner View
+     */
+    interface OnBannerAdViewListener {
+
+        /**
+         * Callback to notify the new Size of this View
+         * @param width
+         * @param height
+         */
+        fun onBannerAdViewSizeChanged(width: Int, height: Int)
     }
 }

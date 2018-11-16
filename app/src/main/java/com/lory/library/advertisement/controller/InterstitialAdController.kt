@@ -66,7 +66,7 @@ internal class InterstitialAdController : OnAdController {
      * @param context
      * @param bannerAdView
      */
-    constructor(context: Context) {
+    private constructor(context: Context) {
         Tracer.debug(TAG, "Constructor : ")
         this.context = context.applicationContext
         reInitialize()

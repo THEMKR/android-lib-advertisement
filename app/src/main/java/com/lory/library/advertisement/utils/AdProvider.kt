@@ -6,8 +6,8 @@ import com.lory.library.advertisement.BuildConfig
  * Enum hold the AD-Network provider
  */
 enum class AdProvider {
-    MEDIA_NET(0, arrayListOf<AdType>(AdType.BANNER, AdType.INTERSTITIAL)),
-    AD_MOB(1, arrayListOf()),
+    AD_MOB(0, arrayListOf()),
+    MEDIA_NET(1, arrayListOf<AdType>(AdType.BANNER, AdType.INTERSTITIAL)),
     START_APP(2, arrayListOf()),
     IN_MOBI(3, arrayListOf()),
     FLURRY(4, arrayListOf()),

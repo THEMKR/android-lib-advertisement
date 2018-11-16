@@ -25,12 +25,11 @@
             </intent-filter>
         </activity>
 
+        <!-- =============================================================================== -->
+        <!-- =============================================================================== -->
         <!-- AD LIB START -->
-
-        <!-- Sample AdMob App ID: ca-app-pub-8713916254370167~4393373537 -->
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-8713916254370167~4393373537" />
+        <!-- =============================================================================== -->
+        <!-- =============================================================================== -->
 
         <!-- DEFAULT AD DETAIL START -->
         <meta-data
@@ -50,7 +49,12 @@
             android:value="ca-app-pub-8713916254370167/7383348654" />
         <!-- DEFAULT AD DETAIL END -->
 
-        <!-- START APP -->
+        <!-- AD-MOB-APP-ID -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-8713916254370167~1788364905" />
+
+        <!-- START APP START -->
         <activity
             android:name="com.startapp.android.publish.ads.list3d.List3DActivity"
             android:theme="@android:style/Theme" />
@@ -64,8 +68,13 @@
             android:name="com.startapp.android.publish.adsCommon.activities.FullScreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@android:style/Theme" />
+        <!-- START APP END -->
 
+        <!-- =============================================================================== -->
+        <!-- =============================================================================== -->
         <!-- AD LIB END -->
+        <!-- =============================================================================== -->
+        <!-- =============================================================================== -->
 
     </application>
 

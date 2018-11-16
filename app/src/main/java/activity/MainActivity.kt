@@ -4,9 +4,12 @@ import android.Manifest
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import com.google.android.gms.ads.MobileAds
 import com.lory.library.advertisement.AdvertisementLib
 import com.lory.library.advertisement.R
+import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.Tracer
+import com.lory.library.advertisement.utils.Utils
 import com.lory.library.ui.controller.AppPermissionController
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -21,6 +24,7 @@ class MainActivity : AppCompatActivity(), AppPermissionController.OnAppPermissio
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        MobileAds.initialize(this, Utils.getMetaDataString(this, Constants.MetaDataKeys.DEFAULT_AD_PROVIDER_APP_ID))
         var permissions: Array<String> = arrayOf(
                 Manifest.permission.INTERNET,
                 Manifest.permission.ACCESS_NETWORK_STATE,
@@ -37,7 +41,8 @@ class MainActivity : AppCompatActivity(), AppPermissionController.OnAppPermissio
         button_interstitial.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
                 Tracer.debug(TAG, "INTERSTITIAL onClick: ")
-                AdvertisementLib.showInterstitialAd(this@MainActivity)
+                AdUtils.getInstance().showInterstitialAd(this@MainActivity)
+                //AdvertisementLib.showInterstitialAd(this@MainActivity)
             }
         })
     }
@@ -49,7 +54,7 @@ class MainActivity : AppCompatActivity(), AppPermissionController.OnAppPermissio
 
     override fun onAppPermissionControllerListenerHaveAllRequiredPermission() {
         Tracer.debug(TAG, "onAppPermissionControllerListenerHaveAllRequiredPermission: ")
-        AdvertisementLib.initialize(this)
-        AdvertisementLib.showBannerAd(this, banner_ad_view)
+        //AdvertisementLib.initialize(this)
+        //AdvertisementLib.showBannerAd(this, banner_ad_view)
     }
 }
