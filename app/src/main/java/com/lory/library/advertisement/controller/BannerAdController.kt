@@ -12,6 +12,7 @@ import com.lory.library.advertisement.utils.PrefData
 import com.lory.library.advertisement.utils.Tracer
 
 internal class BannerAdController : OnAdController {
+
     companion object {
         private const val TAG: String = BuildConfig.BASE_TAG + ".BannerAdController"
     }
@@ -26,7 +27,7 @@ internal class BannerAdController : OnAdController {
 
         override fun onAdFailed() {
             Tracer.debug(TAG, "onAdFailed: ")
-            reInitialize()
+            createAd()
         }
 
         override fun onAdReady() {
@@ -44,7 +45,7 @@ internal class BannerAdController : OnAdController {
 
         override fun onAdCancel() {
             Tracer.debug(TAG, "onAdCancel: ")
-            reInitialize()
+            createAd()
         }
 
         override fun onAdFinished() {
@@ -61,7 +62,6 @@ internal class BannerAdController : OnAdController {
         Tracer.debug(TAG, "Constructor : ")
         this.activity = activity
         this.bannerAdView = bannerAdView
-        reInitialize()
     }
 
     /**
@@ -72,11 +72,8 @@ internal class BannerAdController : OnAdController {
         ad?.fetchAd()
     }
 
-    /**
-     * Method to reInitialized the Banner Ad
-     */
-    private fun reInitialize() {
-        Tracer.debug(TAG, "reInitialize: ")
+    override fun createAd() {
+        Tracer.debug(TAG, "createAd: ")
         val adProvider = AdProvider.getAdProvider(PrefData.getInt(activity, PrefData.Key.INTERSTITIAL_PROVIDER))
         val adId: String = PrefData.getString(activity, PrefData.Key.INTERSTITIAL_AD_ID)
         ad = BannerFactory.create(adProvider, activity, adId, onAdListener, bannerAdView)

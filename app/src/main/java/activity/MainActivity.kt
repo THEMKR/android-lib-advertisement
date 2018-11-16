@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity(), AppPermissionController.OnAppPermissio
         button_interstitial.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
                 Tracer.debug(TAG, "INTERSTITIAL onClick: ")
-                AdUtils.getInstance().showInterstitialAd(this@MainActivity)
+                AdvertisementLib.showInterstitialAd(this@MainActivity)
             }
         })
     }

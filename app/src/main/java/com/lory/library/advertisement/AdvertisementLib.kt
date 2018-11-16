@@ -50,7 +50,7 @@ class AdvertisementLib {
                 PrefData.setBoolean(activity, PrefData.Key.LIB_INITIALIZED, true)
             }
             SDKInitializer.initialize(activity)
-            showInterstitialAd(activity)
+            initInterstitialAd(activity)
         }
 
         /**
@@ -63,7 +63,9 @@ class AdvertisementLib {
             if (!PrefData.getBoolean(activity, PrefData.Key.LIB_INITIALIZED)) {
                 throw Exception(Constants.ExceptionMessage.LIB_NOT_INITIALIZED)
             }
-            ControllerFactory.getBannerController(activity, bannerAdView).showAd()
+            val adController = ControllerFactory.getBannerController(activity, bannerAdView)
+            adController.createAd()
+            adController.showAd()
         }
 
         /**
@@ -76,6 +78,18 @@ class AdvertisementLib {
                 throw Exception(Constants.ExceptionMessage.LIB_NOT_INITIALIZED)
             }
             ControllerFactory.getInterstitialController(activity).showAd()
+        }
+
+        /**
+         * Method to show the Interstitial Ad
+         * @param activity
+         */
+        private fun initInterstitialAd(activity: Activity) {
+            Tracer.debug(TAG, "initInterstitialAd: ")
+            if (!PrefData.getBoolean(activity, PrefData.Key.LIB_INITIALIZED)) {
+                throw Exception(Constants.ExceptionMessage.LIB_NOT_INITIALIZED)
+            }
+            ControllerFactory.getInterstitialController(activity).createAd()
         }
 
         /**

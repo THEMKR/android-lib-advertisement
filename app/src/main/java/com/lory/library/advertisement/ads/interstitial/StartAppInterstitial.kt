@@ -39,7 +39,7 @@ internal class StartAppInterstitial : Interstitial {
 
     override fun fetchAd() {
         Tracer.debug(TAG, "fetchAd: ")
-        ad.loadAd(StartAppAd.AdMode.FULLPAGE)
+        ad.loadAd(StartAppAd.AdMode.FULLPAGE, listener)
     }
 
     override fun shownAd() {

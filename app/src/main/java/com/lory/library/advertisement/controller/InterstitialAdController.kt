@@ -11,6 +11,7 @@ import com.lory.library.advertisement.utils.PrefData
 import com.lory.library.advertisement.utils.Tracer
 
 internal class InterstitialAdController : OnAdController {
+
     companion object {
         private const val TAG: String = BuildConfig.BASE_TAG + ".InterstitialAdController"
         private var instance: InterstitialAdController? = null
@@ -35,7 +36,7 @@ internal class InterstitialAdController : OnAdController {
 
         override fun onAdFailed() {
             Tracer.debug(TAG, "onAdFailed: ")
-            reInitialize()
+            createAd()
         }
 
         override fun onAdReady() {
@@ -52,12 +53,12 @@ internal class InterstitialAdController : OnAdController {
 
         override fun onAdCancel() {
             Tracer.debug(TAG, "onAdCancel: ")
-            reInitialize()
+            createAd()
         }
 
         override fun onAdFinished() {
             Tracer.debug(TAG, "onAdFinished: ")
-            reInitialize()
+            createAd()
         }
     }
 
@@ -69,7 +70,6 @@ internal class InterstitialAdController : OnAdController {
     private constructor(context: Context) {
         Tracer.debug(TAG, "Constructor : ")
         this.context = context.applicationContext
-        reInitialize()
     }
 
     /**
@@ -79,13 +79,12 @@ internal class InterstitialAdController : OnAdController {
         Tracer.debug(TAG, "showAd: ")
         if (ad?.isAdReady() == true) {
             ad?.shownAd()
+            createAd()
         }
     }
 
-    /**
-     * Method to reInitialized the Banner Ad
-     */
-    private fun reInitialize() {
+    override fun createAd() {
+        Tracer.debug(TAG, "fetchAd: ")
         val adProvider = AdProvider.getAdProvider(PrefData.getInt(context, PrefData.Key.INTERSTITIAL_PROVIDER))
         val adId: String = PrefData.getString(context, PrefData.Key.INTERSTITIAL_AD_ID)
         ad = InterstitialFactory.create(adProvider, context, adId, onAdListener)
