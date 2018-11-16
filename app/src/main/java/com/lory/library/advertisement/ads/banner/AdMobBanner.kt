@@ -2,7 +2,6 @@ package com.lory.library.advertisement.ads.banner
 
 import android.app.Activity
 import android.view.View
-import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest

@@ -7,9 +7,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.InterstitialAd
 import com.lory.library.advertisement.BuildConfig
-import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.Tracer
-import com.lory.library.advertisement.utils.Utils
 
 class AdUtils : AdListener() {
     companion object {

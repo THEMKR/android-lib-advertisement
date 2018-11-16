@@ -23,6 +23,7 @@ class BannerFactory {
                     return AdMobBanner(activity, adId, onAdListener, bannerAdView)
                 }
                 AdProvider.START_APP -> {
+                    return StartAppBanner(activity, adId, onAdListener, bannerAdView)
                 }
                 AdProvider.MEDIA_NET -> {
                 }

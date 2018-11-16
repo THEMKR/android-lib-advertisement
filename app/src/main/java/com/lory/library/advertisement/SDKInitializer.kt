@@ -41,6 +41,7 @@ internal class SDKInitializer {
                 }
                 AdProvider.START_APP -> {
                     StartAppSDK.init(activity, appId)
+                    StartAppSDK.setUserConsent(activity, "pas", System.currentTimeMillis(), false);
                 }
                 AdProvider.MEDIA_NET -> {
                 }

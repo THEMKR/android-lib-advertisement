@@ -21,6 +21,7 @@ class InterstitialFactory {
                     return AdMobInterstitial(context, adId, onAdListener)
                 }
                 AdProvider.START_APP -> {
+                    return StartAppInterstitial(context, adId, onAdListener)
                 }
                 AdProvider.MEDIA_NET -> {
                 }
