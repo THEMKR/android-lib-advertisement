@@ -69,7 +69,7 @@ internal class AdMobBanner : Banner {
      * @param onAdListener
      * @param bannerAdView The AD container
      */
-    constructor(activity: Activity, adId: String, onAdListener: OnAdListener, bannerAdView: BannerAdView) : super(activity, adId, onAdListener, bannerAdView) {
+    internal constructor(activity: Activity, adId: String, onAdListener: OnAdListener, bannerAdView: BannerAdView) : super(activity, adId, onAdListener, bannerAdView) {
         Tracer.debug(TAG, "Constructor: ")
         adView = AdView(activity)
         adView.adSize = AdSize.BANNER

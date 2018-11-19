@@ -42,7 +42,7 @@ internal class StartAppBanner : Banner {
      * @param onAdListener
      * @param bannerAdView The AD container
      */
-    constructor(activity: Activity, adId: String, onAdListener: OnAdListener, bannerAdView: BannerAdView) : super(activity, adId, onAdListener, bannerAdView) {
+    internal constructor(activity: Activity, adId: String, onAdListener: OnAdListener, bannerAdView: BannerAdView) : super(activity, adId, onAdListener, bannerAdView) {
         Tracer.debug(TAG, "Constructor: ")
         adView = com.startapp.android.publish.ads.banner.Banner(activity, startApListener)
         bannerAdView.visibility = View.VISIBLE
@@ -56,7 +56,7 @@ internal class StartAppBanner : Banner {
 
     override fun shownAd() {
         Tracer.debug(TAG, "shownAd: ")
-        if(isAdReady()) {
+        if (isAdReady()) {
             adView.showBanner()
         }
     }

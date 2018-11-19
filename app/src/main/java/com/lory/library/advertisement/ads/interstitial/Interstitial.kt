@@ -6,7 +6,7 @@ import com.lory.library.advertisement.callback.OnAdListener
 import com.lory.library.advertisement.callback.OnAdProvider
 import com.lory.library.advertisement.utils.Tracer
 
-internal abstract class Interstitial : OnAdProvider{
+internal abstract class Interstitial : OnAdProvider {
     companion object {
         private const val TAG: String = BuildConfig.BASE_TAG + ".Interstitial"
     }
@@ -24,7 +24,7 @@ internal abstract class Interstitial : OnAdProvider{
      * @param adId
      * @param onAdListener
      */
-    constructor(context: Context, adId: String, onAdListener: OnAdListener) {
+    internal constructor(context: Context, adId: String, onAdListener: OnAdListener) {
         Tracer.debug(TAG, "Constructor : ")
         this.context = context
         this.adId = adId

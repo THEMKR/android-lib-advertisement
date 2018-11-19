@@ -5,6 +5,7 @@ import com.google.android.gms.ads.MobileAds
 import com.lory.library.advertisement.enums.AdProvider
 import com.lory.library.advertisement.utils.PrefData
 import com.lory.library.advertisement.utils.Tracer
+import com.startapp.android.publish.adsCommon.StartAppAd
 import com.startapp.android.publish.adsCommon.StartAppSDK
 
 internal class SDKInitializer {
@@ -42,6 +43,8 @@ internal class SDKInitializer {
                 AdProvider.START_APP -> {
                     StartAppSDK.init(activity, appId)
                     StartAppSDK.setUserConsent(activity, "pas", System.currentTimeMillis(), false);
+                    StartAppAd.disableSplash()
+                    StartAppAd.disableAutoInterstitial()
                 }
                 AdProvider.MEDIA_NET -> {
                 }

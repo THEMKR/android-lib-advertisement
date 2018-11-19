@@ -62,7 +62,7 @@ internal class AdMobInterstitial : Interstitial {
      * @param adId
      * @param onAdListener
      */
-    constructor(context: Context, adId: String, onAdListener: OnAdListener) : super(context, adId, onAdListener) {
+    internal constructor(context: Context, adId: String, onAdListener: OnAdListener) : super(context, adId, onAdListener) {
         Tracer.debug(TAG, "Constructor : ")
         ad = InterstitialAd(context)
         ad.adUnitId = adId

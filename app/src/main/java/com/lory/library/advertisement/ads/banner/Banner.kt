@@ -26,7 +26,7 @@ internal abstract class Banner : OnAdProvider {
      * @param onAdListener
      * @param bannerAdView The AD container
      */
-    constructor(activity: Activity, adId: String, onAdListener: OnAdListener, bannerAdView: BannerAdView) {
+    internal constructor(activity: Activity, adId: String, onAdListener: OnAdListener, bannerAdView: BannerAdView) {
         this.activity = activity
         this.adId = adId
         this.onAdListener = onAdListener

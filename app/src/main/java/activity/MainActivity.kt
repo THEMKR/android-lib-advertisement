@@ -7,6 +7,7 @@ import android.view.View
 import com.google.android.gms.ads.MobileAds
 import com.lory.library.advertisement.AdvertisementLib
 import com.lory.library.advertisement.R
+import com.lory.library.advertisement.ads.banner.AdMobBanner
 import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.Tracer
 import com.lory.library.advertisement.utils.Utils
