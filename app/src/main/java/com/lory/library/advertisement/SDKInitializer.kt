@@ -2,7 +2,7 @@ package com.lory.library.advertisement
 
 import android.app.Activity
 import com.google.android.gms.ads.MobileAds
-import com.lory.library.advertisement.utils.AdProvider
+import com.lory.library.advertisement.enums.AdProvider
 import com.lory.library.advertisement.utils.PrefData
 import com.lory.library.advertisement.utils.Tracer
 import com.startapp.android.publish.adsCommon.StartAppSDK

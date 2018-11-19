@@ -1,4 +1,4 @@
-package com.lory.library.advertisement.utils
+package com.lory.library.advertisement.enums
 
 /**
  * Enum hold the Type of AD

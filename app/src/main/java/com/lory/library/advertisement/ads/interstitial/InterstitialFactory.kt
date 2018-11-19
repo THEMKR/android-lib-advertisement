@@ -3,7 +3,7 @@ package com.lory.library.advertisement.ads.interstitial
 import android.content.Context
 import com.lory.library.advertisement.callback.OnAdListener
 import com.lory.library.advertisement.callback.OnAdProvider
-import com.lory.library.advertisement.utils.AdProvider
+import com.lory.library.advertisement.enums.AdProvider
 import com.lory.library.advertisement.utils.Constants
 
 class InterstitialFactory {

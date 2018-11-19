@@ -1,14 +1,15 @@
-package com.lory.library.advertisement.utils
+package com.lory.library.advertisement.enums
 
 import com.lory.library.advertisement.BuildConfig
+import com.lory.library.advertisement.utils.Tracer
 
 /**
  * Enum hold the AD-Network provider
  */
 enum class AdProvider {
     AD_MOB(0, arrayListOf()),
-    MEDIA_NET(1, arrayListOf<AdType>(AdType.BANNER, AdType.INTERSTITIAL)),
-    START_APP(2, arrayListOf()),
+    MEDIA_NET(1, arrayListOf()),
+    START_APP(2, arrayListOf<AdType>(AdType.BANNER, AdType.INTERSTITIAL)),
     IN_MOBI(3, arrayListOf()),
     FLURRY(4, arrayListOf()),
     MILLENNIAL_MEDIA(5, arrayListOf()),

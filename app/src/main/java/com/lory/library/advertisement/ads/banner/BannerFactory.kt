@@ -3,8 +3,8 @@ package com.lory.library.advertisement.ads.banner
 import android.app.Activity
 import com.lory.library.advertisement.callback.OnAdListener
 import com.lory.library.advertisement.callback.OnAdProvider
+import com.lory.library.advertisement.enums.AdProvider
 import com.lory.library.advertisement.ui.BannerAdView
-import com.lory.library.advertisement.utils.AdProvider
 import com.lory.library.advertisement.utils.Constants
 
 class BannerFactory {

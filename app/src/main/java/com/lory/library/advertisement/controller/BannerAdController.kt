@@ -6,8 +6,8 @@ import com.lory.library.advertisement.ads.banner.BannerFactory
 import com.lory.library.advertisement.callback.OnAdController
 import com.lory.library.advertisement.callback.OnAdListener
 import com.lory.library.advertisement.callback.OnAdProvider
+import com.lory.library.advertisement.enums.AdProvider
 import com.lory.library.advertisement.ui.BannerAdView
-import com.lory.library.advertisement.utils.AdProvider
 import com.lory.library.advertisement.utils.PrefData
 import com.lory.library.advertisement.utils.Tracer
 
