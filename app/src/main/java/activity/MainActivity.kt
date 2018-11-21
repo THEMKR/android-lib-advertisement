@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.google.android.gms.ads.MobileAds
-import com.lory.library.advertisement.AdvertisementLib
 import com.lory.library.advertisement.R
-import com.lory.library.advertisement.ads.banner.AdMobBanner
 import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.Tracer
 import com.lory.library.advertisement.utils.Utils
@@ -42,7 +40,7 @@ class MainActivity : AppCompatActivity(), AppPermissionController.OnAppPermissio
         button_interstitial.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
                 Tracer.debug(TAG, "INTERSTITIAL onClick: ")
-                AdvertisementLib.showInterstitialAd(this@MainActivity)
+                //AdvertisementLib.showInterstitialAd(this@MainActivity)
             }
         })
     }
@@ -54,7 +52,7 @@ class MainActivity : AppCompatActivity(), AppPermissionController.OnAppPermissio
 
     override fun onAppPermissionControllerListenerHaveAllRequiredPermission() {
         Tracer.debug(TAG, "onAppPermissionControllerListenerHaveAllRequiredPermission: ")
-        AdvertisementLib.initialize(this)
-        AdvertisementLib.showBannerAd(this, banner_ad_view)
+        //AdvertisementLib.initialize(this)
+        //AdvertisementLib.showBannerAd(this, banner_ad_view)
     }
 }

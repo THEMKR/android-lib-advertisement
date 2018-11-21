@@ -1,8 +1,8 @@
 package com.lory.library.advertisement.ads.banner
 
 import android.app.Activity
-import com.lory.library.advertisement.callback.OnAdListener
-import com.lory.library.advertisement.callback.OnAdProvider
+import com.lory.library.advertisement.OnAdvertisementListener
+import com.lory.library.advertisement.ads.Advertisement
 import com.lory.library.advertisement.enums.AdProvider
 import com.lory.library.advertisement.ui.BannerAdView
 import com.lory.library.advertisement.utils.Constants
@@ -14,16 +14,16 @@ class BannerFactory {
          * @param adProvider
          * @param activity
          * @param adId
-         * @param onAdListener
+         * @param onAdvertisementListener
          * @param bannerAdView
          */
-        fun create(adProvider: AdProvider, activity: Activity, adId: String, onAdListener: OnAdListener, bannerAdView: BannerAdView): OnAdProvider {
+        fun create(adProvider: AdProvider, activity: Activity, adId: String, onAdvertisementListener: OnAdvertisementListener, bannerAdView: BannerAdView): Advertisement {
             when (adProvider) {
                 AdProvider.AD_MOB -> {
-                    return AdMobBanner(activity, adId, onAdListener, bannerAdView)
+                    return AdMobBanner(activity, adId, onAdvertisementListener, bannerAdView)
                 }
                 AdProvider.START_APP -> {
-                    return StartAppBanner(activity, adId, onAdListener, bannerAdView)
+                    return StartAppBanner(activity, adId, onAdvertisementListener, bannerAdView)
                 }
                 AdProvider.MEDIA_NET -> {
                 }

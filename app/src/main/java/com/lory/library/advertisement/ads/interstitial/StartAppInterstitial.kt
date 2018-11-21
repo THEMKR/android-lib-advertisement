@@ -2,7 +2,7 @@ package com.lory.library.advertisement.ads.interstitial
 
 import android.content.Context
 import com.lory.library.advertisement.BuildConfig
-import com.lory.library.advertisement.callback.OnAdListener
+import com.lory.library.advertisement.OnAdvertisementListener
 import com.lory.library.advertisement.utils.Tracer
 import com.startapp.android.publish.adsCommon.Ad
 import com.startapp.android.publish.adsCommon.StartAppAd
@@ -30,9 +30,9 @@ internal class StartAppInterstitial : Interstitial {
      * Constructor
      * @param context
      * @param adId
-     * @param onAdListener
+     * @param onAdvertisementListener
      */
-    internal constructor(context: Context, adId: String, onAdListener: OnAdListener) : super(context, adId, onAdListener) {
+    internal constructor(context: Context, adId: String, onAdvertisementListener: OnAdvertisementListener) : super(context, adId, onAdvertisementListener) {
         Tracer.debug(TAG, "Constructor : ")
         ad = StartAppAd(context)
     }

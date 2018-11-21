@@ -5,7 +5,7 @@ import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import com.lory.library.advertisement.BuildConfig
-import com.lory.library.advertisement.callback.OnAdListener
+import com.lory.library.advertisement.OnAdvertisementListener
 import com.lory.library.advertisement.utils.Tracer
 
 internal class AdMobInterstitial : Interstitial {
@@ -18,19 +18,19 @@ internal class AdMobInterstitial : Interstitial {
         override fun onAdClicked() {
             Tracer.debug(TAG, "onAdClicked: ")
             super.onAdClicked()
-            onAdListener.onAdClicked()
+            onAdvertisementListener.onAdvertisementClicked()
         }
 
         override fun onAdClosed() {
             Tracer.debug(TAG, "onAdClosed: ")
             super.onAdClosed()
-            onAdListener.onAdFinished()
+            onAdvertisementListener.onAdvertisementFinished()
         }
 
         override fun onAdFailedToLoad(index: Int) {
             Tracer.debug(TAG, "onAdFailedToLoad: ")
             super.onAdFailedToLoad(index)
-            onAdListener.onAdFailed()
+            onAdvertisementListener.onAdvertisementFailed()
         }
 
         override fun onAdImpression() {
@@ -41,13 +41,13 @@ internal class AdMobInterstitial : Interstitial {
         override fun onAdLeftApplication() {
             Tracer.debug(TAG, "onAdLeftApplication: ")
             super.onAdLeftApplication()
-            onAdListener.onAdFinished()
+            onAdvertisementListener.onAdvertisementFinished()
         }
 
         override fun onAdLoaded() {
             Tracer.debug(TAG, "onAdLoaded: ")
             super.onAdLoaded()
-            onAdListener.onAdReady()
+            onAdvertisementListener.onAdvertisementReady()
         }
 
         override fun onAdOpened() {
@@ -60,9 +60,9 @@ internal class AdMobInterstitial : Interstitial {
      * Constructor
      * @param context
      * @param adId
-     * @param onAdListener
+     * @param onAdvertisementListener
      */
-    internal constructor(context: Context, adId: String, onAdListener: OnAdListener) : super(context, adId, onAdListener) {
+    internal constructor(context: Context, adId: String, onAdvertisementListener: OnAdvertisementListener) : super(context, adId, onAdvertisementListener) {
         Tracer.debug(TAG, "Constructor : ")
         ad = InterstitialAd(context)
         ad.adUnitId = adId
@@ -71,14 +71,14 @@ internal class AdMobInterstitial : Interstitial {
 
     override fun fetchAd() {
         Tracer.debug(TAG, "fetchAd: ")
-        ad.loadAd(AdRequest.Builder().addTestDevice("7D7D0BB53322C0DB49F2F2CCE8550FA0").build())
+        ad.loadAd(AdRequest.Builder().build())
     }
 
     override fun shownAd() {
         Tracer.debug(TAG, "shownAd: ")
         if (isAdReady()) {
             ad.show()
-            onAdListener.onAdShown()
+            onAdvertisementListener.onAdvertisementShown()
         }
     }
 

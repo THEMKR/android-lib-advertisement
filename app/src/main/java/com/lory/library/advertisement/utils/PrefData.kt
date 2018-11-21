@@ -3,9 +3,34 @@ package com.lory.library.advertisement.utils
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.SharedPreferences.Editor
-import com.lory.library.advertisement.enums.AdProvider
 
 class PrefData {
+    /**
+     *Preference Keys
+     */
+    enum class Key {
+        LIB_INITIALIZED("LIB_INITIALIZED", false),
+
+        INTERSTITIAL_PROVIDER_APP_ID("INTERSTITIAL_PROVIDER_APP_ID", ""),
+        INTERSTITIAL_PROVIDER("INTERSTITIAL_PROVIDER", 0),
+        INTERSTITIAL_AD_ID("INTERSTITIAL_AD_ID", ""),
+
+        BANNER_PROVIDER_APP_ID("BANNER_PROVIDER_APP_ID", ""),
+        BANNER_PROVIDER("BANNER_PROVIDER", 0),
+        BANNER_AD_ID("BANNER_AD_ID", "");
+
+        val key: String
+        val defaultValue: Any
+
+        /**
+         * Constructor
+         */
+        constructor(key: String, defaultValue: Any) {
+            this.key = key
+            this.defaultValue = defaultValue
+        }
+    }
+
     companion object {
         private val STORE = "ADVERTISEMENT_STORE"
 
@@ -190,30 +215,6 @@ class PrefData {
          */
         private fun getShearedPreferenceEditor(context: Context): Editor {
             return getShearedPreference(context).edit()
-        }
-    }
-
-    /**
-     *Preference Keys
-     */
-    enum class Key {
-        APP_ID_INTERSTITIAL("APP_ID_INTERSTITIAL", ""),
-        APP_ID_BANNER("APP_ID_BANNER", ""),
-        LIB_INITIALIZED("LIB_INITIALIZED", false),
-        INTERSTITIAL_PROVIDER("INTERSTITIAL_PROVIDER", AdProvider.AD_MOB.providerIndex),
-        INTERSTITIAL_AD_ID("INTERSTITIAL_AD_ID", ""),
-        BANNER_PROVIDER("BANNER_PROVIDER", AdProvider.AD_MOB.providerIndex),
-        BANNER_AD_ID("BANNER_AD_ID", "");
-
-        val key: String
-        val defaultValue: Any
-
-        /**
-         * Constructor
-         */
-        constructor(key: String, defaultValue: Any) {
-            this.key = key
-            this.defaultValue = defaultValue
         }
     }
 }

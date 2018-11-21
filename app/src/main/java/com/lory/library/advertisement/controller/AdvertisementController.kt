@@ -1,6 +1,6 @@
-package com.lory.library.advertisement.callback
+package com.lory.library.advertisement.controller
 
-interface OnAdController {
+interface AdvertisementController {
     /**
      * Method to show the Add
      */

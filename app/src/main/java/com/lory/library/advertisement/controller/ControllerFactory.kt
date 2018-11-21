@@ -1,23 +1,22 @@
 package com.lory.library.advertisement.controller
 
 import android.app.Activity
-import com.lory.library.advertisement.callback.OnAdController
 import com.lory.library.advertisement.ui.BannerAdView
 
 class ControllerFactory {
     companion object {
         /**
-         * Method to get the BannerAdController
+         * Method to get the BannerAdvertisementController
          */
-        fun getBannerController(activity: Activity, bannerAdView: BannerAdView): OnAdController {
-            return BannerAdController(activity, bannerAdView)
+        fun getBannerController(activity: Activity, bannerAdView: BannerAdView): AdvertisementController {
+            return BannerAdvertisementController(activity, bannerAdView)
         }
 
         /**
-         * Method to get the InterstitialAdController
+         * Method to get the InterstitialAdvertisementController
          */
-        fun getInterstitialController(activity: Activity): OnAdController {
-            return InterstitialAdController.getInstance(activity)
+        fun getInterstitialController(activity: Activity): AdvertisementController {
+            return InterstitialAdvertisementController.getInstance(activity)
         }
     }
 }

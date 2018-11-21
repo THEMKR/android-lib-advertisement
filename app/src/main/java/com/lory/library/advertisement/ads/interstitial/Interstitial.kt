@@ -2,11 +2,11 @@ package com.lory.library.advertisement.ads.interstitial
 
 import android.content.Context
 import com.lory.library.advertisement.BuildConfig
-import com.lory.library.advertisement.callback.OnAdListener
-import com.lory.library.advertisement.callback.OnAdProvider
+import com.lory.library.advertisement.OnAdvertisementListener
+import com.lory.library.advertisement.ads.Advertisement
 import com.lory.library.advertisement.utils.Tracer
 
-internal abstract class Interstitial : OnAdProvider {
+internal abstract class Interstitial : Advertisement {
     companion object {
         private const val TAG: String = BuildConfig.BASE_TAG + ".Interstitial"
     }
@@ -16,19 +16,19 @@ internal abstract class Interstitial : OnAdProvider {
         get() {
             return (field ?: "").trim()
         }
-    protected val onAdListener: OnAdListener
+    protected val onAdvertisementListener: OnAdvertisementListener
 
     /**
      * Constructor
      * @param context
      * @param adId
-     * @param onAdListener
+     * @param onAdvertisementListener
      */
-    internal constructor(context: Context, adId: String, onAdListener: OnAdListener) {
+    internal constructor(context: Context, adId: String, onAdvertisementListener: OnAdvertisementListener) {
         Tracer.debug(TAG, "Constructor : ")
         this.context = context
         this.adId = adId
-        this.onAdListener = onAdListener
+        this.onAdvertisementListener = onAdvertisementListener
     }
 
 }

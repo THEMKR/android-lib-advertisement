@@ -2,11 +2,11 @@ package com.lory.library.advertisement.ads.banner
 
 import android.app.Activity
 import com.lory.library.advertisement.BuildConfig
-import com.lory.library.advertisement.callback.OnAdListener
-import com.lory.library.advertisement.callback.OnAdProvider
+import com.lory.library.advertisement.OnAdvertisementListener
+import com.lory.library.advertisement.ads.Advertisement
 import com.lory.library.advertisement.ui.BannerAdView
 
-internal abstract class Banner : OnAdProvider {
+internal abstract class Banner : Advertisement {
     companion object {
         private const val TAG: String = BuildConfig.BASE_TAG + ".Banner"
     }
@@ -16,20 +16,20 @@ internal abstract class Banner : OnAdProvider {
         get() {
             return (field ?: "").trim()
         }
-    protected val onAdListener: OnAdListener
+    protected val onAdvertisementListener: OnAdvertisementListener
     protected val bannerAdView: BannerAdView
 
     /**
      * Constructor
      * @param activity
      * @param adId
-     * @param onAdListener
+     * @param onAdvertisementListener
      * @param bannerAdView The AD container
      */
-    internal constructor(activity: Activity, adId: String, onAdListener: OnAdListener, bannerAdView: BannerAdView) {
+    internal constructor(activity: Activity, adId: String, onAdvertisementListener: OnAdvertisementListener, bannerAdView: BannerAdView) {
         this.activity = activity
         this.adId = adId
-        this.onAdListener = onAdListener
+        this.onAdvertisementListener = onAdvertisementListener
         this.bannerAdView = bannerAdView
     }
 }

@@ -2,7 +2,30 @@ package com.lory.library.advertisement.utils
 
 class Constants {
     companion object {
+        const val THREAD_SLEEP_TIME = 500L
+    }
 
+    interface FIREBASE_CONSTANT {
+        companion object {
+            const val APP_CONFIG = "app_config"
+            const val APP_VER = "app_ver"
+            const val LISI = "facebook_user_scores"
+            const val SCORE = "score"
+            const val NAME = "name"
+        }
+    }
+
+    interface ERROR {
+        companion object {
+            const val WRONG_CALLING_CODE = 0
+            const val WRONG_CALLING_MESSAGE = "Wrong calling"
+
+            const val NO_NETWORK_CODE = 1
+            const val NO_NETWORK_MESSAGE = "No Network"
+
+            const val NOTHING_RECEIVED_CODE = 2
+            const val NOTHING_RECEIVED_MESSAGE = "Nothing received from the server"
+        }
     }
 
     /**

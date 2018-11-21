@@ -4,7 +4,7 @@ import android.app.Activity
 import android.view.View
 import android.widget.RelativeLayout
 import com.lory.library.advertisement.BuildConfig
-import com.lory.library.advertisement.callback.OnAdListener
+import com.lory.library.advertisement.OnAdvertisementListener
 import com.lory.library.advertisement.ui.BannerAdView
 import com.lory.library.advertisement.utils.Tracer
 import com.startapp.android.publish.ads.banner.BannerListener
@@ -20,17 +20,18 @@ internal class StartAppBanner : Banner {
     private val startApListener = object : BannerListener {
         override fun onClick(view: View?) {
             Tracer.debug(TAG, "onClick: $view")
-            onAdListener.onAdClicked()
+            onAdvertisementListener.onAdvertisementClicked()
         }
 
         override fun onFailedToReceiveAd(view: View?) {
             Tracer.debug(TAG, "onFailedToReceiveAd: $view")
-            onAdListener.onAdFailed()
+            onAdvertisementListener.onAdvertisementFailed()
         }
 
         override fun onReceiveAd(view: View?) {
             Tracer.debug(TAG, "onReceiveAd: $view")
-            onAdListener.onAdReady()
+            bannerAdView.visibility = View.VISIBLE
+            onAdvertisementListener.onAdvertisementReady()
             isReady = true
         }
     }
@@ -39,13 +40,13 @@ internal class StartAppBanner : Banner {
      * Constructor
      * @param activity
      * @param adId
-     * @param onAdListener
+     * @param onAdvertisementListener
      * @param bannerAdView The AD container
      */
-    internal constructor(activity: Activity, adId: String, onAdListener: OnAdListener, bannerAdView: BannerAdView) : super(activity, adId, onAdListener, bannerAdView) {
+    internal constructor(activity: Activity, adId: String, onAdvertisementListener: OnAdvertisementListener, bannerAdView: BannerAdView) : super(activity, adId, onAdvertisementListener, bannerAdView) {
         Tracer.debug(TAG, "Constructor: ")
         adView = com.startapp.android.publish.ads.banner.Banner(activity, startApListener)
-        bannerAdView.visibility = View.VISIBLE
+        bannerAdView.visibility = View.GONE
         bannerAdView.removeAllViews()
         bannerAdView.addView(adView, RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT))
     }

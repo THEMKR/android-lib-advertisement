@@ -1,9 +1,9 @@
-package com.lory.library.advertisement.callback
+package com.lory.library.advertisement.ads
 
 /**
  * Callback used to listen the AD events
  */
-interface OnAdProvider {
+interface Advertisement {
 
     /**
      * Method called when lib is init the AD fetching process

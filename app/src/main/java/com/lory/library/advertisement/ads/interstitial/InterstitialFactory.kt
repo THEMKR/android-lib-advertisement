@@ -1,8 +1,8 @@
 package com.lory.library.advertisement.ads.interstitial
 
 import android.content.Context
-import com.lory.library.advertisement.callback.OnAdListener
-import com.lory.library.advertisement.callback.OnAdProvider
+import com.lory.library.advertisement.OnAdvertisementListener
+import com.lory.library.advertisement.ads.Advertisement
 import com.lory.library.advertisement.enums.AdProvider
 import com.lory.library.advertisement.utils.Constants
 
@@ -13,15 +13,15 @@ class InterstitialFactory {
          * @param adProvider
          * @param context
          * @param adId
-         * @param onAdListener
+         * @param onAdvertisementListener
          */
-        fun create(adProvider: AdProvider, context: Context, adId: String, onAdListener: OnAdListener): OnAdProvider {
+        fun create(adProvider: AdProvider, context: Context, adId: String, onAdvertisementListener: OnAdvertisementListener): Advertisement {
             when (adProvider) {
                 AdProvider.AD_MOB -> {
-                    return AdMobInterstitial(context, adId, onAdListener)
+                    return AdMobInterstitial(context, adId, onAdvertisementListener)
                 }
                 AdProvider.START_APP -> {
-                    return StartAppInterstitial(context, adId, onAdListener)
+                    return StartAppInterstitial(context, adId, onAdvertisementListener)
                 }
                 AdProvider.MEDIA_NET -> {
                 }

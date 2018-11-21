@@ -8,7 +8,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
 import com.lory.library.advertisement.BuildConfig
-import com.lory.library.advertisement.callback.OnAdListener
+import com.lory.library.advertisement.OnAdvertisementListener
 import com.lory.library.advertisement.ui.BannerAdView
 import com.lory.library.advertisement.utils.Tracer
 
@@ -23,19 +23,19 @@ internal class AdMobBanner : Banner {
         override fun onAdClicked() {
             Tracer.debug(TAG, "onAdClicked: ")
             super.onAdClicked()
-            onAdListener.onAdClicked()
+            onAdvertisementListener.onAdvertisementClicked()
         }
 
         override fun onAdClosed() {
             Tracer.debug(TAG, "onAdClosed: ")
             super.onAdClosed()
-            onAdListener.onAdFinished()
+            onAdvertisementListener.onAdvertisementFinished()
         }
 
         override fun onAdFailedToLoad(index: Int) {
             Tracer.debug(TAG, "onAdFailedToLoad: ")
             super.onAdFailedToLoad(index)
-            onAdListener.onAdFailed()
+            onAdvertisementListener.onAdvertisementFailed()
         }
 
         override fun onAdImpression() {
@@ -46,14 +46,15 @@ internal class AdMobBanner : Banner {
         override fun onAdLeftApplication() {
             Tracer.debug(TAG, "onAdLeftApplication: ")
             super.onAdLeftApplication()
-            onAdListener.onAdFinished()
+            onAdvertisementListener.onAdvertisementFinished()
         }
 
         override fun onAdLoaded() {
             Tracer.debug(TAG, "onAdLoaded: ")
             super.onAdLoaded()
+            bannerAdView.visibility = View.VISIBLE
             isReady = true
-            onAdListener.onAdReady()
+            onAdvertisementListener.onAdvertisementReady()
         }
 
         override fun onAdOpened() {
@@ -66,15 +67,15 @@ internal class AdMobBanner : Banner {
      * Constructor
      * @param activity
      * @param adId
-     * @param onAdListener
+     * @param onAdvertisementListener
      * @param bannerAdView The AD container
      */
-    internal constructor(activity: Activity, adId: String, onAdListener: OnAdListener, bannerAdView: BannerAdView) : super(activity, adId, onAdListener, bannerAdView) {
+    internal constructor(activity: Activity, adId: String, onAdvertisementListener: OnAdvertisementListener, bannerAdView: BannerAdView) : super(activity, adId, onAdvertisementListener, bannerAdView) {
         Tracer.debug(TAG, "Constructor: ")
         adView = AdView(activity)
         adView.adSize = AdSize.BANNER
         adView.adListener = adMobAdListener
-        bannerAdView.visibility = View.VISIBLE
+        bannerAdView.visibility = View.GONE
         bannerAdView.removeAllViews()
         bannerAdView.addView(adView, RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT))
         adView.layoutParams.width = bannerAdView.layoutParams.width
@@ -84,7 +85,7 @@ internal class AdMobBanner : Banner {
 
     override fun fetchAd() {
         Tracer.debug(TAG, "fetchAd: ")
-        adView.loadAd(AdRequest.Builder().addTestDevice("7D7D0BB53322C0DB49F2F2CCE8550FA0").build())
+        adView.loadAd(AdRequest.Builder().build())
     }
 
     override fun shownAd() {
