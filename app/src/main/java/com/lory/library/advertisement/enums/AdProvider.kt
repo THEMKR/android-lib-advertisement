@@ -8,8 +8,8 @@ import com.lory.library.advertisement.utils.Tracer
  */
 enum class AdProvider {
     AD_MOB(0),
-    MEDIA_NET(1),
-    START_APP(2),
+    START_APP(1),
+    MEDIA_NET(2),
     IN_MOBI(3),
     FLURRY(4),
     MILLENNIAL_MEDIA(5),

@@ -5,13 +5,15 @@ class Constants {
         const val THREAD_SLEEP_TIME = 500L
     }
 
-    interface FIREBASE_CONSTANT {
+    interface FIREBASE_KEYS {
         companion object {
-            const val APP_CONFIG = "app_config"
-            const val APP_VER = "app_ver"
-            const val LISI = "facebook_user_scores"
-            const val SCORE = "score"
-            const val NAME = "name"
+            const val APP_LIST = "appList"
+            const val AD_INFO_LIST = "adInfoList"
+            const val AD_ID = "adId"
+            const val AD_PROVIDER = "adProvider"
+            const val AD_TYPE = "adType"
+            const val APP_ID = "appId"
+            const val APP_VERSION = "version"
         }
     }
 

@@ -1,40 +1,20 @@
 package com.lory.library.advertisement.dto
 
+import com.google.firebase.database.IgnoreExtraProperties
+import com.google.firebase.database.PropertyName
+import com.lory.library.advertisement.utils.Constants
+
+@IgnoreExtraProperties
 class DTOAppConfig : DTOBaseNetworkResponse() {
 
     /**
      * Current Version of app on firebase
      */
-    var appVersion: Long = 0L
+    var version: Int = 0
 
     /**
-     * Method to get the Index of banner Ad Provider App Id
+     * Method to get the Info of the Ad
      */
-    var bannerAdProviderAppId: String = ""
-
-    /**
-     * Method to get the Index of banner Ad Provider
-     */
-    var bannerAdProvider: Long = 0L
-
-    /**
-     * Method to get the Index of banner Ad Id
-     */
-    var bannerAdId: String = ""
-
-    /**
-     * Method to get the Index of interstitial Ad Provider App Id
-     */
-    var interstitialAdProviderAppId: String = ""
-
-    /**
-     * Method to get the Index of interstitial Ad Provider
-     */
-    var interstitialAdProvider: Long = 0L
-
-    /**
-     * Method to get the Index of interstitial Ad Id
-     */
-    var interstitialAdId: String = ""
+    var adInfoList: ArrayList<DTOAdInfo> = ArrayList()
 
 }

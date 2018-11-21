@@ -1,13 +1,10 @@
 package com.lory.library.advertisement
 
 import android.app.Activity
-import android.content.Context
 import com.google.android.gms.ads.MobileAds
 import com.lory.library.advertisement.enums.AdProvider
-import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.PrefData
 import com.lory.library.advertisement.utils.Tracer
-import com.lory.library.advertisement.utils.Utils
 import com.startapp.android.publish.adsCommon.StartAppAd
 import com.startapp.android.publish.adsCommon.StartAppSDK
 
@@ -20,11 +17,6 @@ internal class SDKInitializer {
          */
         fun initialize(activity: Activity) {
             Tracer.debug(TAG, "initialize: ")
-            // INIT THE LIB DEFAULT VALUE
-            if (!PrefData.getBoolean(activity, PrefData.Key.LIB_INITIALIZED)) {
-                initDefaultValue(activity)
-                PrefData.setBoolean(activity, PrefData.Key.LIB_INITIALIZED, true)
-            }
             // INIT BANNER
             initBannerProvider(activity)
             // INIT INTERSTITIAL
@@ -86,22 +78,6 @@ internal class SDKInitializer {
                 AdProvider.CHARTBOOST -> {
                 }
             }
-        }
-
-        /**
-         * Method to initialized the Default Value of Libs
-         * @param context
-         */
-        private fun initDefaultValue(context: Context) {
-            Tracer.debug(TAG, "initDefaultValue: ")
-            // SET DEFAULT BANNER AD DATA
-            PrefData.setInt(context, PrefData.Key.BANNER_PROVIDER, Utils.getMetaDataInt(context, Constants.MetaDataKeys.DEFAULT_AD_PROVIDER_INDEX))
-            PrefData.setString(context, PrefData.Key.BANNER_PROVIDER_APP_ID, Utils.getMetaDataString(context, Constants.MetaDataKeys.DEFAULT_AD_PROVIDER_APP_ID))
-            PrefData.setString(context, PrefData.Key.BANNER_AD_ID, Utils.getMetaDataString(context, Constants.MetaDataKeys.DEFAULT_AD_PROVIDER_BANNER_ID))
-            // SET DEFAULT INTERSTITIAL AD DATA
-            PrefData.setInt(context, PrefData.Key.INTERSTITIAL_PROVIDER, Utils.getMetaDataInt(context, Constants.MetaDataKeys.DEFAULT_AD_PROVIDER_INDEX))
-            PrefData.setString(context, PrefData.Key.INTERSTITIAL_PROVIDER_APP_ID, Utils.getMetaDataString(context, Constants.MetaDataKeys.DEFAULT_AD_PROVIDER_APP_ID))
-            PrefData.setString(context, PrefData.Key.INTERSTITIAL_AD_ID, Utils.getMetaDataString(context, Constants.MetaDataKeys.DEFAULT_AD_PROVIDER_INTERSTITIAL_ID))
         }
     }
 }

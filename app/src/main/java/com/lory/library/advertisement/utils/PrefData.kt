@@ -1,5 +1,6 @@
 package com.lory.library.advertisement.utils
 
+import android.app.AlarmManager
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.SharedPreferences.Editor
@@ -10,6 +11,8 @@ class PrefData {
      */
     enum class Key {
         LIB_INITIALIZED("LIB_INITIALIZED", false),
+        SYNC_TIME("SYNC_TIME", 0L),
+        SYNC_INTERVAL("SYNC_INTERVAL", AlarmManager.INTERVAL_DAY * 1L),
 
         INTERSTITIAL_PROVIDER_APP_ID("INTERSTITIAL_PROVIDER_APP_ID", ""),
         INTERSTITIAL_PROVIDER("INTERSTITIAL_PROVIDER", 0),
