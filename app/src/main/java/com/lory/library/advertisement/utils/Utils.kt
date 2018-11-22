@@ -22,10 +22,7 @@ class Utils {
                 return ""
             }
             try {
-                val applicationInfo: ApplicationInfo? = context.packageManager.getApplicationInfo(context.packageName, PackageManager.GET_META_DATA)
-                if (applicationInfo == null) {
-                    return ""
-                }
+                val applicationInfo: ApplicationInfo = context.packageManager.getApplicationInfo(context.packageName, PackageManager.GET_META_DATA) ?: return ""
                 return (applicationInfo?.metaData.get(key) ?: "").toString()
             } catch (e: PackageManager.NameNotFoundException) {
                 e.printStackTrace()
@@ -45,6 +42,14 @@ class Utils {
             } catch (e: Exception) {
                 return 0
             }
+        }
+
+        /**
+         * Method to get the Firebase key of the Application
+         */
+        fun getAppFirebaseKey(context: Context): String {
+            Tracer.debug(TAG, "getAppFirebaseKey: ")
+            return context.packageName.replace(".", "_", true)
         }
     }
 }

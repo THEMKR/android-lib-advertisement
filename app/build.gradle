@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
-apply plugin: 'org.greenrobot.greendao'
 
 def STRING = "String"
 def BASE_TAG = "BASE_TAG"
@@ -45,7 +44,6 @@ dependencies {
     implementation 'com.google.android.gms:play-services-ads:17.1.0'
     implementation 'com.google.firebase:firebase-core:16.0.4'
     implementation 'com.startapp:inapp-sdk:3.10.1'
-    implementation 'org.greenrobot:greendao:3.2.2'
     implementation 'com.github.MKR-WORLD:MKR-ANDROID-LIB-NETWORK:2.0'
     implementation 'com.github.MKR-WORLD:MKR-ANDROID-LIB-ASYNCTASK:1.3'
 }

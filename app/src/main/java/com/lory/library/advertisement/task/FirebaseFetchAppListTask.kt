@@ -1,17 +1,21 @@
 package com.lory.library.advertisement.task
 
 import android.content.Context
-import com.google.firebase.database.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.lory.library.advertisement.BuildConfig
 import com.lory.library.advertisement.dto.DTOAppConfig
 import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.Tracer
+import com.lory.library.advertisement.utils.Utils
 import com.mkrworld.androidlibasynctask.AsyncCallBack
 
-internal class FirebaseFetchConfigTask : BaseFirebaseTask<DTOAppConfig, Any> {
+internal class FirebaseFetchAppListTask : BaseFirebaseTask<DTOAppConfig, Any> {
 
     companion object {
-        private const val TAG: String = BuildConfig.BASE_TAG + ".FirebaseFetchConfigTask"
+        private const val TAG: String = BuildConfig.BASE_TAG + ".FirebaseFetchAppListTask"
     }
 
     /**
@@ -25,12 +29,14 @@ internal class FirebaseFetchConfigTask : BaseFirebaseTask<DTOAppConfig, Any> {
 
     override fun executeFirebase(): FirebaseData {
         Tracer.debug(TAG, "executeFirebase: ")
+        return fetchDataAppConfig(Utils.getAppFirebaseKey(getContext()))
+    }
+
+    private fun fetchDataAppConfig(appKey: String): FirebaseData {
+        Tracer.debug(TAG, "executeFirebase: ")
         var firebaseData: Any? = null
         lockTask()
-        val appKey = getContext().packageName.replace(".", "_", true)
-        var reference = FirebaseDatabase.getInstance("https://android-lib-ad.firebaseio.com/").reference
-        reference = reference.child(Constants.FIREBASE_KEYS.APP_LIST)
-        reference = reference.child("$appKey")
+        var reference = FirebaseDatabase.getInstance("https://android-lib-ad.firebaseio.com/").getReference(Constants.FIREBASE_KEYS.APP_LIST).child(appKey)
         val listener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 firebaseData = dataSnapshot
@@ -52,7 +58,8 @@ internal class FirebaseFetchConfigTask : BaseFirebaseTask<DTOAppConfig, Any> {
 
     override fun parseFirebaseDataSnapShot(dataSnapshot: DataSnapshot): DTOAppConfig {
         Tracer.debug(TAG, "parseFirebaseDataSnapShot: ")
-        val dto = dataSnapshot.getValue(DTOAppConfig::class.java) ?: return getNoResponseReceivedError()
+        val dto = dataSnapshot.getValue(DTOAppList::class.java)
+                ?: return getNoResponseReceivedError()
         dto.isSuccess = true
         return dto
     }
