@@ -71,7 +71,7 @@ internal class AdMobInterstitial : Interstitial {
 
     override fun fetchAd() {
         Tracer.debug(TAG, "fetchAd: ")
-        ad.loadAd(AdRequest.Builder().build())
+        ad.loadAd(AdRequest.Builder().addTestDevice("7D7D0BB53322C0DB49F2F2CCE8550FA0") .build())
     }
 
     override fun shownAd() {

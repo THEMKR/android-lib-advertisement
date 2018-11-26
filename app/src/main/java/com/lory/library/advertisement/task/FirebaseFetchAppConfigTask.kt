@@ -5,17 +5,19 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.gson.Gson
 import com.lory.library.advertisement.BuildConfig
 import com.lory.library.advertisement.dto.DTOAppConfig
 import com.lory.library.advertisement.utils.Constants
+import com.lory.library.advertisement.utils.PrefData
 import com.lory.library.advertisement.utils.Tracer
 import com.lory.library.advertisement.utils.Utils
 import com.mkrworld.androidlibasynctask.AsyncCallBack
 
-internal class FirebaseFetchAppListTask : BaseFirebaseTask<DTOAppConfig, Any> {
+internal class FirebaseFetchAppConfigTask : BaseFirebaseTask<DTOAppConfig, Any> {
 
     companion object {
-        private const val TAG: String = BuildConfig.BASE_TAG + ".FirebaseFetchAppListTask"
+        private const val TAG: String = BuildConfig.BASE_TAG + ".FirebaseFetchAppConfigTask"
     }
 
     /**
@@ -29,14 +31,21 @@ internal class FirebaseFetchAppListTask : BaseFirebaseTask<DTOAppConfig, Any> {
 
     override fun executeFirebase(): FirebaseData {
         Tracer.debug(TAG, "executeFirebase: ")
-        return fetchDataAppConfig(Utils.getAppFirebaseKey(getContext()))
+        var firebaseData = fetchDataAppConfig(Utils.getAppFirebaseKey(getContext()))
+        if (firebaseData.data != null && firebaseData.data is DataSnapshot) {
+            val data: DataSnapshot = (firebaseData.data as DataSnapshot)!!
+            if (data.value == null) {
+                firebaseData = fetchDataAppConfig(Constants.FIREBASE_KEYS.DEFAULT_CONFIG)
+            }
+        }
+        return firebaseData
     }
 
     private fun fetchDataAppConfig(appKey: String): FirebaseData {
         Tracer.debug(TAG, "executeFirebase: ")
         var firebaseData: Any? = null
         lockTask()
-        var reference = FirebaseDatabase.getInstance("https://android-lib-ad.firebaseio.com/").getReference(Constants.FIREBASE_KEYS.APP_LIST).child(appKey)
+        var reference = FirebaseDatabase.getInstance(PrefData.getString(getContext(), PrefData.Key.FIREBASE_DATABASE_URL)).getReference(Constants.FIREBASE_KEYS.APP_LIST).child(appKey)
         val listener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 firebaseData = dataSnapshot
@@ -58,17 +67,21 @@ internal class FirebaseFetchAppListTask : BaseFirebaseTask<DTOAppConfig, Any> {
 
     override fun parseFirebaseDataSnapShot(dataSnapshot: DataSnapshot): DTOAppConfig {
         Tracer.debug(TAG, "parseFirebaseDataSnapShot: ")
-        val dto = dataSnapshot.getValue(DTOAppList::class.java)
-                ?: return getNoResponseReceivedError()
-        dto.isSuccess = true
-        return dto
+        val gson = Gson()
+        val json = gson.toJson(dataSnapshot.value)
+        val dto = gson.fromJson<DTOAppConfig>(json, DTOAppConfig::class.java)
+        if (dto != null) {
+            dto.isSuccess = true
+            return dto
+        }
+        return getNoResponseReceivedError()
     }
 
     override fun parseFirebaseDataSnapShot(dataSnapshot: ArrayList<Any>): DTOAppConfig {
         val dto = DTOAppConfig()
         dto.isSuccess = false
         dto.errorMessage = Constants.ERROR.WRONG_CALLING_MESSAGE
-        dto.errorCode = Constants.ERROR.NO_NETWORK_CODE
+        dto.errorCode = Constants.ERROR.WRONG_CALLING_CODE
         return dto
     }
 
@@ -104,7 +117,7 @@ internal class FirebaseFetchAppListTask : BaseFirebaseTask<DTOAppConfig, Any> {
         val dto = DTOAppConfig()
         dto.isSuccess = false
         dto.errorMessage = Constants.ERROR.WRONG_CALLING_MESSAGE
-        dto.errorCode = Constants.ERROR.NO_NETWORK_CODE
+        dto.errorCode = Constants.ERROR.WRONG_CALLING_CODE
         return dto
     }
 }

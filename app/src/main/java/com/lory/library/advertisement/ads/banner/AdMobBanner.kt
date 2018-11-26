@@ -85,7 +85,7 @@ internal class AdMobBanner : Banner {
 
     override fun fetchAd() {
         Tracer.debug(TAG, "fetchAd: ")
-        adView.loadAd(AdRequest.Builder().build())
+        adView.loadAd(AdRequest.Builder().addTestDevice("7D7D0BB53322C0DB49F2F2CCE8550FA0").build())
     }
 
     override fun shownAd() {

@@ -10,10 +10,10 @@ enum class AdType {
     BANNER(0),
     INTERSTITIAL(1);
 
-    val providerIndex: Int
+    val adTypeIndex: Int
 
     constructor(providerIndex: Int) {
-        this.providerIndex = providerIndex
+        this.adTypeIndex = providerIndex
     }
 
     companion object {
@@ -27,7 +27,7 @@ enum class AdType {
             Tracer.debug(TAG, "getAdProvider: ")
             val arrayOfAdType: Array<AdType> = AdType.values()
             for (adType in arrayOfAdType) {
-                if (adType.providerIndex == providerIndex) {
+                if (adType.adTypeIndex == providerIndex) {
                     return adType
                 }
             }

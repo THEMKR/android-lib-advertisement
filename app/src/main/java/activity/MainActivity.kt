@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity(), AppPermissionController.OnAppPermissio
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        MobileAds.initialize(this, Utils.getMetaDataString(this, Constants.MetaDataKeys.DEFAULT_AD_PROVIDER_APP_ID))
         var permissions: Array<String> = arrayOf(
                 Manifest.permission.INTERNET,
                 Manifest.permission.ACCESS_NETWORK_STATE,

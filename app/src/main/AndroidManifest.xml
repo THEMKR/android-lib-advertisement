@@ -33,20 +33,8 @@
 
         <!-- DEFAULT AD DETAIL START -->
         <meta-data
-            android:name="default_ad_provider_index"
-            android:value="0" />
-
-        <meta-data
-            android:name="default_ad_provider_app_id"
-            android:value="ca-app-pub-8713916254370167~1788364905" />
-
-        <meta-data
-            android:name="default_ad_provider_banner_id"
-            android:value="ca-app-pub-8713916254370167/9462717089" />
-
-        <meta-data
-            android:name="default_ad_provider_interstitial_id"
-            android:value="ca-app-pub-8713916254370167/7383348654" />
+            android:name="default_ad_config"
+            android:value="@string/default_config" />
         <!-- DEFAULT AD DETAIL END -->
 
         <!-- AD-MOB-APP-ID -->

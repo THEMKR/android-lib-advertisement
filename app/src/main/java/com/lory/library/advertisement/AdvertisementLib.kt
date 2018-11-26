@@ -36,14 +36,15 @@ class AdvertisementLib {
             if (!isHaveAllRequiredPermission(activity)) {
                 throw Exception(Constants.ExceptionMessage.DOES_NOT_HAVE_REQUIRED_PERMISSION)
             }
-            // INIT THE LIB DEFAULT VALUE
+            val syncController = SyncController(activity)
+            // INIT THE PROVIDER DEFAULT VALUE
             if (!PrefData.getBoolean(activity, PrefData.Key.LIB_INITIALIZED)) {
-                initDefaultValue(activity)
+                syncController.syncDefaultValue()
                 PrefData.setBoolean(activity, PrefData.Key.LIB_INITIALIZED, true)
             }
             SDKInitializer.initialize(activity)
             initInterstitialAd(activity)
-            SyncController(activity).syncServer()
+            syncController.syncServer()
         }
 
         /**
@@ -105,22 +106,6 @@ class AdvertisementLib {
                 }
             }
             return true
-        }
-
-        /**
-         * Method to initialized the Default Value of Libs
-         * @param context
-         */
-        private fun initDefaultValue(context: Context) {
-            Tracer.debug(TAG, "initDefaultValue: ")
-            // SET DEFAULT BANNER AD DATA
-            PrefData.setInt(context, PrefData.Key.BANNER_PROVIDER, Utils.getMetaDataInt(context, Constants.MetaDataKeys.DEFAULT_AD_PROVIDER_INDEX))
-            PrefData.setString(context, PrefData.Key.BANNER_PROVIDER_APP_ID, Utils.getMetaDataString(context, Constants.MetaDataKeys.DEFAULT_AD_PROVIDER_APP_ID))
-            PrefData.setString(context, PrefData.Key.BANNER_AD_ID, Utils.getMetaDataString(context, Constants.MetaDataKeys.DEFAULT_AD_PROVIDER_BANNER_ID))
-            // SET DEFAULT INTERSTITIAL AD DATA
-            PrefData.setInt(context, PrefData.Key.INTERSTITIAL_PROVIDER, Utils.getMetaDataInt(context, Constants.MetaDataKeys.DEFAULT_AD_PROVIDER_INDEX))
-            PrefData.setString(context, PrefData.Key.INTERSTITIAL_PROVIDER_APP_ID, Utils.getMetaDataString(context, Constants.MetaDataKeys.DEFAULT_AD_PROVIDER_APP_ID))
-            PrefData.setString(context, PrefData.Key.INTERSTITIAL_AD_ID, Utils.getMetaDataString(context, Constants.MetaDataKeys.DEFAULT_AD_PROVIDER_INTERSTITIAL_ID))
         }
     }
 }

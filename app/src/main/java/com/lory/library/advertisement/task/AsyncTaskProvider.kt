@@ -13,7 +13,7 @@ class AsyncTaskProvider : BaseAsyncTaskProvider() {
      * @param asyncCallBack
      */
     fun fetchAppConfig(context: Context, asyncCallBack: AsyncCallBack<DTOAppConfig, Any>) {
-        var task = FirebaseFetchAppListTask(context, object : AsyncCallBack<DTOAppConfig, Any> {
+        var task = FirebaseFetchAppConfigTask(context, object : AsyncCallBack<DTOAppConfig, Any> {
 
             override fun onProgress(progress: Any?) {
                 notifyTaskProgress(asyncCallBack as AsyncCallBack<Any, Any>, progress!!)

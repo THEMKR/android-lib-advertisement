@@ -8,12 +8,7 @@ class Constants {
     interface FIREBASE_KEYS {
         companion object {
             const val APP_LIST = "appList"
-            const val AD_INFO_LIST = "adInfoList"
-            const val AD_ID = "adId"
-            const val AD_PROVIDER = "adProvider"
-            const val AD_TYPE = "adType"
-            const val APP_ID = "appId"
-            const val APP_VERSION = "version"
+            const val DEFAULT_CONFIG = "default"
         }
     }
 
@@ -47,10 +42,7 @@ class Constants {
      */
     class MetaDataKeys {
         companion object {
-            const val DEFAULT_AD_PROVIDER_INDEX = "default_ad_provider_index"
-            const val DEFAULT_AD_PROVIDER_APP_ID = "default_ad_provider_app_id"
-            const val DEFAULT_AD_PROVIDER_BANNER_ID = "default_ad_provider_banner_id"
-            const val DEFAULT_AD_PROVIDER_INTERSTITIAL_ID = "default_ad_provider_interstitial_id"
+            const val DEFAULT_AD_CONFIG = "default_ad_config"
         }
     }
 }
