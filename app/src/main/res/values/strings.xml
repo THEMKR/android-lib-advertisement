@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">ADVERTISEMENT</string>
-    <string name="default_config">{"version":1,"adInfoList":[{"adId":"ca-app-pub-8713916254370167/9462717089","appId":"ca-app-pub-8713916254370167~1788364905","adType":0,"adProvider":0},{"adId":"ca-app-pub-8713916254370167/7383348654","appId":"ca-app-pub-8713916254370167~1788364905","adType":1,"adProvider":0}]}</string>
+    <string name="default_config">{\"version\":1,\"adInfoList\":[{\"adId\":\"ca-app-pub-8713916254370167/9462717089\",\"appId\":\"ca-app-pub-8713916254370167~1788364905\",\"adType\":0,\"adProvider\":0},{\"adId\":\"ca-app-pub-8713916254370167/7383348654\",\"appId\":\"ca-app-pub-8713916254370167~1788364905\",\"adType\":1,\"adProvider\":0}]}</string>
 </resources>

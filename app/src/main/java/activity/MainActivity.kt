@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity(), AppPermissionController.OnAppPermissio
         button_interstitial.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
                 Tracer.debug(TAG, "INTERSTITIAL onClick: ")
-                AdvertisementLib.initialize(this@MainActivity)
+                AdvertisementLib.showInterstitialAd(this@MainActivity)
             }
         })
     }
@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity(), AppPermissionController.OnAppPermissio
 
     override fun onAppPermissionControllerListenerHaveAllRequiredPermission() {
         Tracer.debug(TAG, "onAppPermissionControllerListenerHaveAllRequiredPermission: ")
-        //AdvertisementLib.initialize(this)
-        //AdvertisementLib.showBannerAd(this, banner_ad_view)
+        AdvertisementLib.initialize(this)
+        AdvertisementLib.showBannerAd(this, banner_ad_view)
     }
 }
