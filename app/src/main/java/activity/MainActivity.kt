@@ -26,14 +26,16 @@ class MainActivity : AppCompatActivity(), AppPermissionController.OnAppPermissio
         setContentView(R.layout.activity_main)
         var permissions: Array<String> = arrayOf(
                 Manifest.permission.INTERNET,
-                Manifest.permission.ACCESS_NETWORK_STATE,
                 Manifest.permission.ACCESS_COARSE_LOCATION,
-                Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.RECEIVE_BOOT_COMPLETED,
                 Manifest.permission.BLUETOOTH,
-                Manifest.permission.INTERNET,
                 Manifest.permission.ACCESS_WIFI_STATE,
-                Manifest.permission.ACCESS_NETWORK_STATE
+                Manifest.permission.ACCESS_NETWORK_STATE,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.CHANGE_WIFI_STATE,
+                Manifest.permission.READ_CALENDAR,
+                Manifest.permission.WRITE_CALENDAR,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
         )
         appPermissionController = AppPermissionController(this, permissions, this)
         appPermissionController?.initializedAppPermission()

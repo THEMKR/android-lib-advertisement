@@ -28,6 +28,7 @@ class BannerFactory {
                 AdProvider.MEDIA_NET -> {
                 }
                 AdProvider.IN_MOBI -> {
+                    return InMobiBanner(activity, adId, onAdvertisementListener, bannerAdView)
                 }
                 AdProvider.FLURRY -> {
                 }

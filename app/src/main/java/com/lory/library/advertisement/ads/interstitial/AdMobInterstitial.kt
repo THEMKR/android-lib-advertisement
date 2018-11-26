@@ -6,7 +6,9 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
 import com.lory.library.advertisement.BuildConfig
 import com.lory.library.advertisement.OnAdvertisementListener
+import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.Tracer
+import com.lory.library.advertisement.utils.Utils
 
 internal class AdMobInterstitial : Interstitial {
     companion object {
@@ -71,7 +73,12 @@ internal class AdMobInterstitial : Interstitial {
 
     override fun fetchAd() {
         Tracer.debug(TAG, "fetchAd: ")
-        ad.loadAd(AdRequest.Builder().addTestDevice("7D7D0BB53322C0DB49F2F2CCE8550FA0") .build())
+        val testId = Utils.getMetaDataString(context, Constants.MetaDataKeys.ADMOB_TEST_ID).trim()
+        if (testId.isNotEmpty()) {
+            ad.loadAd(AdRequest.Builder().addTestDevice(testId).build())
+        } else {
+            ad.loadAd(AdRequest.Builder().build())
+        }
     }
 
     override fun shownAd() {

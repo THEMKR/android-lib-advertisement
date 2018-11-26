@@ -74,7 +74,7 @@ class SyncController {
             return
         }
         PrefData.setLong(applicationContext, PrefData.Key.SYNC_TIME, System.currentTimeMillis())
-        asyncTaskProvider.fetchAppConfig(applicationContext, asyncCallBackAppConfig)
+        //asyncTaskProvider.fetchAppConfig(applicationContext, asyncCallBackAppConfig)
     }
 
     /**

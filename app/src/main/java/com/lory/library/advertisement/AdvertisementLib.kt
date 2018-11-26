@@ -19,12 +19,16 @@ class AdvertisementLib {
         private const val TAG: String = BuildConfig.BASE_TAG + ".AdvertisementLib"
         private var permissions: Array<String> = arrayOf(
                 Manifest.permission.INTERNET,
-                Manifest.permission.ACCESS_NETWORK_STATE,
                 Manifest.permission.ACCESS_COARSE_LOCATION,
-                Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.RECEIVE_BOOT_COMPLETED,
                 Manifest.permission.BLUETOOTH,
-                Manifest.permission.ACCESS_WIFI_STATE
+                Manifest.permission.ACCESS_WIFI_STATE,
+                Manifest.permission.ACCESS_NETWORK_STATE,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.CHANGE_WIFI_STATE,
+                Manifest.permission.READ_CALENDAR,
+                Manifest.permission.WRITE_CALENDAR,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE
         )
 
         /**

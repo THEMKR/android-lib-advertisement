@@ -10,7 +10,9 @@ import com.google.android.gms.ads.AdView
 import com.lory.library.advertisement.BuildConfig
 import com.lory.library.advertisement.OnAdvertisementListener
 import com.lory.library.advertisement.ui.BannerAdView
+import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.Tracer
+import com.lory.library.advertisement.utils.Utils
 
 internal class AdMobBanner : Banner {
     companion object {
@@ -85,7 +87,12 @@ internal class AdMobBanner : Banner {
 
     override fun fetchAd() {
         Tracer.debug(TAG, "fetchAd: ")
-        adView.loadAd(AdRequest.Builder().addTestDevice("7D7D0BB53322C0DB49F2F2CCE8550FA0").build())
+        val testId = Utils.getMetaDataString(activity, Constants.MetaDataKeys.ADMOB_TEST_ID).trim()
+        if (testId.isNotEmpty()) {
+            adView.loadAd(AdRequest.Builder().addTestDevice(testId).build())
+        } else {
+            adView.loadAd(AdRequest.Builder().build())
+        }
     }
 
     override fun shownAd() {

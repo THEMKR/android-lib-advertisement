@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">ADVERTISEMENT</string>
-    <string name="default_config">{\"version\":1,\"adInfoList\":[{\"adId\":\"ca-app-pub-8713916254370167/9462717089\",\"appId\":\"ca-app-pub-8713916254370167~1788364905\",\"adType\":0,\"adProvider\":0},{\"adId\":\"ca-app-pub-8713916254370167/7383348654\",\"appId\":\"ca-app-pub-8713916254370167~1788364905\",\"adType\":1,\"adProvider\":0}]}</string>
+    <!-- ADMOB-->
+    <!--<string name="default_config">{\"version\":1,\"adInfoList\":[{\"adId\":\"ca-app-pub-8713916254370167/9462717089\",\"appId\":\"ca-app-pub-8713916254370167~1788364905\",\"adType\":0,\"adProvider\":0},{\"adId\":\"ca-app-pub-8713916254370167/7383348654\",\"appId\":\"ca-app-pub-8713916254370167~1788364905\",\"adType\":1,\"adProvider\":0}]}</string> -->
+
+    <!-- INMOB-->
+    <string name="default_config">{\"version\":1,\"adInfoList\":[{\"adId\":\"1541296688255\",\"appId\":\"1545322977099 \",\"adType\":0,\"adProvider\":2},{\"adId\":\"1542025406289\",\"appId\":\"1545322977099 \",\"adType\":1,\"adProvider\":2}]}</string>
 </resources>

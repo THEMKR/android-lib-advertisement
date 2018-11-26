@@ -8,7 +8,6 @@ class Constants {
     interface FIREBASE_KEYS {
         companion object {
             const val APP_LIST = "appList"
-            const val DEFAULT_CONFIG = "default"
         }
     }
 
@@ -43,6 +42,7 @@ class Constants {
     class MetaDataKeys {
         companion object {
             const val DEFAULT_AD_CONFIG = "default_ad_config"
+            const val ADMOB_TEST_ID = "admob_test_device_id"
         }
     }
 }

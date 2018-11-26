@@ -2,11 +2,14 @@ package com.lory.library.advertisement
 
 import android.app.Activity
 import com.google.android.gms.ads.MobileAds
+import com.inmobi.sdk.InMobiSdk
 import com.lory.library.advertisement.enums.AdProvider
 import com.lory.library.advertisement.utils.PrefData
 import com.lory.library.advertisement.utils.Tracer
 import com.startapp.android.publish.adsCommon.StartAppAd
 import com.startapp.android.publish.adsCommon.StartAppSDK
+import org.json.JSONObject
+import java.lang.Exception
 
 internal class SDKInitializer {
     companion object {
@@ -66,6 +69,14 @@ internal class SDKInitializer {
                 AdProvider.MEDIA_NET -> {
                 }
                 AdProvider.IN_MOBI -> {
+                    val consentObject = JSONObject()
+                    try {
+                        consentObject.put(InMobiSdk.IM_GDPR_CONSENT_AVAILABLE, false);
+                        consentObject.put("gdpr", "0");
+                    } catch (e: Exception) {
+                        Tracer.error(TAG, "initProvider: " + e.message)
+                    }
+                    InMobiSdk.init(activity, appId, consentObject)
                 }
                 AdProvider.FLURRY -> {
                 }

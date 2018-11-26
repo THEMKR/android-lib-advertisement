@@ -31,21 +31,9 @@ internal class FirebaseFetchAppConfigTask : BaseFirebaseTask<DTOAppConfig, Any> 
 
     override fun executeFirebase(): FirebaseData {
         Tracer.debug(TAG, "executeFirebase: ")
-        var firebaseData = fetchDataAppConfig(Utils.getAppFirebaseKey(getContext()))
-        if (firebaseData.data != null && firebaseData.data is DataSnapshot) {
-            val data: DataSnapshot = (firebaseData.data as DataSnapshot)!!
-            if (data.value == null) {
-                firebaseData = fetchDataAppConfig(Constants.FIREBASE_KEYS.DEFAULT_CONFIG)
-            }
-        }
-        return firebaseData
-    }
-
-    private fun fetchDataAppConfig(appKey: String): FirebaseData {
-        Tracer.debug(TAG, "executeFirebase: ")
         var firebaseData: Any? = null
         lockTask()
-        var reference = FirebaseDatabase.getInstance(PrefData.getString(getContext(), PrefData.Key.FIREBASE_DATABASE_URL)).getReference(Constants.FIREBASE_KEYS.APP_LIST).child(appKey)
+        var reference = FirebaseDatabase.getInstance(PrefData.getString(getContext(), PrefData.Key.FIREBASE_DATABASE_URL)).getReference(Constants.FIREBASE_KEYS.APP_LIST).child(Utils.getAppFirebaseKey(getContext()))
         val listener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 firebaseData = dataSnapshot
@@ -67,11 +55,17 @@ internal class FirebaseFetchAppConfigTask : BaseFirebaseTask<DTOAppConfig, Any> 
 
     override fun parseFirebaseDataSnapShot(dataSnapshot: DataSnapshot): DTOAppConfig {
         Tracer.debug(TAG, "parseFirebaseDataSnapShot: ")
-        val gson = Gson()
-        val json = gson.toJson(dataSnapshot.value)
-        val dto = gson.fromJson<DTOAppConfig>(json, DTOAppConfig::class.java)
-        if (dto != null) {
-            dto.isSuccess = true
+        try {
+            val gson = Gson()
+            val json = gson.toJson(dataSnapshot.value)
+            val dto = gson.fromJson<DTOAppConfig>(json, DTOAppConfig::class.java)
+            if (dto != null) {
+                dto.isSuccess = true
+                return dto
+            }
+        } catch (e: Exception) {
+            val dto = getNoResponseReceivedError()
+            dto.errorMessage = e.message ?: "Exception"
             return dto
         }
         return getNoResponseReceivedError()

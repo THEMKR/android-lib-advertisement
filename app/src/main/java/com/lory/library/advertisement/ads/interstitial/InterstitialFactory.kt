@@ -26,6 +26,7 @@ class InterstitialFactory {
                 AdProvider.MEDIA_NET -> {
                 }
                 AdProvider.IN_MOBI -> {
+                    //return InMobiInterstitial(context, adId, onAdvertisementListener)
                 }
                 AdProvider.FLURRY -> {
                 }
