@@ -71,8 +71,8 @@ internal class SDKInitializer {
                 AdProvider.IN_MOBI -> {
                     val consentObject = JSONObject()
                     try {
-                        consentObject.put(InMobiSdk.IM_GDPR_CONSENT_AVAILABLE, false);
-                        consentObject.put("gdpr", "0");
+                        consentObject.put(InMobiSdk.IM_GDPR_CONSENT_AVAILABLE, false)
+                        consentObject.put("gdpr", "0")
                     } catch (e: Exception) {
                         Tracer.error(TAG, "initProvider: " + e.message)
                     }
