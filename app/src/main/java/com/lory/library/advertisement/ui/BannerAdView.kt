@@ -35,6 +35,22 @@ class BannerAdView : RelativeLayout {
         super.onMeasure(newWidthMeasureSpec, newHeightMeasureSpec)
     }
 
+
+    /**
+     * Method to get the Width of the Banner
+     */
+    fun getBannerWidth(): Int {
+        return context.resources.getDimensionPixelSize(R.dimen.banner_width)
+    }
+
+    /**
+     * Method to get the Height of the Banner
+     * @param context
+     */
+    fun getBannerHeight(): Int {
+        return context.resources.getDimensionPixelSize(R.dimen.banner_height)
+    }
+
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
         onBannerAdViewListener?.onBannerAdViewSizeChanged(w, h)
@@ -45,20 +61,6 @@ class BannerAdView : RelativeLayout {
      */
     private fun init() {
         setBackgroundColor(Color.BLACK)
-    }
-
-    /**
-     * Method to get the Width of the Banner
-     */
-    protected fun getBannerWidth(): Int {
-        return context.resources.getDimensionPixelSize(R.dimen.banner_width)
-    }
-
-    /**
-     * Method to get the Height of the Banner
-     */
-    protected fun getBannerHeight(): Int {
-        return context.resources.getDimensionPixelSize(R.dimen.banner_height)
     }
 
     /**

@@ -19,41 +19,49 @@ internal class InMobiInterstitial : Interstitial {
     private val ad: InMobiInterstitial
     private val inMobiListener = object : InterstitialAdEventListener() {
         override fun onAdClicked(p0: InMobiInterstitial?, p1: MutableMap<Any, Any>?) {
+            Tracer.debug(TAG, "onAdClicked: ")
             super.onAdClicked(p0, p1)
             onAdvertisementListener.onAdvertisementClicked()
         }
 
         override fun onAdDismissed(p0: InMobiInterstitial?) {
+            Tracer.debug(TAG, "onAdDismissed: ")
             super.onAdDismissed(p0)
             onAdvertisementListener.onAdvertisementFinished()
         }
 
         override fun onAdLoadFailed(p0: InMobiInterstitial?, p1: InMobiAdRequestStatus?) {
+            Tracer.debug(TAG, "onAdLoadFailed: " + p1?.message)
             super.onAdLoadFailed(p0, p1)
             onAdvertisementListener.onAdvertisementFailed()
         }
 
         override fun onAdDisplayFailed(p0: InMobiInterstitial?) {
+            Tracer.debug(TAG, "onAdDisplayFailed: ")
             super.onAdDisplayFailed(p0)
             onAdvertisementListener.onAdvertisementFailed()
         }
 
         override fun onAdDisplayed(p0: InMobiInterstitial?) {
+            Tracer.debug(TAG, "onAdDisplayed: ")
             super.onAdDisplayed(p0)
             onAdvertisementListener.onAdvertisementShown()
         }
 
         override fun onAdLoadSucceeded(p0: InMobiInterstitial?) {
+            Tracer.debug(TAG, "onAdLoadSucceeded: ")
             super.onAdLoadSucceeded(p0)
             onAdvertisementListener.onAdvertisementReady()
         }
 
         override fun onUserLeftApplication(p0: InMobiInterstitial?) {
+            Tracer.debug(TAG, "onUserLeftApplication: ")
             super.onUserLeftApplication(p0)
             onAdvertisementListener.onAdvertisementFinished()
         }
 
         override fun onAdReceived(p0: InMobiInterstitial?) {
+            Tracer.debug(TAG, "onAdReceived: ")
             super.onAdReceived(p0)
             onAdvertisementListener.onAdvertisementReady()
         }

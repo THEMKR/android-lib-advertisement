@@ -48,7 +48,7 @@ internal class StartAppBanner : Banner {
         adView = com.startapp.android.publish.ads.banner.Banner(activity, startApListener)
         bannerAdView.visibility = View.GONE
         bannerAdView.removeAllViews()
-        bannerAdView.addView(adView, RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT))
+        bannerAdView.addView(adView, RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT))
     }
 
     override fun fetchAd() {

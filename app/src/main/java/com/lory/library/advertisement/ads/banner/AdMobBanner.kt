@@ -79,9 +79,9 @@ internal class AdMobBanner : Banner {
         adView.adListener = adMobAdListener
         bannerAdView.visibility = View.GONE
         bannerAdView.removeAllViews()
-        bannerAdView.addView(adView, RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT))
-        adView.layoutParams.width = bannerAdView.layoutParams.width
-        adView.layoutParams.height = bannerAdView.layoutParams.height
+        bannerAdView.addView(adView, RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT))
+        adView.layoutParams.width = bannerAdView.getBannerWidth()
+        adView.layoutParams.height = bannerAdView.getBannerHeight()
         adView.adUnitId = adId
     }
 
