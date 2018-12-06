@@ -2,6 +2,7 @@ package com.lory.library.advertisement.controller
 
 import android.app.Activity
 import android.app.Application
+import android.util.Log
 import com.google.gson.Gson
 import com.lory.library.advertisement.SDKInitializer
 import com.lory.library.advertisement.dto.DTOAdInfo
@@ -67,6 +68,7 @@ class SyncController {
      * Method to sync Library with the server
      */
     fun syncServer() {
+        Log.e("MKR","SyncController.syncServer()  ${((PrefData.getLong(applicationContext!!, PrefData.Key.SYNC_TIME) + PrefData.getLong(applicationContext!!, PrefData.Key.SYNC_INTERVAL)) > System.currentTimeMillis())}")
         if ((PrefData.getLong(applicationContext!!, PrefData.Key.SYNC_TIME) + PrefData.getLong(applicationContext!!, PrefData.Key.SYNC_INTERVAL)) > System.currentTimeMillis()) {
             return
         }
@@ -78,6 +80,7 @@ class SyncController {
      */
     fun syncDefaultValue() {
         val metaDataString = Utils.getMetaDataString(applicationContext!!, Constants.MetaDataKeys.DEFAULT_AD_CONFIG)
+        Log.e("MKR","SyncController.syncDefaultValue()  $metaDataString")
         asyncCallBackAppConfig.onFirebaseSuccess(Gson().fromJson<DTOAppConfig>(metaDataString, DTOAppConfig::class.java))
     }
 

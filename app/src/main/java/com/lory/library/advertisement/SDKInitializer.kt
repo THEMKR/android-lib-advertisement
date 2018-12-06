@@ -50,6 +50,7 @@ internal class SDKInitializer {
          * @param appId
          */
         private fun initProvider(activity: Activity, adProvider: AdProvider, appId: String) {
+            Log.e("MKR","SDKInitializer.initProvider() ${adProvider}")
             when (adProvider) {
                 AdProvider.AD_MOB -> {
                     MobileAds.initialize(activity, appId)
