@@ -56,8 +56,6 @@ dependencies {
 
     // FIREBASE LIB
     implementation 'com.lory.library:firebase:1.0.1'
-    implementation 'com.google.firebase:firebase-database:16.0.4'
-    implementation 'com.google.firebase:firebase-core:16.0.4'
     implementation 'com.google.code.gson:gson:2.2.4'
 }
 

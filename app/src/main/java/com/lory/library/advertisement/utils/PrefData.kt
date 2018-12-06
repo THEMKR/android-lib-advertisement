@@ -11,6 +11,7 @@ class PrefData {
      */
     enum class Key {
         LIB_INITIALIZED("LIB_INITIALIZED", false),
+        APP_VERSION("APP_VERSION", 1),
         SYNC_TIME("SYNC_TIME", 0L),
         SYNC_INTERVAL("SYNC_INTERVAL", AlarmManager.INTERVAL_DAY * 1L),
         FIREBASE_DATABASE_URL("FIREBASE_DATABASE_URL", "https://android-lib-ad.firebaseio.com/"),

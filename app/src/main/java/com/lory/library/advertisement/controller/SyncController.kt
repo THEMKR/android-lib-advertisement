@@ -27,7 +27,7 @@ class SyncController {
             if (mkr == null || !mkr.isSuccess) {
                 return
             }
-
+            PrefData.setInt(applicationContext!!, PrefData.Key.APP_VERSION, mkr.version)
             val adInfoList = mkr.adInfoList
             for (adInfo in adInfoList) {
                 if (adInfo.adProvider == -1) {
