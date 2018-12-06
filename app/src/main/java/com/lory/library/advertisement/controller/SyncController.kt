@@ -11,15 +11,10 @@ import com.lory.library.advertisement.enums.AdType
 import com.lory.library.advertisement.task.AsyncTaskProvider
 import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.PrefData
-import com.lory.library.advertisement.utils.Tracer
 import com.lory.library.advertisement.utils.Utils
 import com.lory.library.firebaselib.FirebaseCallBack
 
 class SyncController {
-    companion object {
-        private const val TAG: String = BuildConfig.BASE_TAG + ".SyncController"
-    }
-
     private var activity: Activity? = null
     private var applicationContext: Application? = null
     private val asyncTaskProvider: AsyncTaskProvider
@@ -29,7 +24,6 @@ class SyncController {
         }
 
         override fun onFirebaseSuccess(mkr: DTOAppConfig?) {
-            Tracer.debug(TAG, "onSuccess: ")
             if (mkr == null || !mkr.isSuccess) {
                 return
             }
@@ -39,11 +33,11 @@ class SyncController {
                 if (adInfo.adProvider == -1) {
                     continue
                 }
-                when (adInfo.adType) {
-                    AdType.BANNER.adTypeIndex -> {
+                when (AdType.getAdType(adInfo.adType)) {
+                    AdType.BANNER -> {
                         saveBannerDetail(adInfo)
                     }
-                    AdType.INTERSTITIAL.adTypeIndex -> {
+                    AdType.INTERSTITIAL -> {
                         saveInterstitialDetail(adInfo)
                     }
                 }
@@ -64,7 +58,6 @@ class SyncController {
      * @param activity
      */
     constructor(activity: Activity) {
-        Tracer.debug(TAG, "Constructor : ")
         this.activity = activity
         applicationContext = activity.application
         asyncTaskProvider = AsyncTaskProvider()
@@ -75,7 +68,6 @@ class SyncController {
      * Method to sync Library with the server
      */
     fun syncServer() {
-        Tracer.debug(TAG, "syncServer: ")
         if ((PrefData.getLong(applicationContext!!, PrefData.Key.SYNC_TIME) + PrefData.getLong(applicationContext!!, PrefData.Key.SYNC_INTERVAL)) > System.currentTimeMillis()) {
             return
         }
@@ -86,7 +78,6 @@ class SyncController {
      * Method to sync Library with the server
      */
     fun syncDefaultValue() {
-        Tracer.debug(TAG, "syncDefaultValue: ")
         val metaDataString = Utils.getMetaDataString(applicationContext!!, Constants.MetaDataKeys.DEFAULT_AD_CONFIG)
         asyncCallBackAppConfig.onFirebaseSuccess(Gson().fromJson<DTOAppConfig>(metaDataString, DTOAppConfig::class.java))
     }
@@ -96,7 +87,6 @@ class SyncController {
      * @param adInfo
      */
     private fun saveBannerDetail(adInfo: DTOAdInfo) {
-        Tracer.debug(TAG, "saveBannerDetail: ")
         PrefData.setInt(applicationContext!!, PrefData.Key.BANNER_PROVIDER, adInfo.adProvider)
         PrefData.setString(applicationContext!!, PrefData.Key.BANNER_PROVIDER_APP_ID, adInfo.appId)
         PrefData.setString(applicationContext!!, PrefData.Key.BANNER_AD_ID, adInfo.adId)
@@ -107,7 +97,6 @@ class SyncController {
      * @param adInfo
      */
     private fun saveInterstitialDetail(adInfo: DTOAdInfo) {
-        Tracer.debug(TAG, "saveInterstitialDetail: ")
         PrefData.setInt(applicationContext!!, PrefData.Key.INTERSTITIAL_PROVIDER, adInfo.adProvider)
         PrefData.setString(applicationContext!!, PrefData.Key.INTERSTITIAL_PROVIDER_APP_ID, adInfo.appId)
         PrefData.setString(applicationContext!!, PrefData.Key.INTERSTITIAL_AD_ID, adInfo.adId)

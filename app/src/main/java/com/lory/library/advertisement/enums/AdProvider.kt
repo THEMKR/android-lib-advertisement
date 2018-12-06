@@ -1,7 +1,6 @@
 package com.lory.library.advertisement.enums
 
 import com.lory.library.advertisement.BuildConfig
-import com.lory.library.advertisement.utils.Tracer
 
 /**
  * Enum hold the AD-Network provider
@@ -18,14 +17,12 @@ enum class AdProvider {
     }
 
     companion object {
-        private const val TAG: String = BuildConfig.BASE_TAG + ".AdProvider"
 
         /**
          * Method to get the Add Provider
          * @param  providerIndex
          */
         fun getAdProvider(providerIndex: Int): AdProvider {
-            Tracer.debug(TAG, "getAdProvider: ")
             val arrayOfAdProvider: Array<AdProvider> = AdProvider.values()
             for (adProvider in arrayOfAdProvider) {
                 if (adProvider.providerIndex == providerIndex) {

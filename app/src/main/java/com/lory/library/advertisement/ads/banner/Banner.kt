@@ -7,10 +7,6 @@ import com.lory.library.advertisement.ads.Advertisement
 import com.lory.library.advertisement.ui.BannerAdView
 
 internal abstract class Banner : Advertisement {
-    companion object {
-        private const val TAG: String = BuildConfig.BASE_TAG + ".Banner"
-    }
-
     protected val activity: Activity
     protected val adId: String
         get() {

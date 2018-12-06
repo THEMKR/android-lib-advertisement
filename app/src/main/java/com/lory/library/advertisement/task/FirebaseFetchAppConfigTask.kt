@@ -1,22 +1,18 @@
 package com.lory.library.advertisement.task
 
 import android.content.Context
+import android.util.Log
 import com.google.firebase.database.DataSnapshot
 import com.google.gson.Gson
 import com.lory.library.advertisement.BuildConfig
 import com.lory.library.advertisement.dto.DTOAppConfig
 import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.PrefData
-import com.lory.library.advertisement.utils.Tracer
 import com.lory.library.advertisement.utils.Utils
 import com.lory.library.firebaselib.BaseFirebaseTask
 import com.lory.library.firebaselib.FirebaseCallBack
 
 internal class FirebaseFetchAppConfigTask : BaseFirebaseTask<DTOAppConfig> {
-
-    companion object {
-        private const val TAG: String = BuildConfig.BASE_TAG + ".FirebaseFetchAppConfigTask"
-    }
 
     /**
      * Constructor
@@ -41,7 +37,6 @@ internal class FirebaseFetchAppConfigTask : BaseFirebaseTask<DTOAppConfig> {
     }
 
     override fun parseFirebaseDataSnapShot(dataSnapshot: DataSnapshot): DTOAppConfig {
-        Tracer.debug(TAG, "parseFirebaseDataSnapShot: ")
         try {
             val gson = Gson()
             val json = gson.toJson(dataSnapshot.value)
@@ -49,17 +44,13 @@ internal class FirebaseFetchAppConfigTask : BaseFirebaseTask<DTOAppConfig> {
             dto.isSuccess = true
             return dto
         } catch (e: Exception) {
+            Log.e("MKR","FirebaseFetchAppConfigTask.parseFirebaseDataSnapShot()  ${e.message}     ${dataSnapshot}")
             val dto = DTOAppConfig()
             dto.isSuccess = false
             dto.errorCode = ERROR.MISCELLANEOUS_ERROR_CODE
             dto.errorMessage = "${ERROR.MISCELLANEOUS_ERROR_MESSAGE} ${e.message}"
             return dto
         }
-        val dto = DTOAppConfig()
-        dto.isSuccess = false
-        dto.errorCode = ERROR.NOTHING_RECEIVED_CODE
-        dto.errorMessage = "${ERROR.NOTHING_RECEIVED_MESSAGE}"
-        return dto
     }
 
     override fun parseFirebaseDataSnapShot(dataSnapshot: ArrayList<Any>): DTOAppConfig {

@@ -2,7 +2,6 @@ package com.lory.library.advertisement
 
 import android.Manifest
 import android.app.Activity
-import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import com.lory.library.advertisement.controller.ControllerFactory
@@ -10,13 +9,10 @@ import com.lory.library.advertisement.controller.SyncController
 import com.lory.library.advertisement.ui.BannerAdView
 import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.PrefData
-import com.lory.library.advertisement.utils.Tracer
-import com.lory.library.advertisement.utils.Utils
 
 class AdvertisementLib {
 
     companion object {
-        private const val TAG: String = BuildConfig.BASE_TAG + ".AdvertisementLib"
         private var permissions: Array<String> = arrayOf(
                 Manifest.permission.INTERNET,
                 Manifest.permission.ACCESS_COARSE_LOCATION,
@@ -36,7 +32,6 @@ class AdvertisementLib {
          * @param activity
          */
         fun initialize(activity: Activity) {
-            Tracer.debug(TAG, "initialize: ")
             if (!isHaveAllRequiredPermission(activity)) {
                 throw Exception(Constants.ExceptionMessage.DOES_NOT_HAVE_REQUIRED_PERMISSION)
             }
@@ -58,7 +53,6 @@ class AdvertisementLib {
          * @param onAdvertisementListener Listen Ad Callback only [DONT TRY TO CUSTOMIZED FUNCTIONALITY. IT WILL HANDEL BY LIB]
          */
         fun showBannerAd(activity: Activity, bannerAdView: BannerAdView, onAdvertisementListener: OnAdvertisementListener?) {
-            Tracer.debug(TAG, "showBannerAd: ")
             if (!PrefData.getBoolean(activity, PrefData.Key.LIB_INITIALIZED)) {
                 throw Exception(Constants.ExceptionMessage.LIB_NOT_INITIALIZED)
             }
@@ -73,7 +67,6 @@ class AdvertisementLib {
          * @param onAdvertisementListener Listen Ad Callback only [DONT TRY TO CUSTOMIZED FUNCTIONALITY. IT WILL HANDEL BY LIB]
          */
         fun showInterstitialAd(activity: Activity, onAdvertisementListener: OnAdvertisementListener?) {
-            Tracer.debug(TAG, "showInterstitialAd: ")
             if (!PrefData.getBoolean(activity, PrefData.Key.LIB_INITIALIZED)) {
                 throw Exception(Constants.ExceptionMessage.LIB_NOT_INITIALIZED)
             }
@@ -91,7 +84,6 @@ class AdvertisementLib {
          * @param activity
          */
         private fun initInterstitialAd(activity: Activity) {
-            Tracer.debug(TAG, "initInterstitialAd: ")
             if (!PrefData.getBoolean(activity, PrefData.Key.LIB_INITIALIZED)) {
                 throw Exception(Constants.ExceptionMessage.LIB_NOT_INITIALIZED)
             }
@@ -103,7 +95,6 @@ class AdvertisementLib {
          * @param activity
          */
         private fun isHaveAllRequiredPermission(activity: Activity): Boolean {
-            Tracer.debug(TAG, "isHaveAllRequiredPermission: ")
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 for (permission in permissions) {
                     if (activity.checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED) {
