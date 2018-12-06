@@ -56,7 +56,7 @@
 #	Project Level Gradle
 		repositories {
 			maven {
-				url "https://api.bitbucket.org/1.0/repositories/THEMKR/android-lib-login/raw/releases"
+				url "https://api.bitbucket.org/1.0/repositories/THEMKR/android-lib-advertisement/raw/releases"
 				credentials {
 					username 'THEMKR'
 					password '<PASSWORD>'
@@ -84,6 +84,7 @@
         implementation 'com.android.support:support-v4:28.0.0'
         implementation 'com.squareup.picasso:picasso:2.5.2'
         implementation 'com.android.support:recyclerview-v7:28.0.0'
+        implementation 'com.lory.library:advertisement:1.0.0'
         
         <!-- SUPPORT MY BE INCLUDE -->
         implementation 'com.google.firebase:firebase-database:16.0.4'
