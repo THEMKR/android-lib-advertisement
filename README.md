@@ -103,7 +103,7 @@
             BANNER LAYOUT:
                 <com.lory.library.advertisement.ui.BannerAdView
                     android:id="@+id/banner_ad_view"
-                    android:layout_width="50dp"
+                    android:layout_width="320dp"
                     android:layout_height="50dp" />    
                     
             DEFAULT AD JSON PASS IN MANIFEST (default_ad_config)
