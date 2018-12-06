@@ -75,7 +75,7 @@
         implementation 'com.google.android.gms:play-services-base:16.0.1'
         implementation 'com.google.android.gms:play-services-location:16.0.0'
         implementation 'com.google.android.gms:play-services-plus:16.0.0'
-        implementation 'com.android.support:multidex:1.0.1'
+        implementation 'com.android.support:multidex:1.0.3'
         // FIREBASE LIB
         implementation 'com.lory.library:firebase:1.0.1'
         implementation 'com.google.code.gson:gson:2.2.4'
