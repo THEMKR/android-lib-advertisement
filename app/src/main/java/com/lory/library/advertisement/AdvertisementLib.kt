@@ -55,13 +55,14 @@ class AdvertisementLib {
          * Method to show the Banner Ad
          * @param activity
          * @param bannerAdView Banner Ad dimen should be 320dp X 20dp
+         * @param onAdvertisementListener Listen Ad Callback only [DONT TRY TO CUSTOMIZED FUNCTIONALITY. IT WILL HANDEL BY LIB]
          */
-        fun showBannerAd(activity: Activity, bannerAdView: BannerAdView) {
+        fun showBannerAd(activity: Activity, bannerAdView: BannerAdView, onAdvertisementListener: OnAdvertisementListener?) {
             Tracer.debug(TAG, "showBannerAd: ")
             if (!PrefData.getBoolean(activity, PrefData.Key.LIB_INITIALIZED)) {
                 throw Exception(Constants.ExceptionMessage.LIB_NOT_INITIALIZED)
             }
-            val adController = ControllerFactory.getBannerController(activity, bannerAdView)
+            val adController = ControllerFactory.getBannerController(activity, bannerAdView, onAdvertisementListener)
             adController.createAd()
             adController.showAd()
         }
@@ -69,13 +70,14 @@ class AdvertisementLib {
         /**
          * Method to show the Interstitial Ad
          * @param activity
+         * @param onAdvertisementListener Listen Ad Callback only [DONT TRY TO CUSTOMIZED FUNCTIONALITY. IT WILL HANDEL BY LIB]
          */
-        fun showInterstitialAd(activity: Activity) {
+        fun showInterstitialAd(activity: Activity, onAdvertisementListener: OnAdvertisementListener?) {
             Tracer.debug(TAG, "showInterstitialAd: ")
             if (!PrefData.getBoolean(activity, PrefData.Key.LIB_INITIALIZED)) {
                 throw Exception(Constants.ExceptionMessage.LIB_NOT_INITIALIZED)
             }
-            ControllerFactory.getInterstitialController(activity).showAd()
+            ControllerFactory.getInterstitialController(activity, onAdvertisementListener).showAd()
         }
 
         //==========================================================================================
@@ -93,7 +95,7 @@ class AdvertisementLib {
             if (!PrefData.getBoolean(activity, PrefData.Key.LIB_INITIALIZED)) {
                 throw Exception(Constants.ExceptionMessage.LIB_NOT_INITIALIZED)
             }
-            ControllerFactory.getInterstitialController(activity).createAd()
+            ControllerFactory.getInterstitialController(activity, null).createAd()
         }
 
         /**

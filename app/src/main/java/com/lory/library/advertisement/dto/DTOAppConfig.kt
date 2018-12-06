@@ -2,7 +2,7 @@ package com.lory.library.advertisement.dto
 
 import com.google.gson.annotations.SerializedName
 
-class DTOAppConfig : DTOBaseNetworkResponse() {
+class DTOAppConfig : DTOBaseResponse() {
 
     /**
      * Current Version of app on firebase

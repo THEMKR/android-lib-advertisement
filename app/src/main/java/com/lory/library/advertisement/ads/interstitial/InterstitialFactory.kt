@@ -23,21 +23,21 @@ class InterstitialFactory {
                 AdProvider.START_APP -> {
                     return StartAppInterstitial(context, adId, onAdvertisementListener)
                 }
-                AdProvider.MEDIA_NET -> {
-                }
                 AdProvider.IN_MOBI -> {
                     return InMobiInterstitial(context, adId, onAdvertisementListener)
                 }
-                AdProvider.FLURRY -> {
-                }
-                AdProvider.MILLENNIAL_MEDIA -> {
-                }
-                AdProvider.SMAATO -> {
-                }
-                AdProvider.LEADBOLT -> {
-                }
-                AdProvider.CHARTBOOST -> {
-                }
+//                AdProvider.MEDIA_NET -> {
+//                }
+//                AdProvider.FLURRY -> {
+//                }
+//                AdProvider.MILLENNIAL_MEDIA -> {
+//                }
+//                AdProvider.SMAATO -> {
+//                }
+//                AdProvider.LEADBOLT -> {
+//                }
+//                AdProvider.CHARTBOOST -> {
+//                }
             }
             throw Exception("${Constants.ExceptionMessage.INTERSTITIAL_AD_NOT_SUPPORTED} ${adProvider.name}")
         }

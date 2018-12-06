@@ -8,7 +8,7 @@ import android.util.AttributeSet
 import android.widget.RelativeLayout
 import com.lory.library.advertisement.R
 
-class BannerAdView : RelativeLayout {
+open class BannerAdView : RelativeLayout {
 
     var onBannerAdViewListener: OnBannerAdViewListener? = null
 

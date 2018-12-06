@@ -11,19 +11,6 @@ class Constants {
         }
     }
 
-    interface ERROR {
-        companion object {
-            const val WRONG_CALLING_CODE = 0
-            const val WRONG_CALLING_MESSAGE = "Wrong calling"
-
-            const val NO_NETWORK_CODE = 1
-            const val NO_NETWORK_MESSAGE = "No Network"
-
-            const val NOTHING_RECEIVED_CODE = 2
-            const val NOTHING_RECEIVED_MESSAGE = "Nothing received from the server"
-        }
-    }
-
     /**
      * Class to hold the MetaData keys
      */

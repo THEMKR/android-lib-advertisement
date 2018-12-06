@@ -18,49 +18,59 @@ internal class BannerAdvertisementController : AdvertisementController {
 
     private val activity: Activity
     private val bannerAdView: BannerAdView
+    private var advertisementListenerCallback: OnAdvertisementListener? = null
     private var ad: Advertisement? = null
     private val onAdvertisementListener: OnAdvertisementListener = object : OnAdvertisementListener {
         override fun onAdvertisementFetching() {
             Tracer.debug(TAG, "onAdvertisementFetching: ")
+            advertisementListenerCallback?.onAdvertisementFetching()
         }
 
         override fun onAdvertisementFailed() {
             Tracer.debug(TAG, "onAdvertisementFailed: ")
             createAd()
+            advertisementListenerCallback?.onAdvertisementFailed()
         }
 
         override fun onAdvertisementReady() {
             Tracer.debug(TAG, "onAdvertisementReady: ")
             ad?.shownAd()
+            advertisementListenerCallback?.onAdvertisementReady()
         }
 
         override fun onAdvertisementShown() {
             Tracer.debug(TAG, "onAdvertisementShown: ")
+            advertisementListenerCallback?.onAdvertisementShown()
         }
 
         override fun onAdvertisementClicked() {
             Tracer.debug(TAG, "onAdvertisementClicked: ")
+            advertisementListenerCallback?.onAdvertisementClicked()
         }
 
         override fun onAdvertisementCancel() {
             Tracer.debug(TAG, "onAdvertisementCancel: ")
             createAd()
+            advertisementListenerCallback?.onAdvertisementCancel()
         }
 
         override fun onAdvertisementFinished() {
             Tracer.debug(TAG, "onAdvertisementFinished: ")
+            advertisementListenerCallback?.onAdvertisementFinished()
         }
     }
 
     /**
      * Constructor
-     * @param context
+     * @param activity
      * @param bannerAdView
+     * @param onAdvertisementListener
      */
-    constructor(activity: Activity, bannerAdView: BannerAdView) {
+    constructor(activity: Activity, bannerAdView: BannerAdView, onAdvertisementListener: OnAdvertisementListener?) {
         Tracer.debug(TAG, "Constructor : ")
         this.activity = activity
         this.bannerAdView = bannerAdView
+        this.advertisementListenerCallback = onAdvertisementListener
     }
 
     /**

@@ -25,21 +25,21 @@ class BannerFactory {
                 AdProvider.START_APP -> {
                     return StartAppBanner(activity, adId, onAdvertisementListener, bannerAdView)
                 }
-                AdProvider.MEDIA_NET -> {
-                }
                 AdProvider.IN_MOBI -> {
                     return InMobiBanner(activity, adId, onAdvertisementListener, bannerAdView)
                 }
-                AdProvider.FLURRY -> {
-                }
-                AdProvider.MILLENNIAL_MEDIA -> {
-                }
-                AdProvider.SMAATO -> {
-                }
-                AdProvider.LEADBOLT -> {
-                }
-                AdProvider.CHARTBOOST -> {
-                }
+//                AdProvider.MEDIA_NET -> {
+//                }
+//                AdProvider.FLURRY -> {
+//                }
+//                AdProvider.MILLENNIAL_MEDIA -> {
+//                }
+//                AdProvider.SMAATO -> {
+//                }
+//                AdProvider.LEADBOLT -> {
+//                }
+//                AdProvider.CHARTBOOST -> {
+//                }
             }
             throw Exception("${Constants.ExceptionMessage.BANNER_AD_NOT_SUPPORTED} ${adProvider.name}")
         }

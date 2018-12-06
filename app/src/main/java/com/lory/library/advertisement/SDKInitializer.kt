@@ -66,8 +66,6 @@ internal class SDKInitializer {
                     StartAppAd.disableSplash()
                     StartAppAd.disableAutoInterstitial()
                 }
-                AdProvider.MEDIA_NET -> {
-                }
                 AdProvider.IN_MOBI -> {
                     val consentObject = JSONObject()
                     try {
@@ -79,16 +77,18 @@ internal class SDKInitializer {
                     InMobiSdk.init(activity, appId, consentObject)
                     InMobiSdk.setLogLevel(InMobiSdk.LogLevel.DEBUG);
                 }
-                AdProvider.FLURRY -> {
-                }
-                AdProvider.MILLENNIAL_MEDIA -> {
-                }
-                AdProvider.SMAATO -> {
-                }
-                AdProvider.LEADBOLT -> {
-                }
-                AdProvider.CHARTBOOST -> {
-                }
+//                AdProvider.MEDIA_NET -> {
+//                }
+//                AdProvider.FLURRY -> {
+//                }
+//                AdProvider.MILLENNIAL_MEDIA -> {
+//                }
+//                AdProvider.SMAATO -> {
+//                }
+//                AdProvider.LEADBOLT -> {
+//                }
+//                AdProvider.CHARTBOOST -> {
+//                }
             }
         }
     }

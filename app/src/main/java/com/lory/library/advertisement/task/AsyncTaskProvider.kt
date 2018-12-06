@@ -2,26 +2,31 @@ package com.lory.library.advertisement.task
 
 import android.content.Context
 import com.lory.library.advertisement.dto.DTOAppConfig
-import com.mkrworld.androidlibasynctask.AsyncCallBack
-import com.mkrworld.androidlibasynctask.BaseAsyncTaskProvider
+import com.lory.library.firebaselib.BaseFirebaseTask
+import com.lory.library.firebaselib.BaseFirebaseTaskProvider
+import com.lory.library.firebaselib.FirebaseCallBack
 
-class AsyncTaskProvider : BaseAsyncTaskProvider() {
+class AsyncTaskProvider : BaseFirebaseTaskProvider() {
 
     /**
      * Method to Fetch the App Config
      * @param context
      * @param asyncCallBack
      */
-    fun fetchAppConfig(context: Context, asyncCallBack: AsyncCallBack<DTOAppConfig, Any>) {
-        var task = FirebaseFetchAppConfigTask(context, object : AsyncCallBack<DTOAppConfig, Any> {
-
-            override fun onProgress(progress: Any?) {
-                notifyTaskProgress(asyncCallBack as AsyncCallBack<Any, Any>, progress!!)
+    fun fetchAppConfig(context: Context, asyncCallBack: FirebaseCallBack<DTOAppConfig>) {
+        var task = FirebaseFetchAppConfigTask(context, object : FirebaseCallBack<DTOAppConfig> {
+            override fun onFirebaseFailed(errorCode: Int, errorMessage: String) {
+                notifyTaskFailed(asyncCallBack as FirebaseCallBack<Any>, errorCode, errorMessage)
             }
 
-            override fun onSuccess(mkr: DTOAppConfig?) {
-                notifyTaskResponse(asyncCallBack as AsyncCallBack<Any, Any>, mkr!!)
+            override fun onFirebaseSuccess(mkr: DTOAppConfig?) {
+                if (mkr != null) {
+                    notifyTaskSuccess(asyncCallBack as FirebaseCallBack<Any>, mkr)
+                } else {
+                    notifyTaskFailed(asyncCallBack as FirebaseCallBack<Any>, BaseFirebaseTask.ERROR.NOTHING_RECEIVED_CODE, BaseFirebaseTask.ERROR.NOTHING_RECEIVED_MESSAGE)
+                }
             }
+
         })
         task.executeTask()
     }

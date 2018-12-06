@@ -9,13 +9,13 @@ import com.lory.library.advertisement.utils.Tracer
 enum class AdProvider {
     AD_MOB(0),
     START_APP(1),
-    IN_MOBI(2),
-    MEDIA_NET(3),
-    FLURRY(4),
-    MILLENNIAL_MEDIA(5),
-    SMAATO(6),
-    LEADBOLT(7),
-    CHARTBOOST(8);
+    IN_MOBI(2);
+//    MEDIA_NET(3),
+//    FLURRY(4),
+//    MILLENNIAL_MEDIA(5),
+//    SMAATO(6),
+//    LEADBOLT(7),
+//    CHARTBOOST(8);
 
     val providerIndex: Int
 

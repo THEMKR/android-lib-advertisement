@@ -13,7 +13,7 @@ import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.PrefData
 import com.lory.library.advertisement.utils.Tracer
 import com.lory.library.advertisement.utils.Utils
-import com.mkrworld.androidlibasynctask.AsyncCallBack
+import com.lory.library.firebaselib.FirebaseCallBack
 
 class SyncController {
     companion object {
@@ -21,18 +21,19 @@ class SyncController {
     }
 
     private var activity: Activity? = null
-    private val applicationContext: Application
+    private var applicationContext: Application? = null
     private val asyncTaskProvider: AsyncTaskProvider
-    private val asyncCallBackAppConfig = object : AsyncCallBack<DTOAppConfig, Any> {
-        override fun onProgress(progress: Any?) {
-            Tracer.debug(TAG, "onProgress: ")
+    private val asyncCallBackAppConfig = object : FirebaseCallBack<DTOAppConfig> {
+        override fun onFirebaseFailed(errorCode: Int, errorMessage: String) {
+            // DO NOTHING
         }
 
-        override fun onSuccess(mkr: DTOAppConfig?) {
+        override fun onFirebaseSuccess(mkr: DTOAppConfig?) {
             Tracer.debug(TAG, "onSuccess: ")
-            if (mkr == null) {
+            if (mkr == null || !mkr.isSuccess) {
                 return
             }
+
             val adInfoList = mkr.adInfoList
             for (adInfo in adInfoList) {
                 if (adInfo.adProvider == -1) {
@@ -46,6 +47,11 @@ class SyncController {
                         saveInterstitialDetail(adInfo)
                     }
                 }
+            }
+
+            // SET SYNC TIME
+            if (applicationContext != null) {
+                PrefData.setLong(applicationContext!!, PrefData.Key.SYNC_TIME, System.currentTimeMillis())
             }
             if (activity != null) {
                 SDKInitializer.initialize(activity!!)
@@ -70,11 +76,10 @@ class SyncController {
      */
     fun syncServer() {
         Tracer.debug(TAG, "syncServer: ")
-        if ((PrefData.getLong(applicationContext, PrefData.Key.SYNC_TIME) + PrefData.getLong(applicationContext, PrefData.Key.SYNC_INTERVAL)) > System.currentTimeMillis()) {
+        if ((PrefData.getLong(applicationContext!!, PrefData.Key.SYNC_TIME) + PrefData.getLong(applicationContext!!, PrefData.Key.SYNC_INTERVAL)) > System.currentTimeMillis()) {
             return
         }
-        PrefData.setLong(applicationContext, PrefData.Key.SYNC_TIME, System.currentTimeMillis())
-        //asyncTaskProvider.fetchAppConfig(applicationContext, asyncCallBackAppConfig)
+        asyncTaskProvider.fetchAppConfig(applicationContext!!, asyncCallBackAppConfig)
     }
 
     /**
@@ -82,8 +87,8 @@ class SyncController {
      */
     fun syncDefaultValue() {
         Tracer.debug(TAG, "syncDefaultValue: ")
-        val metaDataString = Utils.getMetaDataString(applicationContext, Constants.MetaDataKeys.DEFAULT_AD_CONFIG)
-        asyncCallBackAppConfig.onSuccess(Gson().fromJson<DTOAppConfig>(metaDataString, DTOAppConfig::class.java))
+        val metaDataString = Utils.getMetaDataString(applicationContext!!, Constants.MetaDataKeys.DEFAULT_AD_CONFIG)
+        asyncCallBackAppConfig.onFirebaseSuccess(Gson().fromJson<DTOAppConfig>(metaDataString, DTOAppConfig::class.java))
     }
 
     /**
@@ -92,9 +97,9 @@ class SyncController {
      */
     private fun saveBannerDetail(adInfo: DTOAdInfo) {
         Tracer.debug(TAG, "saveBannerDetail: ")
-        PrefData.setInt(applicationContext, PrefData.Key.BANNER_PROVIDER, adInfo.adProvider)
-        PrefData.setString(applicationContext, PrefData.Key.BANNER_PROVIDER_APP_ID, adInfo.appId)
-        PrefData.setString(applicationContext, PrefData.Key.BANNER_AD_ID, adInfo.adId)
+        PrefData.setInt(applicationContext!!, PrefData.Key.BANNER_PROVIDER, adInfo.adProvider)
+        PrefData.setString(applicationContext!!, PrefData.Key.BANNER_PROVIDER_APP_ID, adInfo.appId)
+        PrefData.setString(applicationContext!!, PrefData.Key.BANNER_AD_ID, adInfo.adId)
     }
 
     /**
@@ -103,8 +108,8 @@ class SyncController {
      */
     private fun saveInterstitialDetail(adInfo: DTOAdInfo) {
         Tracer.debug(TAG, "saveInterstitialDetail: ")
-        PrefData.setInt(applicationContext, PrefData.Key.INTERSTITIAL_PROVIDER, adInfo.adProvider)
-        PrefData.setString(applicationContext, PrefData.Key.INTERSTITIAL_PROVIDER_APP_ID, adInfo.appId)
-        PrefData.setString(applicationContext, PrefData.Key.INTERSTITIAL_AD_ID, adInfo.adId)
+        PrefData.setInt(applicationContext!!, PrefData.Key.INTERSTITIAL_PROVIDER, adInfo.adProvider)
+        PrefData.setString(applicationContext!!, PrefData.Key.INTERSTITIAL_PROVIDER_APP_ID, adInfo.appId)
+        PrefData.setString(applicationContext!!, PrefData.Key.INTERSTITIAL_AD_ID, adInfo.adId)
     }
 }

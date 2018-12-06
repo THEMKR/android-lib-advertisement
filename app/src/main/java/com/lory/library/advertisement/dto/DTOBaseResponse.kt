@@ -1,6 +1,6 @@
 package com.lory.library.advertisement.dto
 
-open class DTOBaseNetworkResponse {
+open class DTOBaseResponse {
 
     /**
      * Check weather the result is Success or Not
