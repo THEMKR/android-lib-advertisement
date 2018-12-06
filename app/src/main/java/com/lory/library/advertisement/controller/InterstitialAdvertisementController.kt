@@ -2,7 +2,6 @@ package com.lory.library.advertisement.controller
 
 import android.content.Context
 import android.util.Log
-import com.lory.library.advertisement.BuildConfig
 import com.lory.library.advertisement.OnAdvertisementListener
 import com.lory.library.advertisement.ads.Advertisement
 import com.lory.library.advertisement.ads.interstitial.InterstitialFactory

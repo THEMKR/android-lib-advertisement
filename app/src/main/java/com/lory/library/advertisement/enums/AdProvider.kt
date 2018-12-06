@@ -1,7 +1,5 @@
 package com.lory.library.advertisement.enums
 
-import com.lory.library.advertisement.BuildConfig
-
 /**
  * Enum hold the AD-Network provider
  */

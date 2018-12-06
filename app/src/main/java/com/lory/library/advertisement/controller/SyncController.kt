@@ -3,7 +3,6 @@ package com.lory.library.advertisement.controller
 import android.app.Activity
 import android.app.Application
 import com.google.gson.Gson
-import com.lory.library.advertisement.BuildConfig
 import com.lory.library.advertisement.SDKInitializer
 import com.lory.library.advertisement.dto.DTOAdInfo
 import com.lory.library.advertisement.dto.DTOAppConfig

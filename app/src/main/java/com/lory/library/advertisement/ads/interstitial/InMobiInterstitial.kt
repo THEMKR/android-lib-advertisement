@@ -4,7 +4,6 @@ import android.content.Context
 import com.inmobi.ads.InMobiAdRequestStatus
 import com.inmobi.ads.InMobiInterstitial
 import com.inmobi.ads.listeners.InterstitialAdEventListener
-import com.lory.library.advertisement.BuildConfig
 import com.lory.library.advertisement.OnAdvertisementListener
 
 internal class InMobiInterstitial : Interstitial {

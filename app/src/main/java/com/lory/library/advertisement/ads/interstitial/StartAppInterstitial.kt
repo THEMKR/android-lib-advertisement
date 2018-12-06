@@ -1,7 +1,6 @@
 package com.lory.library.advertisement.ads.interstitial
 
 import android.content.Context
-import com.lory.library.advertisement.BuildConfig
 import com.lory.library.advertisement.OnAdvertisementListener
 import com.startapp.android.publish.adsCommon.Ad
 import com.startapp.android.publish.adsCommon.StartAppAd

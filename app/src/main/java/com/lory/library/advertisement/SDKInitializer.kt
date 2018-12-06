@@ -9,7 +9,6 @@ import com.lory.library.advertisement.utils.PrefData
 import com.startapp.android.publish.adsCommon.StartAppAd
 import com.startapp.android.publish.adsCommon.StartAppSDK
 import org.json.JSONObject
-import java.lang.Exception
 
 internal class SDKInitializer {
     companion object {

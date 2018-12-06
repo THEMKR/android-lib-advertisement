@@ -4,7 +4,6 @@ import android.content.Context
 import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.InterstitialAd
-import com.lory.library.advertisement.BuildConfig
 import com.lory.library.advertisement.OnAdvertisementListener
 import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.Utils

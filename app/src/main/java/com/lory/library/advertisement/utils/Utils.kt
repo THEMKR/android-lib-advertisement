@@ -5,7 +5,6 @@ import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.text.TextUtils
 import android.util.DisplayMetrics
-import com.lory.library.advertisement.BuildConfig
 
 
 class Utils {

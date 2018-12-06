@@ -1,7 +1,6 @@
 package com.lory.library.advertisement.ads.banner
 
 import android.app.Activity
-import com.lory.library.advertisement.BuildConfig
 import com.lory.library.advertisement.OnAdvertisementListener
 import com.lory.library.advertisement.ads.Advertisement
 import com.lory.library.advertisement.ui.BannerAdView

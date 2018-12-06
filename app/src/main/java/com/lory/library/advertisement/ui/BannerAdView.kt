@@ -6,8 +6,6 @@ import android.os.Build
 import android.support.annotation.RequiresApi
 import android.util.AttributeSet
 import android.widget.RelativeLayout
-import com.lory.library.advertisement.R
-import android.util.DisplayMetrics
 import com.lory.library.advertisement.utils.Utils
 
 

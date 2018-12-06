@@ -3,7 +3,6 @@ package com.lory.library.advertisement.ads.banner
 import android.app.Activity
 import android.view.View
 import android.widget.RelativeLayout
-import com.lory.library.advertisement.BuildConfig
 import com.lory.library.advertisement.OnAdvertisementListener
 import com.lory.library.advertisement.ui.BannerAdView
 import com.startapp.android.publish.ads.banner.BannerListener

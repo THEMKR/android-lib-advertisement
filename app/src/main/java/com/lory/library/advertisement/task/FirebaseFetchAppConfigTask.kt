@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.Log
 import com.google.firebase.database.DataSnapshot
 import com.google.gson.Gson
-import com.lory.library.advertisement.BuildConfig
 import com.lory.library.advertisement.dto.DTOAppConfig
 import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.PrefData
