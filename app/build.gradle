@@ -1,7 +1,6 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'com.google.gms.google-services'
 
 def STRING = "String"
 def BASE_TAG = "BASE_TAG"
@@ -9,8 +8,10 @@ def BASE_TAG_VALUE = "\"AD_LIB\""
 
 android {
     compileSdkVersion 28
+    lintOptions {
+        abortOnError false
+    }
     defaultConfig {
-        applicationId "com.lory.library.advertisement"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
@@ -60,3 +61,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-core:16.0.4'
     implementation 'com.google.code.gson:gson:2.2.4'
 }
+
+apply from: rootProject.file('gradle/gradle-mvn-push.gradle')
