@@ -77,18 +77,6 @@ internal class SDKInitializer {
                     InMobiSdk.init(activity, appId, consentObject)
                     InMobiSdk.setLogLevel(InMobiSdk.LogLevel.DEBUG);
                 }
-//                AdProvider.MEDIA_NET -> {
-//                }
-//                AdProvider.FLURRY -> {
-//                }
-//                AdProvider.MILLENNIAL_MEDIA -> {
-//                }
-//                AdProvider.SMAATO -> {
-//                }
-//                AdProvider.LEADBOLT -> {
-//                }
-//                AdProvider.CHARTBOOST -> {
-//                }
             }
         }
     }
