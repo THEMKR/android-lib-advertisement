@@ -7,6 +7,9 @@ import android.support.annotation.RequiresApi
 import android.util.AttributeSet
 import android.widget.RelativeLayout
 import com.lory.library.advertisement.R
+import android.util.DisplayMetrics
+import com.lory.library.advertisement.utils.Utils
+
 
 open class BannerAdView : RelativeLayout {
 
@@ -40,15 +43,14 @@ open class BannerAdView : RelativeLayout {
      * Method to get the Width of the Banner
      */
     fun getBannerWidth(): Int {
-        return context.resources.getDimensionPixelSize(R.dimen.banner_width)
+        return Utils.convertDpToPx(context, 320F)
     }
 
     /**
      * Method to get the Height of the Banner
-     * @param context
      */
     fun getBannerHeight(): Int {
-        return context.resources.getDimensionPixelSize(R.dimen.banner_height)
+        return Utils.convertDpToPx(context, 50F)
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {

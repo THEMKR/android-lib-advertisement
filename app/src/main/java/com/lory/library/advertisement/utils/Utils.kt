@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.text.TextUtils
+import android.util.DisplayMetrics
 import com.lory.library.advertisement.BuildConfig
 
 
@@ -50,6 +51,15 @@ class Utils {
         fun getAppFirebaseKey(context: Context): String {
             Tracer.debug(TAG, "getAppFirebaseKey: ")
             return context.packageName.replace(".", "_", true)
+        }
+
+
+        /**
+         * Method to convert the DP to pixel
+         */
+        fun convertDpToPx(context: Context, dp: Float): Int {
+            Tracer.debug(TAG, "convertDpToPx: $dp")
+            return Math.round(dp * (context.resources.displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT.toFloat()))
         }
     }
 }
