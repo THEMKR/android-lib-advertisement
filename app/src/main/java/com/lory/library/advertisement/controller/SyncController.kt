@@ -24,6 +24,7 @@ class SyncController {
         }
 
         override fun onFirebaseSuccess(mkr: DTOAppConfig?) {
+            Log.e("MKR","SyncController.onFirebaseSuccess()  ${mkr}")
             if (mkr == null || !mkr.isSuccess) {
                 return
             }
