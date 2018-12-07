@@ -62,6 +62,13 @@
 					password '<PASSWORD>'
 				}
 			}
+			maven {
+            	url "https://api.bitbucket.org/1.0/repositories/THEMKR/android-lib-appconfig/raw/releases"
+            	credentials {
+            		username 'THEMKR'
+            		password '<PASSWORD>'
+            	}
+           	}
 		}
 
 #	APP Level Gradle
@@ -78,13 +85,14 @@
         implementation 'com.android.support:multidex:1.0.3'
         // FIREBASE LIB
         implementation 'com.lory.library:firebase:1.0.1'
+        implementation 'com.lory.library:appconfig:1.0.0'
         implementation 'com.google.code.gson:gson:2.2.4'
         
         <!-- SUPPORT MUST BE INCLUDE -->
         implementation 'com.android.support:support-v4:28.0.0'
         implementation 'com.squareup.picasso:picasso:2.5.2'
         implementation 'com.android.support:recyclerview-v7:28.0.0'
-        implementation 'com.lory.library:advertisement:1.0.4'
+        implementation 'com.lory.library:advertisement:1.0.6'
         
         <!-- SUPPORT MY BE INCLUDE -->
         implementation 'com.google.firebase:firebase-database:16.0.4'
@@ -108,19 +116,19 @@
                     
             DEFAULT AD JSON PASS IN MANIFEST (default_ad_config)
             {
-              "version": 1,
+              "syncIntervalHour": 24,
               "adInfoList": [
                 {
-                  "adId": "",
-                  "appId": "",
-                  "adType": 0(BANNER),
-                  "adProvider": Int-Id
+                  "adId": "1542454282915",
+                  "appId": "1542553549716",
+                  "adType": 0,
+                  "adProvider": 1
                 },
                 {
-                  "adId": "",
-                  "appId": "",
-                  "adType": 1(INTERSTITIAL),
-                  "adProvider": Int-Id
+                  "adId": "1542583872851",
+                  "appId": "1542553549716",
+                  "adType": 1,
+                  "adProvider": 1
                 }
               ]
             }              

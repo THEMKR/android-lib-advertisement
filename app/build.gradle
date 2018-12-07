@@ -2,10 +2,6 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
-def STRING = "String"
-def BASE_TAG = "BASE_TAG"
-def BASE_TAG_VALUE = "\"AD_LIB\""
-
 android {
     compileSdkVersion 28
     lintOptions {
@@ -20,12 +16,10 @@ android {
     }
     buildTypes {
         debug {
-            buildConfigField STRING, BASE_TAG, BASE_TAG_VALUE
             minifyEnabled false
         }
 
         release {
-            buildConfigField STRING, BASE_TAG, BASE_TAG_VALUE
             minifyEnabled false
             //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -50,6 +44,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-plus:16.0.0'
     implementation 'com.android.support:multidex:1.0.3'
     // FIREBASE LIB
+    implementation 'com.lory.library:appconfig:1.0.0'
     implementation 'com.lory.library:firebase:1.0.1'
     implementation 'com.google.code.gson:gson:2.2.4'
 }

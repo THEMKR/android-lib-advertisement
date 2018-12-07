@@ -17,6 +17,13 @@ buildscript {
             }
         }
         maven {
+            url "https://api.bitbucket.org/1.0/repositories/THEMKR/android-lib-appconfig/raw/releases"
+            credentials {
+                username 'THEMKR'
+                password 'Dark@Lord@Mkr@05021990'
+            }
+        }
+        maven {
             url 'https://maven.google.com'
         }
         jcenter()
@@ -39,6 +46,13 @@ allprojects {
         }
         maven {
             url "https://api.bitbucket.org/1.0/repositories/THEMKR/android-lib-firebase/raw/releases"
+            credentials {
+                username 'THEMKR'
+                password 'Dark@Lord@Mkr@05021990'
+            }
+        }
+        maven {
+            url "https://api.bitbucket.org/1.0/repositories/THEMKR/android-lib-appconfig/raw/releases"
             credentials {
                 username 'THEMKR'
                 password 'Dark@Lord@Mkr@05021990'
