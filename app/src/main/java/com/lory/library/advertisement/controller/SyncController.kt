@@ -24,7 +24,7 @@ class SyncController {
         }
 
         override fun onFirebaseSuccess(mkr: DTOAppConfig?) {
-            Log.e("MKR","SyncController.onFirebaseSuccess()  ${mkr}")
+            Log.e("MKR", "SyncController.onFirebaseSuccess()  ${mkr}")
             if (mkr == null || !mkr.isSuccess) {
                 return
             }
@@ -69,7 +69,7 @@ class SyncController {
      * Method to sync Library with the server
      */
     fun syncServer() {
-        Log.e("MKR","SyncController.syncServer()  ${((PrefData.getLong(applicationContext!!, PrefData.Key.SYNC_TIME) + PrefData.getLong(applicationContext!!, PrefData.Key.SYNC_INTERVAL)) > System.currentTimeMillis())}")
+        Log.e("MKR", "SyncController.syncServer()  ${((PrefData.getLong(applicationContext!!, PrefData.Key.SYNC_TIME) + PrefData.getLong(applicationContext!!, PrefData.Key.SYNC_INTERVAL)) > System.currentTimeMillis())}")
         if ((PrefData.getLong(applicationContext!!, PrefData.Key.SYNC_TIME) + PrefData.getLong(applicationContext!!, PrefData.Key.SYNC_INTERVAL)) > System.currentTimeMillis()) {
             return
         }
@@ -81,8 +81,10 @@ class SyncController {
      */
     fun syncDefaultValue() {
         val metaDataString = Utils.getMetaDataString(applicationContext!!, Constants.MetaDataKeys.DEFAULT_AD_CONFIG)
-        Log.e("MKR","SyncController.syncDefaultValue()  $metaDataString")
-        asyncCallBackAppConfig.onFirebaseSuccess(Gson().fromJson<DTOAppConfig>(metaDataString, DTOAppConfig::class.java))
+        Log.e("MKR", "SyncController.syncDefaultValue()  $metaDataString")
+        val dtoAppConfig = Gson().fromJson<DTOAppConfig>(metaDataString, DTOAppConfig::class.java)
+        dtoAppConfig.isSuccess = true
+        asyncCallBackAppConfig.onFirebaseSuccess(dtoAppConfig)
     }
 
     /**
@@ -90,7 +92,7 @@ class SyncController {
      * @param adInfo
      */
     private fun saveBannerDetail(adInfo: DTOAdInfo) {
-        Log.e("MKR","SyncController.saveBannerDetail()  $adInfo")
+        Log.e("MKR", "SyncController.saveBannerDetail()  $adInfo")
         PrefData.setInt(applicationContext!!, PrefData.Key.BANNER_PROVIDER, adInfo.adProvider)
         PrefData.setString(applicationContext!!, PrefData.Key.BANNER_PROVIDER_APP_ID, adInfo.appId)
         PrefData.setString(applicationContext!!, PrefData.Key.BANNER_AD_ID, adInfo.adId)
@@ -101,7 +103,7 @@ class SyncController {
      * @param adInfo
      */
     private fun saveInterstitialDetail(adInfo: DTOAdInfo) {
-        Log.e("MKR","SyncController.saveInterstitialDetail()  $adInfo")
+        Log.e("MKR", "SyncController.saveInterstitialDetail()  $adInfo")
         PrefData.setInt(applicationContext!!, PrefData.Key.INTERSTITIAL_PROVIDER, adInfo.adProvider)
         PrefData.setString(applicationContext!!, PrefData.Key.INTERSTITIAL_PROVIDER_APP_ID, adInfo.appId)
         PrefData.setString(applicationContext!!, PrefData.Key.INTERSTITIAL_AD_ID, adInfo.adId)

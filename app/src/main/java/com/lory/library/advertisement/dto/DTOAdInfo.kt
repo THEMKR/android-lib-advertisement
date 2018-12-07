@@ -29,7 +29,6 @@ class DTOAdInfo {
     var adType: Int = -1
 
     override fun toString(): String {
-        return super.toString()+"  ${adProvider}   ${appId}   ${adId}   ${adType}"
+        return super.toString() + "  AdProvider : ${adProvider}     AppId : ${appId}        AdId : ${adId}      AdType : ${adType}"
     }
-
 }

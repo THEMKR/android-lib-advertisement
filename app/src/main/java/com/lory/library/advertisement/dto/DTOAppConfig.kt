@@ -17,6 +17,6 @@ class DTOAppConfig : DTOBaseResponse() {
     var adInfoList: ArrayList<DTOAdInfo> = ArrayList()
 
     override fun toString(): String {
-        return super.toString() +"  $version     $adInfoList"
+        return super.toString() +" isSuccess : $isSuccess       errorMessage : $errorMessage       version : $version      AdInfo : $adInfoList"
     }
 }
