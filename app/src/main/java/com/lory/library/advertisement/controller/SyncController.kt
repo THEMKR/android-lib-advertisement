@@ -89,6 +89,7 @@ class SyncController {
      * @param adInfo
      */
     private fun saveBannerDetail(adInfo: DTOAdInfo) {
+        Log.e("MKR","SyncController.saveBannerDetail()  $adInfo")
         PrefData.setInt(applicationContext!!, PrefData.Key.BANNER_PROVIDER, adInfo.adProvider)
         PrefData.setString(applicationContext!!, PrefData.Key.BANNER_PROVIDER_APP_ID, adInfo.appId)
         PrefData.setString(applicationContext!!, PrefData.Key.BANNER_AD_ID, adInfo.adId)
@@ -99,6 +100,7 @@ class SyncController {
      * @param adInfo
      */
     private fun saveInterstitialDetail(adInfo: DTOAdInfo) {
+        Log.e("MKR","SyncController.saveInterstitialDetail()  $adInfo")
         PrefData.setInt(applicationContext!!, PrefData.Key.INTERSTITIAL_PROVIDER, adInfo.adProvider)
         PrefData.setString(applicationContext!!, PrefData.Key.INTERSTITIAL_PROVIDER_APP_ID, adInfo.appId)
         PrefData.setString(applicationContext!!, PrefData.Key.INTERSTITIAL_AD_ID, adInfo.adId)

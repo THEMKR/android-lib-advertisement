@@ -15,4 +15,8 @@ class DTOAppConfig : DTOBaseResponse() {
      */
     @SerializedName("adInfoList")
     var adInfoList: ArrayList<DTOAdInfo> = ArrayList()
+
+    override fun toString(): String {
+        return super.toString() +"  $version     $adInfoList"
+    }
 }

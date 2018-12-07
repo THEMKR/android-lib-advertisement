@@ -28,4 +28,8 @@ class DTOAdInfo {
     @SerializedName("adType")
     var adType: Int = -1
 
+    override fun toString(): String {
+        return super.toString()+"  ${adProvider}   ${appId}   ${adId}   ${adType}"
+    }
+
 }
