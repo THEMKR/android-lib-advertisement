@@ -25,8 +25,8 @@ internal class BannerAdvertisementController : AdvertisementController {
         }
 
         override fun onAdvertisementReady() {
-            ad?.shownAd()
             advertisementListenerCallback?.onAdvertisementReady()
+            ad?.shownAd()
         }
 
         override fun onAdvertisementShown() {

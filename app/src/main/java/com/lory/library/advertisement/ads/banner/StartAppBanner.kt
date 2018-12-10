@@ -21,9 +21,9 @@ internal class StartAppBanner : Banner {
         }
 
         override fun onReceiveAd(view: View?) {
+            isReady = true
             bannerAdView.visibility = View.VISIBLE
             onAdvertisementListener.onAdvertisementReady()
-            isReady = true
         }
     }
 
@@ -47,6 +47,7 @@ internal class StartAppBanner : Banner {
     override fun shownAd() {
         if (isAdReady()) {
             adView.showBanner()
+            onAdvertisementListener.onAdvertisementShown()
         }
     }
 

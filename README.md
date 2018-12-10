@@ -26,32 +26,6 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-            
-        <!-- START APP START -->
-        <activity
-            android:name="com.startapp.android.publish.ads.list3d.List3DActivity"
-            android:theme="@android:style/Theme" />
-
-        <activity
-            android:name="com.startapp.android.publish.adsCommon.activities.OverlayActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@android:style/Theme.Translucent" />
-
-        <activity
-            android:name="com.startapp.android.publish.adsCommon.activities.FullScreenActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@android:style/Theme" />
-        <!-- START APP END -->
-
-        <!-- INMOBE START -->
-        <activity
-            android:name="com.inmobi.rendering.InMobiAdActivity"
-            android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize|screenLayout"
-            android:hardwareAccelerated="true"
-            android:resizeableActivity="false"
-            android:theme="@android:style/Theme.NoTitleBar"
-            tools:ignore="UnusedAttribute" />
-        <!-- INMOBE END -->       
 
 #	Project Level Gradle
 		repositories {
@@ -92,7 +66,7 @@
         implementation 'com.android.support:support-v4:28.0.0'
         implementation 'com.squareup.picasso:picasso:2.5.2'
         implementation 'com.android.support:recyclerview-v7:28.0.0'
-        implementation 'com.lory.library:advertisement:1.0.7'
+        implementation 'com.lory.library:advertisement:1.0.8'
         
         <!-- SUPPORT MY BE INCLUDE -->
         implementation 'com.google.firebase:firebase-database:16.0.4'

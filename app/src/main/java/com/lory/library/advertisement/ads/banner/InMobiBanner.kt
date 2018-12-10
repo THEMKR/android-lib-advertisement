@@ -60,6 +60,7 @@ internal class InMobiBanner : Banner {
     override fun shownAd() {
         if (isAdReady()) {
             bannerAdView.visibility = View.VISIBLE
+            onAdvertisementListener.onAdvertisementShown()
         }
     }
 

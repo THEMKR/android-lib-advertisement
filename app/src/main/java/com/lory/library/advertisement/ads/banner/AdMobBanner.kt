@@ -83,6 +83,7 @@ internal class AdMobBanner : Banner {
     override fun shownAd() {
         if (isReady) {
             bannerAdView.visibility = View.VISIBLE
+            onAdvertisementListener.onAdvertisementShown()
         }
     }
 
