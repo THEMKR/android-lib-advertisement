@@ -17,15 +17,18 @@ class InterstitialFactory {
          * @param onAdvertisementListener
          */
         fun create(adProvider: AdProvider, context: Context, adId: String, onAdvertisementListener: OnAdvertisementListener): Advertisement {
-            Log.e("MKR","InterstitialFactory.create() ${adProvider}    ${adProvider.providerIndex}    ${adId}")
+            Log.e("MKR", "InterstitialFactory.create() ${adProvider}    ${adProvider.providerIndex}    ${adId}")
             when (adProvider) {
                 AdProvider.AD_MOB -> {
+                    Log.e("MKR", "InterstitialFactory.create().AD_MOB ${adProvider}    ${adProvider.providerIndex}    ${adId}")
                     return AdMobInterstitial(context, adId, onAdvertisementListener)
                 }
                 AdProvider.START_APP -> {
+                    Log.e("MKR", "InterstitialFactory.create().START_APP ${adProvider}    ${adProvider.providerIndex}    ${adId}")
                     return StartAppInterstitial(context, adId, onAdvertisementListener)
                 }
                 AdProvider.IN_MOBI -> {
+                    Log.e("MKR", "InterstitialFactory.create().IN_MOBI ${adProvider}    ${adProvider.providerIndex}    ${adId}")
                     return InMobiInterstitial(context, adId, onAdvertisementListener)
                 }
             }

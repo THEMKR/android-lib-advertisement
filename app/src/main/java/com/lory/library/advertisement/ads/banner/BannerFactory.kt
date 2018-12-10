@@ -22,12 +22,15 @@ class BannerFactory {
             Log.e("MKR","BannerFactory.create() ${adProvider}    ${adProvider.providerIndex}    ${adId}")
             when (adProvider) {
                 AdProvider.AD_MOB -> {
+                    Log.e("MKR","BannerFactory.create().AD_MOB ${adProvider}    ${adProvider.providerIndex}    ${adId}")
                     return AdMobBanner(activity, adId, onAdvertisementListener, bannerAdView)
                 }
                 AdProvider.START_APP -> {
+                    Log.e("MKR","BannerFactory.create().START_APP ${adProvider}    ${adProvider.providerIndex}    ${adId}")
                     return StartAppBanner(activity, adId, onAdvertisementListener, bannerAdView)
                 }
                 AdProvider.IN_MOBI -> {
+                    Log.e("MKR","BannerFactory.create().IN_MOBI ${adProvider}    ${adProvider.providerIndex}    ${adId}")
                     return InMobiBanner(activity, adId, onAdvertisementListener, bannerAdView)
                 }
             }
