@@ -50,18 +50,21 @@ internal class SDKInitializer {
          * @param appId
          */
         private fun initProvider(activity: Activity, adProvider: AdProvider, appId: String) {
-            Log.e("MKR","SDKInitializer.initProvider() ${adProvider}")
+            Log.e("MKR","SDKInitializer.initProvider() ${adProvider}    ${adProvider.providerIndex}")
             when (adProvider) {
                 AdProvider.AD_MOB -> {
+                    Log.e("MKR","SDKInitializer.initProvider().AD_MOB")
                     MobileAds.initialize(activity, appId)
                 }
                 AdProvider.START_APP -> {
+                    Log.e("MKR","SDKInitializer.initProvider().START_APP")
                     StartAppSDK.init(activity, appId)
                     StartAppSDK.setUserConsent(activity, "pas", System.currentTimeMillis(), false);
                     StartAppAd.disableSplash()
                     StartAppAd.disableAutoInterstitial()
                 }
                 AdProvider.IN_MOBI -> {
+                    Log.e("MKR","SDKInitializer.initProvider().IMNOBI")
                     val consentObject = JSONObject()
                     try {
                         consentObject.put(InMobiSdk.IM_GDPR_CONSENT_AVAILABLE, true)

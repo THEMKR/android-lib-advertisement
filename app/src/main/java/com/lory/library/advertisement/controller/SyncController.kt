@@ -3,6 +3,7 @@ package com.lory.library.advertisement.controller
 import android.app.Activity
 import android.app.AlarmManager
 import android.app.Application
+import android.util.Log
 import com.google.gson.Gson
 import com.lory.library.advertisement.SDKInitializer
 import com.lory.library.advertisement.dto.DTOAdConfig
@@ -31,6 +32,7 @@ class SyncController {
                 if (adInfo.adProvider == -1) {
                     continue
                 }
+                Log.e("MKR", "SyncController.onFirebaseSuccess() ${AdType.getAdType(adInfo.adType!!)}      $adInfo")
                 when (AdType.getAdType(adInfo.adType!!)) {
                     AdType.BANNER -> {
                         saveBannerDetail(adInfo)

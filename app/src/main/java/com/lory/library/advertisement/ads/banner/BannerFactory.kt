@@ -1,6 +1,7 @@
 package com.lory.library.advertisement.ads.banner
 
 import android.app.Activity
+import android.util.Log
 import com.lory.library.advertisement.OnAdvertisementListener
 import com.lory.library.advertisement.ads.Advertisement
 import com.lory.library.advertisement.enums.AdProvider
@@ -18,6 +19,7 @@ class BannerFactory {
          * @param bannerAdView
          */
         fun create(adProvider: AdProvider, activity: Activity, adId: String, onAdvertisementListener: OnAdvertisementListener, bannerAdView: BannerAdView): Advertisement {
+            Log.e("MKR","BannerFactory.create() ${adProvider}    ${adProvider.providerIndex}    ${adId}")
             when (adProvider) {
                 AdProvider.AD_MOB -> {
                     return AdMobBanner(activity, adId, onAdvertisementListener, bannerAdView)
