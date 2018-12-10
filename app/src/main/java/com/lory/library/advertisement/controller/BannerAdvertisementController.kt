@@ -20,8 +20,8 @@ internal class BannerAdvertisementController : AdvertisementController {
         }
 
         override fun onAdvertisementFailed() {
-            createAd()
             advertisementListenerCallback?.onAdvertisementFailed()
+            createAd()
         }
 
         override fun onAdvertisementReady() {
@@ -35,10 +35,10 @@ internal class BannerAdvertisementController : AdvertisementController {
 
         override fun onAdvertisementClicked() {
             advertisementListenerCallback?.onAdvertisementClicked()
+            createAd()
         }
 
         override fun onAdvertisementCancel() {
-            createAd()
             advertisementListenerCallback?.onAdvertisementCancel()
         }
 

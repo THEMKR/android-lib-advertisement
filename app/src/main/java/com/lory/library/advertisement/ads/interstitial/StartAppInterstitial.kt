@@ -11,6 +11,7 @@ internal class StartAppInterstitial : Interstitial {
     private val ad: StartAppAd
     private var listener = object : AdEventListener {
         override fun onFailedToReceiveAd(p0: Ad?) {
+            onAdvertisementListener.onAdvertisementFailed()
         }
 
         override fun onReceiveAd(p0: Ad?) {
@@ -35,6 +36,7 @@ internal class StartAppInterstitial : Interstitial {
     override fun shownAd() {
         if (isAdReady()) {
             ad.showAd()
+            onAdvertisementListener.onAdvertisementShown()
         }
     }
 

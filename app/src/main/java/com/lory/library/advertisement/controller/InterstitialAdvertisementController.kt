@@ -55,6 +55,7 @@ internal class InterstitialAdvertisementController : AdvertisementController {
         }
 
         override fun onAdvertisementShown() {
+            createAd()
             try {
                 advertisementListenerCallback?.onAdvertisementShown()
             } catch (e: Exception) {
@@ -71,7 +72,6 @@ internal class InterstitialAdvertisementController : AdvertisementController {
         }
 
         override fun onAdvertisementCancel() {
-            createAd()
             try {
                 advertisementListenerCallback?.onAdvertisementCancel()
             } catch (e: Exception) {
@@ -80,7 +80,6 @@ internal class InterstitialAdvertisementController : AdvertisementController {
         }
 
         override fun onAdvertisementFinished() {
-            createAd()
             try {
                 advertisementListenerCallback?.onAdvertisementFinished()
             } catch (e: Exception) {
@@ -104,7 +103,6 @@ internal class InterstitialAdvertisementController : AdvertisementController {
     override fun showAd() {
         if (ad?.isAdReady() == true) {
             ad?.shownAd()
-            createAd()
         }
     }
 
