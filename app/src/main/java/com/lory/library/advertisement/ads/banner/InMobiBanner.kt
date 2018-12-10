@@ -54,6 +54,7 @@ internal class InMobiBanner : Banner {
     }
 
     override fun fetchAd() {
+        onAdvertisementListener.onAdvertisementFetching()
         adView.load(activity)
     }
 

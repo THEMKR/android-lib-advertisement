@@ -72,6 +72,7 @@ internal class AdMobBanner : Banner {
     }
 
     override fun fetchAd() {
+        onAdvertisementListener.onAdvertisementFetching()
         val testId = Utils.getMetaDataString(activity, Constants.MetaDataKeys.ADMOB_TEST_ID).trim()
         if (testId.isNotEmpty()) {
             adView.loadAd(AdRequest.Builder().addTestDevice(testId).build())

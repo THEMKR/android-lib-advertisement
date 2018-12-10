@@ -42,6 +42,7 @@ internal class StartAppBanner : Banner {
     }
 
     override fun fetchAd() {
+        onAdvertisementListener.onAdvertisementFetching()
     }
 
     override fun shownAd() {
