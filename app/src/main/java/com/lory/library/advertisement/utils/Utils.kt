@@ -10,6 +10,8 @@ import android.util.DisplayMetrics
 class Utils {
     companion object {
 
+        private const val TAG: String = Constants.TAG + ".Utils"
+
         /**
          * Method to get the MetaData String
          * @param context
@@ -45,6 +47,7 @@ class Utils {
          * Method to get the Firebase key of the Application
          */
         fun getAppFirebaseKey(context: Context): String {
+            Tracer.debug(TAG, "getAppFirebaseKey: " + (context.packageName.replace(".", "_", true)))
             return context.packageName.replace(".", "_", true)
         }
 

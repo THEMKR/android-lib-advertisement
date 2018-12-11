@@ -66,7 +66,7 @@
         implementation 'com.android.support:support-v4:28.0.0'
         implementation 'com.squareup.picasso:picasso:2.5.2'
         implementation 'com.android.support:recyclerview-v7:28.0.0'
-        implementation 'com.lory.library:advertisement:1.1.1'
+        implementation 'com.lory.library:advertisement:1.1.2'
         
         <!-- SUPPORT MY BE INCLUDE -->
         implementation 'com.google.firebase:firebase-database:16.0.4'

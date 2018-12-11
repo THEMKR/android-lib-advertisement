@@ -1,17 +1,19 @@
 package com.lory.library.advertisement
 
 import android.app.Activity
-import android.util.Log
 import com.google.android.gms.ads.MobileAds
 import com.inmobi.sdk.InMobiSdk
 import com.lory.library.advertisement.enums.AdProvider
+import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.PrefData
+import com.lory.library.advertisement.utils.Tracer
 import com.startapp.android.publish.adsCommon.StartAppAd
 import com.startapp.android.publish.adsCommon.StartAppSDK
 import org.json.JSONObject
 
 internal class SDKInitializer {
     companion object {
+        private const val TAG: String = Constants.TAG + ".SDKInitializer"
 
         /**
          * Method to initialized the Lib
@@ -50,27 +52,24 @@ internal class SDKInitializer {
          * @param appId
          */
         private fun initProvider(activity: Activity, adProvider: AdProvider, appId: String) {
-            Log.e("MKR","SDKInitializer.initProvider() ${adProvider}    ${adProvider.providerIndex}")
+            Tracer.debug(TAG, "initProvider: ${adProvider}    ${adProvider.providerIndex}")
             when (adProvider) {
                 AdProvider.AD_MOB -> {
-                    Log.e("MKR","SDKInitializer.initProvider().AD_MOB")
                     MobileAds.initialize(activity, appId)
                 }
                 AdProvider.START_APP -> {
-                    Log.e("MKR","SDKInitializer.initProvider().START_APP")
                     StartAppSDK.init(activity, appId)
                     StartAppSDK.setUserConsent(activity, "pas", System.currentTimeMillis(), false);
                     StartAppAd.disableSplash()
                     StartAppAd.disableAutoInterstitial()
                 }
                 AdProvider.IN_MOBI -> {
-                    Log.e("MKR","SDKInitializer.initProvider().IMNOBI")
                     val consentObject = JSONObject()
                     try {
                         consentObject.put(InMobiSdk.IM_GDPR_CONSENT_AVAILABLE, true)
                         consentObject.put("gdpr", "1")
                     } catch (e: Exception) {
-                        Log.e("MKR", "SDKInitializer.initProvider(IN_MOBI): " + e.message)
+                        Tracer.debug(TAG, "initProvider: ${e.message}")
                     }
                     InMobiSdk.init(activity, appId, consentObject)
                     InMobiSdk.setLogLevel(InMobiSdk.LogLevel.DEBUG);

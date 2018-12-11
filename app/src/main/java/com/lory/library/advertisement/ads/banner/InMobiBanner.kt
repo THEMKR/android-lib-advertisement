@@ -8,29 +8,40 @@ import com.inmobi.ads.InMobiBanner
 import com.inmobi.ads.listeners.BannerAdEventListener
 import com.lory.library.advertisement.OnAdvertisementListener
 import com.lory.library.advertisement.ui.BannerAdView
+import com.lory.library.advertisement.utils.Constants
+import com.lory.library.advertisement.utils.Tracer
 
 internal class InMobiBanner : Banner {
+    companion object {
+        private const val TAG: String = Constants.TAG + ".InMobiBanner"
+    }
+
     private val adView: InMobiBanner
     private var isReady: Boolean = false
     private val inMobiListener = object : BannerAdEventListener() {
         override fun onAdClicked(p0: InMobiBanner?, p1: MutableMap<Any, Any>?) {
+            Tracer.debug(TAG, "onAdClicked: $p0  $p1")
             onAdvertisementListener.onAdvertisementClicked()
         }
 
         override fun onAdLoadFailed(p0: InMobiBanner?, p1: InMobiAdRequestStatus?) {
+            Tracer.debug(TAG, "onAdLoadFailed: $p0  $p1  ${p1?.message}  ${p1?.statusCode}")
             onAdvertisementListener.onAdvertisementFailed()
         }
 
         override fun onAdLoadSucceeded(p0: InMobiBanner?) {
+            Tracer.debug(TAG, "onAdLoadSucceeded: $p0")
             isReady = true
             onAdvertisementListener.onAdvertisementReady()
         }
 
         override fun onAdDisplayed(p0: InMobiBanner?) {
+            Tracer.debug(TAG, "onAdDisplayed: $p0")
             onAdvertisementListener.onAdvertisementShown()
         }
 
         override fun onAdDismissed(p0: InMobiBanner?) {
+            Tracer.debug(TAG, "onAdDismissed: $p0")
             onAdvertisementListener.onAdvertisementFinished()
         }
     }
@@ -43,6 +54,7 @@ internal class InMobiBanner : Banner {
      * @param bannerAdView
      */
     internal constructor(activity: Activity, adId: String, onAdvertisementListener: OnAdvertisementListener, bannerAdView: BannerAdView) : super(activity, adId, onAdvertisementListener, bannerAdView) {
+        Tracer.debug(TAG, "Constructor : $adId")
         adView = InMobiBanner(activity, adId.toLong())
         adView.setEnableAutoRefresh(true)
         adView.setRefreshInterval(60)
@@ -54,11 +66,13 @@ internal class InMobiBanner : Banner {
     }
 
     override fun fetchAd() {
+        Tracer.debug(TAG, "fetchAd: ")
         onAdvertisementListener.onAdvertisementFetching()
         adView.load(activity)
     }
 
     override fun shownAd() {
+        Tracer.debug(TAG, "shownAd: ${isAdReady()}")
         if (isAdReady()) {
             bannerAdView.visibility = View.VISIBLE
             onAdvertisementListener.onAdvertisementShown()
@@ -66,9 +80,11 @@ internal class InMobiBanner : Banner {
     }
 
     override fun isAdReady(): Boolean {
+        Tracer.debug(TAG, "isAdReady: ")
         return isReady
     }
 
     override fun finishAd() {
+        Tracer.debug(TAG, "finishAd: ")
     }
 }

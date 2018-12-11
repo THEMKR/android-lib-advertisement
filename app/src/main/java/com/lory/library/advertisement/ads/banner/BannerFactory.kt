@@ -1,15 +1,17 @@
 package com.lory.library.advertisement.ads.banner
 
 import android.app.Activity
-import android.util.Log
 import com.lory.library.advertisement.OnAdvertisementListener
 import com.lory.library.advertisement.ads.Advertisement
 import com.lory.library.advertisement.enums.AdProvider
 import com.lory.library.advertisement.ui.BannerAdView
 import com.lory.library.advertisement.utils.Constants
+import com.lory.library.advertisement.utils.Tracer
 
 class BannerFactory {
     companion object {
+        private const val TAG: String = Constants.TAG + ".BannerFactory"
+
         /**
          * Method to create the BannerAd Object correspond to the Banner Add
          * @param adProvider
@@ -19,18 +21,15 @@ class BannerFactory {
          * @param bannerAdView
          */
         fun create(adProvider: AdProvider, activity: Activity, adId: String, onAdvertisementListener: OnAdvertisementListener, bannerAdView: BannerAdView): Advertisement {
-            Log.e("MKR","BannerFactory.create() ${adProvider}    ${adProvider.providerIndex}    ${adId}")
+            Tracer.debug(TAG, "create: ${adProvider}    ${adProvider.providerIndex}    ${adId}")
             when (adProvider) {
                 AdProvider.AD_MOB -> {
-                    Log.e("MKR","BannerFactory.create().AD_MOB ${adProvider}    ${adProvider.providerIndex}    ${adId}")
                     return AdMobBanner(activity, adId, onAdvertisementListener, bannerAdView)
                 }
                 AdProvider.START_APP -> {
-                    Log.e("MKR","BannerFactory.create().START_APP ${adProvider}    ${adProvider.providerIndex}    ${adId}")
                     return StartAppBanner(activity, adId, onAdvertisementListener, bannerAdView)
                 }
                 AdProvider.IN_MOBI -> {
-                    Log.e("MKR","BannerFactory.create().IN_MOBI ${adProvider}    ${adProvider.providerIndex}    ${adId}")
                     return InMobiBanner(activity, adId, onAdvertisementListener, bannerAdView)
                 }
             }

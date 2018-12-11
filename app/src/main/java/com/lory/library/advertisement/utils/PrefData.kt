@@ -11,6 +11,7 @@ class PrefData {
      */
     enum class Key {
         LIB_INITIALIZED("LIB_INITIALIZED", false),
+        IS_SHOW_LOG("IS_SHOW_LOG", false),
         SYNC_TIME("SYNC_TIME", 0L),
         SYNC_INTERVAL("SYNC_INTERVAL", AlarmManager.INTERVAL_DAY * 1L),
 

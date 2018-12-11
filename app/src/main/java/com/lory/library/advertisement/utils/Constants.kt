@@ -3,6 +3,7 @@ package com.lory.library.advertisement.utils
 class Constants {
     companion object {
         const val THREAD_SLEEP_TIME = 500L
+        const val TAG = "AD_LIB"
     }
 
     interface FIREBASE_KEYS {

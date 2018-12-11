@@ -9,10 +9,13 @@ import com.lory.library.advertisement.controller.SyncController
 import com.lory.library.advertisement.ui.BannerAdView
 import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.PrefData
+import com.lory.library.advertisement.utils.Tracer
 
 class AdvertisementLib {
 
     companion object {
+        private const val TAG: String = Constants.TAG + ".AdvertisementLib"
+
         private var permissions: Array<String> = arrayOf(
                 Manifest.permission.INTERNET,
                 Manifest.permission.ACCESS_COARSE_LOCATION,
@@ -32,6 +35,8 @@ class AdvertisementLib {
          * @param activity
          */
         fun initialize(activity: Activity) {
+            Tracer.LOG_ENABLE = PrefData.getBoolean(activity, PrefData.Key.IS_SHOW_LOG)
+            Tracer.debug(TAG, "initialize: ")
             if (!isHaveAllRequiredPermission(activity)) {
                 throw Exception(Constants.ExceptionMessage.DOES_NOT_HAVE_REQUIRED_PERMISSION)
             }
@@ -53,6 +58,8 @@ class AdvertisementLib {
          * @param onAdvertisementListener Listen Ad Callback only [DONT TRY TO CUSTOMIZED FUNCTIONALITY. IT WILL HANDEL BY LIB]
          */
         fun showBannerAd(activity: Activity, bannerAdView: BannerAdView, onAdvertisementListener: OnAdvertisementListener?) {
+            Tracer.LOG_ENABLE = PrefData.getBoolean(activity, PrefData.Key.IS_SHOW_LOG)
+            Tracer.debug(TAG, "showBannerAd: ")
             if (!PrefData.getBoolean(activity, PrefData.Key.LIB_INITIALIZED)) {
                 throw Exception(Constants.ExceptionMessage.LIB_NOT_INITIALIZED)
             }
@@ -67,10 +74,23 @@ class AdvertisementLib {
          * @param onAdvertisementListener Listen Ad Callback only [DONT TRY TO CUSTOMIZED FUNCTIONALITY. IT WILL HANDEL BY LIB]
          */
         fun showInterstitialAd(activity: Activity, onAdvertisementListener: OnAdvertisementListener?) {
+            Tracer.LOG_ENABLE = PrefData.getBoolean(activity, PrefData.Key.IS_SHOW_LOG)
+            Tracer.debug(TAG, "showInterstitialAd: ")
             if (!PrefData.getBoolean(activity, PrefData.Key.LIB_INITIALIZED)) {
                 throw Exception(Constants.ExceptionMessage.LIB_NOT_INITIALIZED)
             }
             ControllerFactory.getInterstitialController(activity, onAdvertisementListener).showAd()
+        }
+
+        /**
+         * Method to set weather to show the logs or not
+         * @param context
+         * @param isLogging If TRUE then show log, Else disable log
+         */
+        fun logging(context: Activity, isLogging: Boolean) {
+            Tracer.debug(TAG, "logging: $isLogging")
+            PrefData.setBoolean(context, PrefData.Key.IS_SHOW_LOG, isLogging)
+            Tracer.LOG_ENABLE = isLogging
         }
 
         //==========================================================================================
