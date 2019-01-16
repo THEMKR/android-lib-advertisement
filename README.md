@@ -2,8 +2,8 @@
 
 #   AndroidManifest.xml
         <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-        <uses-permission android:name="android.permission.READ_CALENDAR" />
-        <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+        <uses-permission android:name="android.permission.READ_CALENDAR" /> //OPTIONAL
+        <uses-permission android:name="android.permission.WRITE_CALENDAR" /> //OPTIONAL
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
         <uses-permission android:name="android.permission.INTERNET" />
         <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
