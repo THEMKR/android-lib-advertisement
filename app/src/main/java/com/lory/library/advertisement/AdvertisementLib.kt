@@ -25,8 +25,6 @@ class AdvertisementLib {
                 Manifest.permission.ACCESS_NETWORK_STATE,
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.CHANGE_WIFI_STATE,
-                Manifest.permission.READ_CALENDAR,
-                Manifest.permission.WRITE_CALENDAR,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE
         )
 
