@@ -29,37 +29,33 @@
 
 #	Project Level Gradle
 		repositories {
-			maven {
-				url "https://api.bitbucket.org/1.0/repositories/THEMKR/android-libs/raw/releases"
-			}
+			maven { url 'https://jitpack.io' }
 		}
 
 #	APP Level Gradle
+
+            implementation 'com.github.THEMKR:android-lib-advertisement:1.0.0'
+
         <!-- DEPENDENCY INCLUDE IN LIB -->
+        implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
         // START APP
-        implementation 'com.startapp:inapp-sdk:3.10.1'
+        implementation 'com.startapp:inapp-sdk:4.0.2'
         // AD MOB
-        implementation 'com.google.android.gms:play-services-ads:16.0.0'
+        implementation 'com.google.android.gms:play-services-ads:18.0.0'
         // InMobi
         implementation 'com.inmobi.monetization:inmobi-ads:7.2.1'
-        implementation 'com.google.android.gms:play-services-base:16.0.1'
-        implementation 'com.google.android.gms:play-services-location:16.0.0'
-        implementation 'com.google.android.gms:play-services-plus:16.0.0'
+        implementation 'com.google.android.gms:play-services-base:17.0.0'
+        implementation 'com.google.android.gms:play-services-location:17.0.0'
+        implementation 'com.google.android.gms:play-services-plus:17.0.0'
+
         implementation 'com.android.support:multidex:1.0.3'
-        // FIREBASE LIB
-        implementation 'com.lory.library:firebase:1.0.1'
-        implementation 'com.lory.library:appconfig:1.0.0'
-        implementation 'com.google.code.gson:gson:2.2.4'
-        
-        <!-- SUPPORT MUST BE INCLUDE -->
-        implementation 'com.android.support:support-v4:28.0.0'
-        implementation 'com.squareup.picasso:picasso:2.5.2'
-        implementation 'com.android.support:recyclerview-v7:28.0.0'
-        implementation 'com.lory.library:advertisement:1.1.4'
-        
-        <!-- SUPPORT MY BE INCLUDE -->
-        implementation 'com.google.firebase:firebase-database:16.0.4'
-        implementation 'com.google.firebase:firebase-core:16.0.4'
+
+        // APP CONFIG / FIRE-BASE
+        implementation 'com.github.THEMKR:android-lib-appconfig:1.0.0'
+        implementation 'com.google.code.gson:gson:2.8.5'
+        implementation 'com.google.firebase:firebase-database:18.0.0'
+        implementation 'com.google.firebase:firebase-core:17.0.0'
+        implementation 'com.github.THEMKR:android-lib-firebase:1.0.0'
         
 #   USE
             INIT LIB IN EVERY ACTIVITY
