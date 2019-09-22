@@ -5,6 +5,7 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://raw.github.com/synergian/wagon-git/releases" }
         maven {
             url 'https://dl.google.com/dl/android/maven2'
         }
@@ -25,6 +26,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://raw.github.com/synergian/wagon-git/releases" }
         maven {
             url 'https://dl.google.com/dl/android/maven2'
         }
