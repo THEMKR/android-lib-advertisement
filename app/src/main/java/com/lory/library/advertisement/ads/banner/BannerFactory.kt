@@ -29,9 +29,6 @@ class BannerFactory {
                 AdProvider.START_APP -> {
                     return StartAppBanner(activity, adId, onAdvertisementListener, bannerAdView)
                 }
-                AdProvider.IN_MOBI -> {
-                    return InMobiBanner(activity, adId, onAdvertisementListener, bannerAdView)
-                }
             }
             throw Exception("${Constants.ExceptionMessage.BANNER_AD_NOT_SUPPORTED} ${adProvider.name}")
         }

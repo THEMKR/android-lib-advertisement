@@ -18,14 +18,11 @@ class AdvertisementLib {
 
         private var permissions: Array<String> = arrayOf(
                 Manifest.permission.INTERNET,
-                Manifest.permission.ACCESS_COARSE_LOCATION,
-                Manifest.permission.RECEIVE_BOOT_COMPLETED,
-                Manifest.permission.BLUETOOTH,
                 Manifest.permission.ACCESS_WIFI_STATE,
                 Manifest.permission.ACCESS_NETWORK_STATE,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
                 Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.CHANGE_WIFI_STATE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                Manifest.permission.RECEIVE_BOOT_COMPLETED
         )
 
         /**

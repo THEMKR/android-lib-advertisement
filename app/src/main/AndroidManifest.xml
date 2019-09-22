@@ -1,46 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.lory.library.advertisement">
 
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_CALENDAR" />
-    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
 
-    <application>
-        <!-- START APP START -->
-        <activity
-            android:name="com.startapp.android.publish.ads.list3d.List3DActivity"
-            android:theme="@android:style/Theme" />
-
-        <activity
-            android:name="com.startapp.android.publish.adsCommon.activities.OverlayActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@android:style/Theme.Translucent" />
-
-        <activity
-            android:name="com.startapp.android.publish.adsCommon.activities.FullScreenActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:theme="@android:style/Theme" />
-        <!-- START APP END -->
-
-        <!-- INMOBE START -->
-        <activity
-            android:name="com.inmobi.rendering.InMobiAdActivity"
-            android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize|screenLayout"
-            android:hardwareAccelerated="true"
-            android:resizeableActivity="false"
-            android:theme="@android:style/Theme.NoTitleBar"
-            tools:ignore="UnusedAttribute" />
-        <!-- INMOBE END -->
-    </application>
+    <application />
 
 </manifest>

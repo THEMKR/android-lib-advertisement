@@ -8,7 +8,7 @@ internal abstract class Interstitial : Advertisement {
     protected val context: Context
     protected val adId: String
         get() {
-            return (field ?: "").trim()
+            return field.trim()
         }
     protected val onAdvertisementListener: OnAdvertisementListener
 

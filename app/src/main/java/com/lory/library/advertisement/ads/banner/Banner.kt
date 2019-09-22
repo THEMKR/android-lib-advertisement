@@ -9,7 +9,7 @@ internal abstract class Banner : Advertisement {
     protected val activity: Activity
     protected val adId: String
         get() {
-            return (field ?: "").trim()
+            return field.trim()
         }
     protected val onAdvertisementListener: OnAdvertisementListener
     protected val bannerAdView: BannerAdView

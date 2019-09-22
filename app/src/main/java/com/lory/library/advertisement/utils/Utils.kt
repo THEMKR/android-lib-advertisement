@@ -23,7 +23,7 @@ class Utils {
             }
             try {
                 val applicationInfo: ApplicationInfo = context.packageManager.getApplicationInfo(context.packageName, PackageManager.GET_META_DATA) ?: return ""
-                return (applicationInfo?.metaData.get(key) ?: "").toString()
+                return (applicationInfo.metaData.get(key) ?: "").toString()
             } catch (e: PackageManager.NameNotFoundException) {
                 e.printStackTrace()
             }

@@ -1,17 +1,12 @@
 # MKR-ANDROID-ADVERTISEMENT
 
 #   AndroidManifest.xml
-        <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-        <uses-permission android:name="android.permission.READ_CALENDAR" /> //OPTIONAL
-        <uses-permission android:name="android.permission.WRITE_CALENDAR" /> //OPTIONAL
-        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
         <uses-permission android:name="android.permission.INTERNET" />
         <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
         <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
         <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
         <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-        <uses-permission android:name="android.permission.BLUETOOTH" />
 
         <!-- DEFAULT AD DETAIL START -->
         <meta-data
@@ -29,37 +24,23 @@
 
 #	Project Level Gradle
 		repositories {
-			maven { url 'https://jitpack.io' }
+			maven { url "https://api.bitbucket.org/2.0/repositories/THEMKR/android-libs/src/releases" }
 		}
 
 #	APP Level Gradle
 
-            implementation 'com.github.THEMKR:android-lib-advertisement:1.0.0'
+        implementation 'com.lory.library:ad:1.0.0'
 
-        <!-- DEPENDENCY INCLUDE IN LIB -->
         implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-        // START APP
-        implementation 'com.startapp:inapp-sdk:4.0.2'
-        // AD MOB
-        implementation 'com.google.android.gms:play-services-ads:18.0.0'
-        // InMobi
-        implementation 'com.inmobi.monetization:inmobi-ads:7.2.1'
-        implementation 'com.google.android.gms:play-services-base:17.0.0'
-        implementation 'com.google.android.gms:play-services-location:17.0.0'
-        implementation 'com.google.android.gms:play-services-plus:17.0.0'
-
         implementation 'com.android.support:multidex:1.0.3'
-
-        // APP CONFIG / FIRE-BASE
-        implementation 'com.github.THEMKR:android-lib-appconfig:1.0.0'
-        implementation 'com.google.code.gson:gson:2.8.5'
-        implementation 'com.google.firebase:firebase-database:18.0.0'
-        implementation 'com.google.firebase:firebase-core:17.0.0'
-        implementation 'com.github.THEMKR:android-lib-firebase:1.0.0'
+        implementation 'com.startapp:inapp-sdk:4.0.2'
+        implementation 'com.google.android.gms:play-services-ads:18.2.0'
+        implementation 'com.lory.library:appconfig:1.0.0'
         
 #   USE
             INIT LIB IN EVERY ACTIVITY
                 AdvertisementLib.initialize(this)
+                AdType -> BANNER[0], INTERSTITIAL[1]
             
             SHOW BANNER
                 AdvertisementLib.showBannerAd(this, banner_ad_view, <CALLBACK>)
@@ -75,7 +56,7 @@
                     
             DEFAULT AD JSON PASS IN MANIFEST (default_ad_config)
             {
-              "syncIntervalHour": 24,
+              "syncIntervalHour": 168,
               "adInfoList": [
                 {
                   "adId": "1542454282915",

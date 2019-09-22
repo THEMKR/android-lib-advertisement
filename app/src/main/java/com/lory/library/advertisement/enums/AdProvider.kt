@@ -5,8 +5,7 @@ package com.lory.library.advertisement.enums
  */
 enum class AdProvider {
     AD_MOB(0),
-    START_APP(1),
-    IN_MOBI(2);
+    START_APP(1);
 
     val providerIndex: Int
 

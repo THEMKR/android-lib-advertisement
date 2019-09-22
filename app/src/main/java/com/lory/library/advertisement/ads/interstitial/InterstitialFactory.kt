@@ -27,9 +27,6 @@ class InterstitialFactory {
                 AdProvider.START_APP -> {
                     return StartAppInterstitial(context, adId, onAdvertisementListener)
                 }
-                AdProvider.IN_MOBI -> {
-                    return InMobiInterstitial(context, adId, onAdvertisementListener)
-                }
             }
             throw Exception("${Constants.ExceptionMessage.INTERSTITIAL_AD_NOT_SUPPORTED} ${adProvider.name}")
         }
