@@ -4,6 +4,9 @@ import android.content.Context
 import com.lory.library.advertisement.OnAdvertisementListener
 import com.lory.library.advertisement.ads.Advertisement
 
+/**
+ * @author THEMKR
+ */
 internal abstract class Interstitial : Advertisement {
     protected val context: Context
     protected val adId: String

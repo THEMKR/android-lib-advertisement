@@ -6,9 +6,12 @@ import com.lory.library.advertisement.enums.AdProvider
 import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.PrefData
 import com.lory.library.advertisement.utils.Tracer
-import com.startapp.android.publish.adsCommon.StartAppAd
-import com.startapp.android.publish.adsCommon.StartAppSDK
+import com.startapp.sdk.adsbase.StartAppAd
+import com.startapp.sdk.adsbase.StartAppSDK
 
+/**
+ * @author THEMKR
+ */
 internal class SDKInitializer {
     companion object {
         private const val TAG: String = Constants.TAG + ".SDKInitializer"

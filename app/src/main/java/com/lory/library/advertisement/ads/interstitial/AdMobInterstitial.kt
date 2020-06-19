@@ -9,6 +9,9 @@ import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.Tracer
 import com.lory.library.advertisement.utils.Utils
 
+/**
+ * @author THEMKR
+ */
 internal class AdMobInterstitial : Interstitial {
     companion object {
         private const val TAG: String = Constants.TAG + ".AdMobInterstitial"

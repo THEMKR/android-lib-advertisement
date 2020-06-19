@@ -5,6 +5,9 @@ import com.lory.library.advertisement.OnAdvertisementListener
 import com.lory.library.advertisement.ads.Advertisement
 import com.lory.library.advertisement.ui.BannerAdView
 
+/**
+ * @author THEMKR
+ */
 internal abstract class Banner : Advertisement {
     protected val activity: Activity
     protected val adId: String

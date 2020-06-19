@@ -6,6 +6,9 @@ import com.lory.library.advertisement.ui.BannerAdView
 import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.Tracer
 
+/**
+ * @author THEMKR
+ */
 class ControllerFactory {
     companion object {
         private const val TAG: String = Constants.TAG + ".ControllerFactory"

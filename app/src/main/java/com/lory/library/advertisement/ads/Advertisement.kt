@@ -1,6 +1,7 @@
 package com.lory.library.advertisement.ads
 
 /**
+ * @author THEMKR
  * Callback used to listen the AD events
  */
 interface Advertisement {

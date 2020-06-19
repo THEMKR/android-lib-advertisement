@@ -11,6 +11,9 @@ import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.PrefData
 import com.lory.library.advertisement.utils.Tracer
 
+/**
+ * @author THEMKR
+ */
 class AdvertisementLib {
 
     companion object {

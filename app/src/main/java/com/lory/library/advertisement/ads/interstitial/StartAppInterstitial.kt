@@ -4,10 +4,13 @@ import android.content.Context
 import com.lory.library.advertisement.OnAdvertisementListener
 import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.Tracer
-import com.startapp.android.publish.adsCommon.Ad
-import com.startapp.android.publish.adsCommon.StartAppAd
-import com.startapp.android.publish.adsCommon.adListeners.AdEventListener
+import com.startapp.sdk.adsbase.Ad
+import com.startapp.sdk.adsbase.StartAppAd
+import com.startapp.sdk.adsbase.adlisteners.AdEventListener
 
+/**
+ * @author THEMKR
+ */
 internal class StartAppInterstitial : Interstitial {
     companion object {
         private const val TAG: String = Constants.TAG + ".StartAppInterstitial"

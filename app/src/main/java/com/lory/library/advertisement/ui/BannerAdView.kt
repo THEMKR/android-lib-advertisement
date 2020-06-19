@@ -3,12 +3,14 @@ package com.lory.library.advertisement.ui
 import android.content.Context
 import android.graphics.Color
 import android.os.Build
-import android.support.annotation.RequiresApi
 import android.util.AttributeSet
 import android.widget.RelativeLayout
+import androidx.annotation.RequiresApi
 import com.lory.library.advertisement.utils.Utils
 
-
+/**
+ * @author THEMKR
+ */
 open class BannerAdView : RelativeLayout {
 
     var onBannerAdViewListener: OnBannerAdViewListener? = null

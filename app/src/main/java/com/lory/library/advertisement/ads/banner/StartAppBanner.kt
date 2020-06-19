@@ -7,15 +7,17 @@ import com.lory.library.advertisement.OnAdvertisementListener
 import com.lory.library.advertisement.ui.BannerAdView
 import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.Tracer
-import com.startapp.android.publish.ads.banner.BannerListener
+import com.startapp.sdk.ads.banner.BannerListener
 
-
+/**
+ * @author THEMKR
+ */
 internal class StartAppBanner : Banner {
     companion object {
         private const val TAG: String = Constants.TAG + ".StartAppBanner"
     }
 
-    private val adView: com.startapp.android.publish.ads.banner.Banner
+    private val adView: com.startapp.sdk.ads.banner.Banner
     private var isReady: Boolean = false
     private val startApListener = object : BannerListener {
         override fun onClick(view: View?) {
@@ -26,6 +28,10 @@ internal class StartAppBanner : Banner {
         override fun onFailedToReceiveAd(view: View?) {
             Tracer.debug(TAG, "onFailedToReceiveAd: $view")
             onAdvertisementListener.onAdvertisementFailed()
+        }
+
+        override fun onImpression(view: View?) {
+            // DO NOTHIG RIGHT NOW
         }
 
         override fun onReceiveAd(view: View?) {
@@ -45,7 +51,7 @@ internal class StartAppBanner : Banner {
      */
     internal constructor(activity: Activity, adId: String, onAdvertisementListener: OnAdvertisementListener, bannerAdView: BannerAdView) : super(activity, adId, onAdvertisementListener, bannerAdView) {
         Tracer.debug(TAG, "Constructor: $adId")
-        adView = com.startapp.android.publish.ads.banner.Banner(activity, startApListener)
+        adView = com.startapp.sdk.ads.banner.Banner(activity, startApListener)
         bannerAdView.visibility = View.GONE
         bannerAdView.removeAllViews()
         bannerAdView.addView(adView, RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT))

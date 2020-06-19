@@ -1,6 +1,7 @@
 package com.lory.library.advertisement.enums
 
 /**
+ * @author THEMKR
  * Enum hold the AD-Network provider
  */
 enum class AdProvider {

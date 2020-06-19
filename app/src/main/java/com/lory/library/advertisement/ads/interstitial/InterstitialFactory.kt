@@ -7,6 +7,9 @@ import com.lory.library.advertisement.enums.AdProvider
 import com.lory.library.advertisement.utils.Constants
 import com.lory.library.advertisement.utils.Tracer
 
+/**
+ * @author THEMKR
+ */
 class InterstitialFactory {
     companion object {
         private const val TAG: String = Constants.TAG + ".InterstitialFactory"

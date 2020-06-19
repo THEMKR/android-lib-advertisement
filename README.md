@@ -29,13 +29,13 @@
 
 #	APP Level Gradle
 
-        implementation 'com.lory.library:ad:1.0.0'
+        implementation 'com.lory.library:ad:1.0.1'
 
         implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
         implementation 'com.android.support:multidex:1.0.3'
-        implementation 'com.startapp:inapp-sdk:4.0.2'
-        implementation 'com.google.android.gms:play-services-ads:18.2.0'
-        implementation 'com.lory.library:appconfig:1.0.0'
+        implementation 'com.startapp:inapp-sdk:4.6.+'
+        implementation 'com.google.android.gms:play-services-ads:19.2.0'
+        implementation 'com.google.code.gson:gson:2.8.6'
         
 #   USE
             INIT LIB IN EVERY ACTIVITY
